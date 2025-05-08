@@ -1,0 +1,31 @@
+.menu-toggle {
+  position: relative;
+  width: 80px;
+  padding: 0.25em 0;
+  cursor: pointer;
+}
+
+.menu-copy {
+  position: relative;
+  width: 80px;
+  height: 20px;
+  z-index: 999999999999;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.menu-copy p#menu-open {
+  position: absolute;
+  transform: translateY(0px);
+}
+
+.menu-copy p#menu-text {
+  position: absolute;
+  color: black;
+  transform: translateY(24px);
+}
+
+@media (max-width: 900px) {
+  .menu-toggle {
+    width: 70px;
+  }
+}

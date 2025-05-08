@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  padding: 4em 2em;
+}
+
+h1 {
+  font-family: "Dahlia";
+  font-size: 5vw;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.row {
+  width: 75%;
+  margin: 0 auto;
+  padding: 2em;
+  display: flex;
+}
+
+.row:nth-child(1),
+.row:nth-child(3),
+.row:nth-child(5),
+.row:nth-child(7) {
+  justify-content: flex-end;
+}
+
+.row:last-child {
+  padding-bottom: 10em;
+}
+
+
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+@media (max-width: 1024px) {
+ .img {
+
+  width: 100%;
+
+}
+.row {
+  width: 90%;
+
+}
+}
+@media (max-width: 900px) {
+  h1 {
+    font-size: 15vw;
+  }
+
+  .row {
+    width: 100%;
+  }
+
+  .img {
+    height: 500px;
+  }
+}
+
+/* lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

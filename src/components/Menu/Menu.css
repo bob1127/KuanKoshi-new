@@ -1,0 +1,87 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  
+  background-color: #333;
+  z-index: 9;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  pointer-events: none;
+
+}
+
+.menu .col {
+  position: relative;
+  width: 70%;
+  border: solid white 1px;
+  height: 100%;
+  padding: 10em 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.menu .col-1 {
+  flex: 1;
+}
+
+.menu .col-2 {
+  flex: 1.35;
+}
+
+.menu .link {
+  margin-bottom: 0.25em;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.menu .link-wrapper {
+  position: relative;
+  transform: translateY(0);
+  will-change: transform;
+  transition: transform 0.5s ease;
+}
+
+.menu .socials {
+  width: 100%;
+  display: flex;
+  gap: 2em;
+}
+
+.menu .socials .sub-col {
+  flex: 1;
+}
+
+/* .menu .socials .sub-col .line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+} */
+
+.menu .socials .sub-col .line p {
+  color: var(--text-secondary);
+  position: relative;
+  transform: translateY(80px);
+  will-change: transform;
+}
+
+.menu .socials .sub-col .line p a {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .menu {
+    flex-direction: column-reverse;
+  }
+
+  .menu .col-1 {
+    flex: 1;
+    align-items: flex-start;
+  }
+
+  .menu .socials {
+    width: 100%;
+    gap: 4em;
+  }
+}

@@ -1,0 +1,145 @@
+
+.items {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+ margin-top: 30px;
+  justify-items: center;
+
+  
+
+
+ 
+}
+.item-wrapper{
+   width: 33%;
+    display: flex;
+  flex-direction: column;
+
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  
+ 
+  
+}
+
+@media (max-width: 1300px) {
+  .item-wrapper {
+     width: 48%;
+  }
+.items{
+  width: 90%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+   flex-wrap:wrap;
+  
+}
+}
+@media (max-width: 550px) {
+  .item-wrapper{
+   width: 100%;
+    display: flex;
+  flex-direction: column;
+ 
+  
+}
+
+}
+
+.item {
+  position: relative;
+  width: 100%;
+ height: 250px;
+  overflow:hidden;
+  margin-top: 30px;
+
+
+
+  cursor: pointer;
+}
+@media (max-width: 1300px) {
+ 
+
+.item {
+ 
+ height: 250px;
+  
+}
+}
+@media (max-width: 900px) {
+  .item {
+ 
+ height: 230px;
+  
+}
+}
+.item-img {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.item-copy {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+
+.item-copy > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+#item-1 .item-copy-2 {
+  justify-content: flex-end;
+}
+
+#item-2 .item-copy-1 {
+  justify-content: flex-end;
+}
+
+
+
+.shape {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shape #number {
+  font-family: "Orbitron";
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.item:hover img {
+  transform: scale(1.5);
+  filter: grayscale(0.5) sepia(0.75) brightness(0.75);
+}
+
+.item:hover .shape {
+  opacity: 1;
+  transform: scale(1);
+}

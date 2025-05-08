@@ -1,0 +1,275 @@
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  padding: 1.25em 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  will-change: transform;
+}
+
+.nav > div {
+  flex: 1;
+}
+
+.logo a {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5em;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 60px;
+  height: 40px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 40px;
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  padding-top: 25svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.cta {
+  position: absolute;
+  left: 50%;
+  bottom: 3em;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 60px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #fff;
+  border-radius: 4rem;
+  will-change: transform;
+}
+
+.cta-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cta-label p {
+  color: #000;
+}
+
+.cta-icon {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #303030;
+  border-radius: 60px;
+  will-change: transform;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.block {
+  width: 100%;
+  height: 100%;
+  background: #303030;
+}
+
+.intro-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 0.25rem;
+}
+
+#word-1 {
+  position: relative;
+  left: -0.5rem;
+  padding-right: 0.25rem;
+}
+
+.word h1 {
+  font-size: 2.5rem;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center top;
+  width: 1px;
+  height: 100%;
+  background-color: #fff;
+}
+
+.spinner-container {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 1.4px solid #fff;
+  border-top-color: rgba(255, 255, 255, 0.125);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.counter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+
+.digit {
+  flex: 1;
+  padding-top: 1rem;
+}
+
+.count .digit h1 {
+  font-family: "PP Editorial Old", "PP Neue Montreal";
+  font-size: 15rem;
+  font-weight: 400;
+}
+
+.nav {
+  transform: translateY(-120%);
+}
+
+.cta {
+  transform: translateX(-50%) scale(0);
+}
+
+.cta-icon {
+  transform: scale(0);
+}
+
+.line,
+.cta-label,
+.word,
+.count .digit {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.line h1,
+.line p,
+.cta-label p,
+.count .digit h1 {
+  position: relative;
+  transform: translateY(120%);
+  will-change: transform;
+}
+
+#word-1 h1 {
+  transform: translateY(-120%);
+}
+
+#word-2 h1 {
+  transform: translateY(120%);
+}
+
+.block {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.divider {
+  transform: scaleY(0%);
+  will-change: transform;
+}
+
+.hero-img {
+  transform: scale(1.5);
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .cta {
+    width: 90%;
+  }
+}

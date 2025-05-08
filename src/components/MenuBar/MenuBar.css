@@ -1,0 +1,14 @@
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding-top: .4em;
+    padding-bottom: .4em;
+      padding-left: 2.5em;
+    padding-right: 0em;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+

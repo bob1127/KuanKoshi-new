@@ -1,0 +1,90 @@
+.cardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  /* 手機也保留邊界 */
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -25%;
+    width: 100%;
+    max-width: 1000px;
+    /* ✅ 最大寬 1000px，超過不會撐爆 */
+    min-width: 320px;
+    /* ✅ 最小寬，手機小螢幕不會太擠 */
+    border-radius: 25px;
+
+    transform-origin: top;
+    background: #fff;
+    /* 建議加上背景色，避免透明 */
+
+    h2 {
+      text-align: center;
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      /* ✅ 小螢幕先排成直的 */
+      gap: 30px;
+      margin-top: 30px;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        /* ✅ 平板以上才橫排 */
+        gap: 50px;
+      }
+
+      .description {
+        flex: 1;
+        position: relative;
+        top: 0;
+        line-height: 1.8;
+        letter-spacing: 0.09em;
+
+        p {
+          font-size: 14px;
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          a {
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .imageContainer {
+        flex: 1;
+        position: relative;
+        border-radius: 25px;
+        overflow: hidden;
+
+        .inner {
+          width: 100%;
+          height: 100%;
+        }
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

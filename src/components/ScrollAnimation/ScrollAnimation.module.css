@@ -1,0 +1,197 @@
+.container {
+  position: relative; /* ❗改成 relative，比較符合一般頁面流 */
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 頂部進度條 */
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 10px;
+  transform: scaleX(0%);
+  transform-origin: left center;
+  background-color: #fff;
+  will-change: transform;
+  z-index: 10;
+}
+
+/* 頂部數字百分比 */
+.progressCounter {
+  position: fixed;
+  bottom: 1em;
+  right: 2.5em;
+  color: #fff;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+/* 水平滾動主容器 */
+.horizontalScroller {
+  display: flex;
+  height: 100vh; /* pin 的時候固定住 */
+  width: max-content; /* 寬度由裡面 section 自動撐開 */
+  will-change: transform;
+}
+
+/* 每一個橫向滾動的頁面 */
+.section {
+  min-width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* 預設縱向排版 */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: #E1E3D9;
+}
+
+/* 特別的版型：intro、about、story等等 */
+.intro,
+.about,
+.story {
+  flex-direction: column;
+}
+
+.header,
+.conceptImg {
+  width: 100vw;
+}
+
+.intro,
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 4rem;
+}
+
+.about {
+  background-color: #eb001b;
+  color: #fff;
+  padding: 4em 3em 2em 3em;
+}
+
+.story {
+  background-color: #f69e1c;
+  padding: 4em 2em;
+}
+
+.outro {
+  background-color: #fe5e00;
+}
+
+/* 雙欄佈局 */
+.row {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.copy {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img {
+  flex: 2;
+  aspect-ratio: 7 / 5;
+  position: relative;
+}
+
+/* 圖片 */
+
+
+/* 標題、內文（可留白或用 Tailwind 控制） */
+.header h1 {
+  font-size: 10vw;
+  line-height: 1;
+}
+
+.story h1 {
+  padding-top: 0;
+}
+
+
+.borderFrame {
+  position: fixed;
+  inset: 0;
+  border: solid #375E77;
+  border-width: 0px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+  transition: border-width 0.3s ease, opacity 0.3s ease;
+}
+
+/* 四邊跑馬燈通用 */
+.marquee {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* 上方 */
+.top {
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  animation: marqueeX 10s linear infinite;
+}
+
+/* 右邊（垂直）*/
+.right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  writing-mode: vertical-rl;
+  transform: translateX(50%);
+  animation: marqueeY 12s linear infinite;
+}
+
+/* 下方 */
+.bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(50%);
+  animation: marqueeX 10s linear infinite reverse;
+}
+
+/* 左邊（垂直） */
+.left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  writing-mode: vertical-rl;
+  transform: translateX(-50%);
+  animation: marqueeY 12s linear infinite reverse;
+}
+
+/* 左右橫向跑馬燈 */
+@keyframes marqueeX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 上下垂直跑馬燈 */
+@keyframes marqueeY {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/project/page.jsx", "src/app/community/page.jsx", "src/app/project-inner01/page.jsx", "src/components/LightBox/page.jsx", "src/app/thinking/page.jsx", "src/components/TextScroll/page.jsx", "src/components/FramerMotionParallax/page.jsx", "src/app/about/page.jsx", "src/app/news-inner/page.jsx", "src/components/ClientWrapper.jsx", "src/components/CustomPopover.jsx", "src/components/TextImageSlider.jsx", "src/components/TextImageSlider.jsx", "src/components/Nav.jsx", "src/app/page.jsx", "src/components/FullInquiryForm.jsx"],
+  "exclude": ["node_modules"]
+}
