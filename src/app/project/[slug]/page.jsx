@@ -126,7 +126,7 @@ const ProjectPage = async ({ params }) => {
               </span>
             </div>
             <div className="sticky my-4 top-24">
-              <div className="flex px-4 flex-col border border-[#d7d7d7] bg-[#375E77]">
+              <div className="flex px-4 flex-col border border-[#d7d7d7] md:mr-8 mr-0 bg-[#375E77]">
                 <h2 className="article-side-project-title text-white text-[1rem] font-normal tracking-widest">
                   {post.title?.rendered?.replace(/<[^>]+>/g, "") || ""}
                 </h2>

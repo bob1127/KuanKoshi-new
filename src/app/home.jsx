@@ -160,9 +160,11 @@ export default function About() {
                   <div className="relative w-full h-full">
                     <div className="absolute inset-0 bg-black opacity-0 z-10" />
                     <Image
-                      src="/images/小資專案/468661269_122223979160031935_3338016445612834353_n.jpg"
+                      src="/images/小資專案/小資專案.webp"
                       alt="About Image 1"
                       fill
+                      loading="lazy"
+                      placeholder="empty"
                       className="object-cover"
                       sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
                     />
@@ -275,7 +277,7 @@ export default function About() {
                     <div className="overlay absolute inset-0 bg-black hidden sm:block z-10"></div>
                     <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/商業空間/IMG_5083.jpg"
+                        src="/images/商業空間/商業空間.webp"
                         alt="About Image 1"
                         fill
                         className="object-cover group-hover:scale-110 duration-2000"
@@ -313,7 +315,7 @@ export default function About() {
                     <div className="overlay absolute inset-0 bg-black hidden sm:block z-10"></div>
                     <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/辦公空間/002-_瑞其科技_250305_7.jpg"
+                        src="/images/辦公空間/辦公空間.webp"
                         alt="辦公空間-瑞其科技|寬越室內設計"
                         fill
                         className="object-cover group-hover:scale-110 duration-2000"
@@ -351,7 +353,7 @@ export default function About() {
                     <div className="overlay absolute inset-0 bg-black hidden sm:block z-10"></div>
                     <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/住家豪宅/img-0112-01.jpg"
+                        src="/images/住家豪宅/住家豪宅.webp"
                         alt="About Image 1"
                         fill
                         className="object-cover group-hover:scale-110 duration-2000"
