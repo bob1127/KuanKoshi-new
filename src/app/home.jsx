@@ -210,7 +210,7 @@ export default function About() {
           <section id="dark-section" className=" section-padding ">
             <div
               id="dark-section"
-              className="flex flex-col justify-center  w-[90%] max-w-[1920px] mx-auto"
+              className="flex flex-col justify-center  w-full md:w-[90%] max-w-[1920px] mx-auto"
             >
               <div className="flex  flex-col  w-full   justify-center max-w-[1920px] mx-auto items-cente items-center  mt-4">
                 <div className=" w-full max-w-[1920px] mx-auto  flex flex-col justify-between items-center ">

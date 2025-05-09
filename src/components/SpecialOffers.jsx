@@ -37,7 +37,7 @@ export default function SpecialOffers() {
 
   return (
     <div className="w-full">
-      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 sm:px-6 lg:px-8">
+      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-0 sm:px-6 lg:px-8">
         {posts.slice(0, visibleCount).map((post, index) => {
           const [img1, img2] = extractFirstTwoImages(post.content.rendered);
           const date = new Date(post.date).toLocaleDateString("zh-TW");
@@ -58,6 +58,8 @@ export default function SpecialOffers() {
                         src={img1}
                         alt={post.title.rendered}
                         fill
+                        placeholder="empty"
+                        loading="lazy"
                         className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
@@ -65,6 +67,8 @@ export default function SpecialOffers() {
                     {img2 && (
                       <Image
                         src={img2}
+                        placeholder="empty"
+                        loading="lazy"
                         alt={`${post.title.rendered}-hover`}
                         fill
                         className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"

@@ -227,91 +227,137 @@ const ProjectPage = async ({ params }) => {
           </div>
           <Marquee>
             <div className="flex items-center">
-              <HoverItem
-                imageUrl="hhttps://10per-komatsu.com/wp/wp-content/uploads/2024/09/house-in-miiri000-1.jpg"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
+              <a
+                href="https://www.instagram.com/p/C9Ura8YOPG9/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/913新成屋透天兩層99萬裝潢成家專案.jpg"
+                  text="913新成屋透天兩層99萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
 
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2025/02/futabayama0000.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/08/house-in-mochida_00-1.jpg"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
-
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/07/house-s_000-1.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/06/house-in-mitaki000-2.jpg"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
-
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/02/houseY0000.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2025/02/futabayama0000.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/08/house-in-mochida_00-1.jpg"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
-
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/07/house-s_000-1.jpg"
-                text="LIMITED DROP"
-                fontSize="1.6rem"
-                fontWeight="600"
-                color="#e6e6e6"
-                lineHeight="40px"
-              />
-              <HoverItem
-                imageUrl="https://10per-komatsu.com/wp/wp-content/uploads/2024/06/house-in-mitaki000-2.jpg"
-                text="Built for Living."
-                fontSize="2rem"
-                fontWeight="300"
-                color="#ffffff"
-                lineHeight="50px"
-              />
+              <a
+                href="https://www.instagram.com/p/C5m2zuxvCUa/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/321新成屋兩房69萬裝潢成家專案.jpg"
+                  text="321新成屋兩房69萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5l3SgHvoHJ/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/609新成屋三房129萬裝潢成家專案.jpg"
+                  text="609新成屋三房129萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5luLXuvA9q/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/316新成屋兩房69萬裝潢成家專案.jpg"
+                  text="316新成屋兩房69萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5lqbYavQt-/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/309新成屋兩房50萬裝潢成家專案.jpg"
+                  text="309新成屋兩房50萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5lq3lNP5_k/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/318新成屋兩房60萬裝潢成家專案.jpg"
+                  text="318新成屋兩房60萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5l3SgHvoHJ/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/609新成屋三房129萬裝潢成家專案.jpg"
+                  text="609新成屋三房129萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5luLXuvA9q/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/316新成屋兩房69萬裝潢成家專案.jpg"
+                  text="316新成屋兩房69萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5lqbYavQt-/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/309新成屋兩房50萬裝潢成家專案.jpg"
+                  text="309新成屋兩房50萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/p/C5lq3lNP5_k/"
+                target="_blank"
+              >
+                <HoverItem
+                  imageUrl="/images/SocialMedia/318新成屋兩房60萬裝潢成家專案.jpg"
+                  text="318新成屋兩房60萬裝潢成家專案"
+                  fontSize="2rem"
+                  fontWeight="300"
+                  color="#ffffff"
+                  lineHeight="50px"
+                />
+              </a>
             </div>
           </Marquee>
         </section>
