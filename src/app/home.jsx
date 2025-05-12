@@ -147,11 +147,6 @@ export default function About() {
                 id="headline"
                 className="text-[4.5vw] sm:text-[2.3vw] md:text-[1.8vw] lg:text-[1.6vw] leading-snug font--normal text-white text-center"
               />
-
-              <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
-                寬越設計專注於小資族、小家庭、小坪數的室內設計，
-                主打50萬左右輕裝潢方案，打造兼具質感與機能的生活空間。
-              </span>
             </div>
             <div className="flex  flex-col md:flex-row max-w-[1400px] mx-auto w-[90%] gap-10 mt-10 md:mt-[50px]">
               {/* 左圖區塊 */}
@@ -172,7 +167,7 @@ export default function About() {
                 </div>
 
                 {/* 下面兩側文字按鈕 */}
-                <div className="flex flex-col md:flex-row justify-between mt-8 gap-8 px-3">
+                {/* <div className="flex flex-col md:flex-row justify-between mt-8 gap-8 px-3">
                   <div className="w-full flex flex-col md:w-1/2">
                     <GsapText
                       text="從日常到夢想，專屬你的理想宅"
@@ -203,7 +198,7 @@ export default function About() {
                       </span>
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
@@ -213,23 +208,19 @@ export default function About() {
               className="flex flex-col justify-center  w-full md:w-[90%] max-w-[1920px] mx-auto"
             >
               <div className="flex  flex-col  w-full   justify-center max-w-[1920px] mx-auto items-cente items-center  mt-4">
-                {/* <div className=" w-full max-w-[1920px] mx-auto  flex flex-col justify-between items-center ">
-                  <div className="txt flex flex-col items-center pr-5">
-                    <GsapText
-                      text="小資族。小家庭"
-                      id="gsap-intro"
-                      fontWeight="500"
-                      color="#333"
-                      className="text-centr text-[5.5vw] sm:text-[2.8vw] md:text-[2.2vw] lg:text-[2rem] leading-snug font-normal mb-4"
-                    />
-                    <h3 className="text-[2rem]">優惠方案</h3>
-                    <p className="text-sm tracking-wide leading-relaxed text-gray-800  text-center font-normal">
-                      不論是小資夫妻、小家庭成員增加的未來規劃，還是希望在有限預算內兼顧收納與美感，
-                      <br></br>
-                      寬越設計都能根據您的預算、需求，量身打造最適合的居所。
-                    </p>
-                  </div>
-                </div> */}
+                <div className="flex flex-col mb-5 justify-center items-center  px-4 sm:px-8">
+                  <GsapText
+                    text="為小家庭量身打造的設計日常"
+                    id="headline"
+                    className="text-[5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] leading-snug font-medium text-white text-center"
+                  />
+
+                  <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
+                    寬越設計專注於小資族、小家庭、小坪數空間的室內設計，從輕裝潢、系統櫃設計到全方位空間規劃，提供約
+                    50
+                    萬預算起的精緻方案，幫助每一個剛起步的家打造舒適、實用又充滿溫度的生活空間。質感與機能兼具，是我們對家的基本承諾。
+                  </span>
+                </div>
 
                 <div className="">
                   <SpecialOffers />
@@ -430,11 +421,11 @@ export default function About() {
             <div className="flex justify-between items-center px-4 md:px-8 pb-8">
               <div className="flex items-center gap-2">
                 <b className="text-lg font-bold">Featured</b>
-                <span className="text-lg">Journal</span>
+                <span className="text-lg">Project</span>
               </div>
-              <div>
-                <b className="text-lg font-bold">See All Journal</b>
-              </div>
+              <AnimatedLink href="project">
+                <b className="text-lg font-bold">看更多案例</b>
+              </AnimatedLink>
             </div>
 
             {/* 滑動容器 */}
