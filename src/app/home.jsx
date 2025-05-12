@@ -216,13 +216,12 @@ export default function About() {
                   />
 
                   <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
-                    寬越設計專注於小資族、小家庭、小坪數空間的室內設計，從輕裝潢、系統櫃設計到全方位空間規劃，提供約
-                    50
-                    萬預算起的精緻方案，幫助每一個剛起步的家打造舒適、實用又充滿溫度的生活空間。質感與機能兼具，是我們對家的基本承諾。
+                    寬越設計專注於小資族、小家庭的小坪數空間，提供 50
+                    萬起的輕裝潢與系統櫃設計，打造舒適、實用又有溫度的生活空間，讓質感與機能成為家的標配。
                   </span>
                 </div>
 
-                <div className="">
+                <div className="w-[90%] md:w-full mx-auto">
                   <SpecialOffers />
                 </div>
                 {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">

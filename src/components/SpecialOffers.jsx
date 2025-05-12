@@ -50,7 +50,7 @@ export default function SpecialOffers() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
             >
-              <div className="relative w-full aspect-[4.9/5] overflow-hidden">
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
                 <AnimatedLink href={`/project/${post.slug}`}>
                   <div className="relative w-full h-full">
                     {img1 && (
