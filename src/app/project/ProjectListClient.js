@@ -103,7 +103,19 @@ export default function ProjectListClient({ posts, categories }) {
           </h1>
         </div>
         <div className="mb-[100px]">
-          <SwiperSingle />
+          <SwiperSingle items={[
+            {
+      title: "老屋翻新設計",
+      image: "/images/hero-img/img06.png",
+    
+    },
+    {
+      title: "新成屋兩房裝潢",
+      image: "/images/hero-img/468947784_122223976550031935_8836870033944229922_n_0.webp",
+     
+    },
+    
+  ]}/>
         </div>
         <section className="categories-01 mx-auto">
           <div className="w-full px-0 mx-0 overflow-hidden">

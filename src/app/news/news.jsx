@@ -35,10 +35,10 @@ const Photos = () => {
   return (
     <ReactLenis root>
       <div className="!bg-[#F1F1F1]">
-        <section className="section-hero relative mt-[28vh] h-[70vh]">
+        <section className="section-hero relative mt-[28vh]  h-[70vh]">
           <div className="white-section border rounded-tr-[60px] bg-[#F1F1F1] absolute top-[-90px] left-0 w-[88%] h-full z-10"></div>
 
-          <section className="section-hero w-full aspect-[500/500] relative z-30 h-full md:aspect-[1024/576] xl:aspect-[1920/700]  color-section">
+          <section className="section-hero  w-full aspect-[500/500] relative z-30 h-full md:aspect-[1024/576] xl:aspect-[1920/700]  color-section">
             <div className="absolute left-1/2 bottom-[-110px] z-50 w-[200px] h-[200px] flex items-center justify-center transform -translate-x-1/2">
               {/* 旋轉的 SVG */}
               <div className="absolute inset-0 animate-spin-slow flex items-center justify-center">
@@ -78,7 +78,7 @@ const Photos = () => {
               }
             `}</style>
 
-            <div className="absolute img-hero left-1/2 z-50 top-[-150px] -translate-x-1/2">
+            <div className="absolute img-hero left-1/2 z-50 top-[-130px] -translate-x-1/2">
               <Image
                 src="https://store-palette.com/assets/img/home/color_title.svg"
                 alt="news-img"
@@ -128,24 +128,26 @@ const Photos = () => {
               </div>
             </div>
             {/* 背景圖片群組 */}
-            {backgroundImages.map((bg, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 1 }}
-                animate={{
-                  opacity: i === currentIndex ? 1 : 0,
-                  scale: i === currentIndex ? 1.15 : 1, // 放大範圍加大
-                }}
-                transition={{
-                  opacity: { duration: 1.5, ease: "easeInOut" }, // 切換用淡入淡出
-                  scale: { duration: 20, ease: "linear" }, // 放大效果持續 20 秒
-                }}
-                className="absolute inset-0 bg-cover  bg-center bg-no-repeat z-0"
-                style={{
-                  backgroundImage: `url(${bg})`,
-                }}
-              />
-            ))}
+            <div className="relative w-full h-full overflow-hidden">
+              {backgroundImages.map((bg, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 1 }}
+                  animate={{
+                    opacity: i === currentIndex ? 1 : 0,
+                    scale: i === currentIndex ? 1.15 : 1,
+                  }}
+                  transition={{
+                    opacity: { duration: 1.5, ease: "easeInOut" },
+                    scale: { duration: 20, ease: "linear" },
+                  }}
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+                  style={{
+                    backgroundImage: `url(${bg})`,
+                  }}
+                />
+              ))}
+            </div>
 
             {/* 黑色遮罩 */}
             <div className="bg-black opacity-40 w-full h-full absolute top-0 left-0 z-10" />
@@ -154,7 +156,7 @@ const Photos = () => {
             <div className="hero-title  w-1/2 absolute left-[4%] top-[90%] z-20">
               <div className="text-center px-4">
                 <GsapText
-                  text="寬越設計."
+                  text="最新消息"
                   id="gsap-intro"
                   fontSize="2.8rem"
                   fontWeight="200"
@@ -165,7 +167,7 @@ const Photos = () => {
               </div>
               <div className="text-center px-4">
                 <GsapText
-                  text="KuanKshi"
+                  text="NEWS"
                   id="gsap-intro"
                   fontSize="1.2rem"
                   fontWeight="200"
@@ -1016,88 +1018,118 @@ const data = [
     src: "/images/blog/建築老屋/img01.png",
     content: (
       <div className="">
-        <div className="p-8">
-          <h2 className="text-2xl font-bold mb-4">
-            翻新35年老透天，打造現代俐落街景
-          </h2>
-          <p>從老舊磁磚屋到質感現代建築，一場建築的重生旅程。</p>
+        <div className="p-8 ">
+          <div className="flex flex-col items-start justify-start">
+            <h2 className="text-2xl font-bold mb-4">
+              翻新35年老透天，打造現代俐落街景
+            </h2>
+            <p>從老舊磁磚屋到質感現代建築，一場建築的重生旅程。</p>
+          </div>
           <Image
             src="/images/blog/建築老屋/img01.png"
             alt="AI Example"
-            width={500}
-            height={300}
-            className="mt-4 rounded-lg"
+            width={1500}
+            height={800}
+            className="mt-4  w-full md:w-[80%]   rounded-lg"
           />
         </div>
       </div>
     ),
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/bo3-2000x1333.jpg",
-    content: <DummyContent />,
+    category: "建築老屋",
+    title: "老屋翻新-外觀拉皮",
+    src: "/images/blog/建築老屋/img01.png",
+    content: (
+      <div className="">
+        <div className="p-8 ">
+          <div className="flex flex-col items-start justify-start">
+            <h2 className="text-2xl font-bold mb-4">
+              翻新35年老透天，打造現代俐落街景
+            </h2>
+            <p>從老舊磁磚屋到質感現代建築，一場建築的重生旅程。</p>
+          </div>
+          <Image
+            src="/images/blog/建築老屋/img01.png"
+            alt="AI Example"
+            width={1500}
+            height={800}
+            className="mt-4  w-full md:w-[80%]   rounded-lg"
+          />
+        </div>
+      </div>
+    ),
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/da4.jpg",
-    content: <DummyContent />,
-  },
-
-  {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/07/ta4.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/09/m3.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/04/ta2-2000x2294.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/ho4.jpg",
-    content: <DummyContent />,
+    category: "建築老屋",
+    title: "老屋翻新-外觀拉皮",
+    src: "/images/blog/建築老屋/img01.png",
+    content: (
+      <div className="">
+        <div className="p-8 ">
+          <div className="flex flex-col items-start justify-start">
+            <h2 className="text-2xl font-bold mb-4">
+              翻新35年老透天，打造現代俐落街景
+            </h2>
+            <p>從老舊磁磚屋到質感現代建築，一場建築的重生旅程。</p>
+          </div>
+          <Image
+            src="/images/blog/建築老屋/img01.png"
+            alt="AI Example"
+            width={1500}
+            height={800}
+            className="mt-4  w-full md:w-[80%]   rounded-lg"
+          />
+        </div>
+      </div>
+    ),
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/bo3-2000x1333.jpg",
-    content: <DummyContent />,
+    category: "建築老屋",
+    title: "老屋翻新-外觀拉皮",
+    src: "/images/blog/建築老屋/img01.png",
+    content: (
+      <div className="">
+        <div className="p-8 ">
+          <div className="flex flex-col items-start justify-start">
+            <h2 className="text-2xl font-bold mb-4">
+              翻新35年老透天，打造現代俐落街景
+            </h2>
+            <p>從老舊磁磚屋到質感現代建築，一場建築的重生旅程。</p>
+          </div>
+          <Image
+            src="/images/blog/建築老屋/img01.png"
+            alt="AI Example"
+            width={1500}
+            height={800}
+            className="mt-4  w-full md:w-[80%]   rounded-lg"
+          />
+        </div>
+      </div>
+    ),
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/da4.jpg",
-    content: <DummyContent />,
-  },
-
-  {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/07/ta4.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/09/m3.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/04/ta2-2000x2294.jpg",
-    content: <DummyContent />,
+    category: "建築老屋",
+    title: "老屋翻新-外觀拉皮",
+    src: "/images/blog/建築老屋/img01.png",
+    content: (
+      <div className="">
+        <div className="p-8 ">
+          <div className="flex flex-col items-start justify-start">
+            <h2 className="text-2xl font-bold mb-4">
+              翻新35年老透天，打造現代俐落街景
+            </h2>
+            <p>從老舊磁磚屋到質感現代建築，一場建築的重生旅程。</p>
+          </div>
+          <Image
+            src="/images/blog/建築老屋/img01.png"
+            alt="AI Example"
+            width={1500}
+            height={800}
+            className="mt-4  w-full md:w-[80%]   rounded-lg"
+          />
+        </div>
+      </div>
+    ),
   },
 ];

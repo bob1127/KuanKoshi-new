@@ -213,7 +213,7 @@ export default function About() {
               className="flex flex-col justify-center  w-full md:w-[90%] max-w-[1920px] mx-auto"
             >
               <div className="flex  flex-col  w-full   justify-center max-w-[1920px] mx-auto items-cente items-center  mt-4">
-                <div className=" w-full max-w-[1920px] mx-auto  flex flex-col justify-between items-center ">
+                {/* <div className=" w-full max-w-[1920px] mx-auto  flex flex-col justify-between items-center ">
                   <div className="txt flex flex-col items-center pr-5">
                     <GsapText
                       text="小資族。小家庭"
@@ -229,7 +229,7 @@ export default function About() {
                       寬越設計都能根據您的預算、需求，量身打造最適合的居所。
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="">
                   <SpecialOffers />
@@ -277,7 +277,7 @@ export default function About() {
                     <div className="overlay absolute inset-0 bg-black hidden sm:block z-10"></div>
                     <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/商業空間/商業空間.webp"
+                        src="/images/商業空間.webp"
                         alt="About Image 1"
                         fill
                         className="object-cover group-hover:scale-110 duration-2000"
@@ -315,7 +315,7 @@ export default function About() {
                     <div className="overlay absolute inset-0 bg-black hidden sm:block z-10"></div>
                     <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/辦公空間/辦公空間.webp"
+                        src="/images/辦公空間.webp"
                         alt="辦公空間-瑞其科技|寬越室內設計"
                         fill
                         className="object-cover group-hover:scale-110 duration-2000"
@@ -353,7 +353,7 @@ export default function About() {
                     <div className="overlay absolute inset-0 bg-black hidden sm:block z-10"></div>
                     <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
-                        src="/images/住家豪宅/住家豪宅.webp"
+                        src="/images/住家豪宅.webp"
                         alt="About Image 1"
                         fill
                         className="object-cover group-hover:scale-110 duration-2000"
@@ -444,7 +444,7 @@ export default function About() {
                   title: "住宅空間設計",
                   desc: "打造專屬於您的理想居所，從格局配置到材質選用，細膩呈現生活美學。",
                   date: "Taichung - 2025.03.23",
-                  img: "/images/487012960_122246363780031935_1478276959405077203_n (1).jpg",
+                  img: "/images/006-LINE_ALBUM_皇普熊S_250105_1.jpg",
                   baseHeight: "h-[320px]",
                   hoverHeight: "group-hover:h-[400px]",
                 },

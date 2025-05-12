@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Pagination, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card, CardBody } from "@nextui-org/react";
@@ -11,8 +11,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export default function SwiperCardAbout() {
+  const [posts, setPosts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(1);
-  const totalSlides = 8;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=20&_embed`
+        );
+        const data = await res.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-col lg:flex-row w-full m-0 p-0 items-start gap-8">
@@ -37,7 +52,7 @@ export default function SwiperCardAbout() {
         {/* 數字顯示在文字下方 */}
         <div className="count-project mt-4 items-center flex">
           <span className="mr-4 text-gray-600 text-[1.2rem]">PROJECT</span>
-          <div className="flex items-center gap-1  text-gray-600 text-[1.2rem]">
+          <div className="flex items-center gap-1 text-gray-600 text-[1.2rem]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentIndex}
@@ -45,12 +60,11 @@ export default function SwiperCardAbout() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.3 }}
-                className=""
               >
                 {currentIndex}
               </motion.span>
             </AnimatePresence>
-            <span className="text-[1.2rem]">/ {totalSlides}</span>
+            <span className="text-[1.2rem]">/ {posts.length}</span>
           </div>
         </div>
       </div>
@@ -68,7 +82,7 @@ export default function SwiperCardAbout() {
           spaceBetween={16}
           pagination={{ clickable: true }}
           onSlideChange={(swiper) => {
-            setCurrentIndex(((swiper.realIndex ?? 0) % totalSlides) + 1);
+            setCurrentIndex(((swiper.realIndex ?? 0) % posts.length) + 1);
           }}
           breakpoints={{
             0: { slidesPerView: 1.2 },
@@ -80,44 +94,54 @@ export default function SwiperCardAbout() {
           }}
           className="m-0 p-0 !overflow-visible sm:!overflow-hidden"
         >
-          {Array.from({ length: totalSlides }).map((_, idx) => (
-            <SwiperSlide
-              key={idx}
-              className="mx-2 overflow-hidden group relative duration-1000 rounded-[50px]"
-            >
-              <div className="title absolute top-5 left-5 z-[999]">
-                <span className="text-white text-[.9rem]">
-                  Project-0{idx + 1}
-                </span>
-              </div>
-              <div className="title absolute bottom-5 flex right-5 z-[999]">
-                <button className="relative h-12 rounded-full bg-transparent px-4 group-hover:text-white text-neutral-950">
-                  <span className="relative inline-flex overflow-hidden">
-                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
-                      View More
-                    </div>
-                    <div className="absolute translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
-                      View More
-                    </div>
+          {posts.map((post, idx) => {
+            // 嘗試從內文中擷取第一張圖
+            const match = post.content.rendered.match(
+              /<img[^>]+src=\"([^\"]+)\"/
+            );
+            const imageUrl = match ? match[1] : "";
+            return (
+              <SwiperSlide
+                key={post.id}
+                className="mx-2 overflow-hidden group relative duration-1000 rounded-[50px]"
+              >
+                <div className="title absolute top-5 left-5 z-[999]">
+                  <span className="text-white text-[.9rem]">
+                    {post.title.rendered}
                   </span>
-                </button>
-                <button className="relative opacity-10 group-hover:opacity-100 duration-500 inline-flex h-12 w-20 items-center justify-center overflow-hidden rounded-full border font-medium text-neutral-200">
-                  <div className="translate-x-0 transition group-hover:translate-x-[300%]">
-                    ➔
-                  </div>
-                  <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
-                    ➔
-                  </div>
-                </button>
-              </div>
-              <AnimatedLink href="/KuankoshiProjectInner">
-                <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
-                <Card className="border-white rounded-[50px] pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border bg-[url('https://store-palette.com/wp/wp-content/uploads/2021/07/3076.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
-                  <CardBody className="flex relative flex-col h-full w-full px-0"></CardBody>
-                </Card>
-              </AnimatedLink>
-            </SwiperSlide>
-          ))}
+                </div>
+                <div className="title absolute bottom-5 flex right-5 z-[999]">
+                  <button className="relative h-12 rounded-full bg-transparent px-4 group-hover:text-white text-neutral-950">
+                    <span className="relative inline-flex overflow-hidden">
+                      <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
+                        View More
+                      </div>
+                      <div className="absolute translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                        View More
+                      </div>
+                    </span>
+                  </button>
+                  <button className="relative opacity-10 group-hover:opacity-100 duration-500 inline-flex h-12 w-20 items-center justify-center overflow-hidden rounded-full border font-medium text-neutral-200">
+                    <div className="translate-x-0 transition group-hover:translate-x-[300%]">
+                      ➔
+                    </div>
+                    <div className="absolute -translate-x-[300%] transition group-hover:translate-x-0">
+                      ➔
+                    </div>
+                  </button>
+                </div>
+                <AnimatedLink href={`/project/${post.slug}`}>
+                  <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
+                  <Card
+                    className="border-white rounded-[50px] pb-4 w-full h-[250px] md:h-[280px] lg:h-[300px] 2xl:h-[320px] max-h-[450px] border relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
+                    style={{ backgroundImage: `url(${imageUrl})` }}
+                  >
+                    <CardBody className="flex relative flex-col h-full w-full px-0"></CardBody>
+                  </Card>
+                </AnimatedLink>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </div>

@@ -156,7 +156,7 @@ const QaClient = () => {
               />
             </div>
 
-            <div className="flex flex-wrap justify-start gap-2 mt-6 px-4">
+            {/* <div className="flex flex-wrap justify-start gap-2 mt-6 px-4">
               {["TEXT", "TEXT", "TEXT", "TEXT", "TEXT"].map((tag, index) => (
                 <div
                   key={index}
@@ -165,7 +165,7 @@ const QaClient = () => {
                   {tag}
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div className="w-full md:w-1/2 px-4 flex justify-center">
@@ -209,7 +209,7 @@ const QaClient = () => {
                 paragraph="軟裝指的是不動產結構之外、可替換的可移動家具與裝飾品，包含：沙發、床、窗簾、地毯、掛畫、燈具、抱枕、植栽等。"
               />
             </div>
-
+            {/* 
             <div className="flex flex-wrap justify-start gap-2 mt-6 px-4">
               {["TEXT", "TEXT", "TEXT", "TEXT", "TEXT"].map((tag, index) => (
                 <div
@@ -219,7 +219,7 @@ const QaClient = () => {
                   {tag}
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -228,7 +228,7 @@ const QaClient = () => {
       <section className="question-section py-12 flex justify-end">
         <div className="bg-[#E1E3D9] flex flex-col md:flex-row w-[90%] max-w-[1920px] rounded-tl-[40px] rounded-bl-[40px] overflow-hidden">
           {/* QA 左邊 */}
-          <div className="w-full md:w-1/2 p-8 md:p-12">
+          <div className="w-full max-w-[1400px] mx-auto md:w-[85%] p-8 md:p-12">
             <h2 className="text-2xl md:text-3xl font-normal mb-8">常見問題</h2>
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem
@@ -317,15 +317,6 @@ const QaClient = () => {
           </div>
 
           {/* 圖片右邊 */}
-          <div className="w-full md:w-1/2 flex justify-center items-center p-8">
-            {/* <Image
-              src="https://www.clasishome.jp/wp-content/themes/clasishome/assets/image/front-page/front-contact.jpg"
-              alt="contact-img"
-              width={800}
-              height={1000}
-              className="rounded-2xl"
-            /> */}
-          </div>
         </div>
       </section>
     </>

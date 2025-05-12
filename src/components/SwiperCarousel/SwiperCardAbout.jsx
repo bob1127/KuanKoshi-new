@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default function SwiperCardAbout() {
+export default function SwiperCardAbout({ items = [] }) {
   const swiperRef = useRef(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function SwiperCardAbout() {
         const swiperInstance = document.querySelector(".swiper").swiper;
         setTimeout(() => {
           swiperInstance.slideToLoop(index);
-        }, 400); // 小延遲
+        }, 400);
       };
     }
   }, []);
@@ -49,18 +49,21 @@ export default function SwiperCardAbout() {
             "cubic-bezier(0.645, 0.045, 0.355, 1)",
         }}
       >
-        {[1, 2, 3, 4, 5].map((item) => (
+        {items.map((item, index) => (
           <SwiperSlide
-            key={item}
+            key={index}
             className="overflow-hidden group relative duration-1000"
           >
-            <AnimatedLink href="/KuankoshiProjectInner">
+            <AnimatedLink href={item.href}>
               <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
-              <Card className="border-white pb-4 w-full h-[500px] md:h-[580px] lg:h-[600px] 2xl:h-[600px] max-h-[850px] border bg-[url('https://store-palette.com/wp/wp-content/uploads/2020/01/3505-.jpg')] relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110">
+              <Card
+                className="border-white pb-4 w-full h-[500px] md:h-[580px] lg:h-[600px] 2xl:h-[600px] max-h-[850px] border relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
+                style={{ backgroundImage: `url(${item.image})` }}
+              >
                 <CardBody className="flex relative flex-col h-full w-full px-0">
                   <div className="title absolute top-5 left-5 z-[999]">
                     <span className="text-white text-[.9rem]">
-                      Project-0{item}
+                      {item.title}
                     </span>
                   </div>
                   <div className="title absolute bottom-5 right-5 flex z-[999]">

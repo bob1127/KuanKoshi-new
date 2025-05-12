@@ -226,7 +226,7 @@ export const Card = ({
               </button>
 
               {/* Modal內容 */}
-              <div className="pt-16">
+              <div className="pt-16 w-full md:w-[80%] mx-auto">
                 <motion.p
                   layoutId={layout ? `category-${card.title}` : undefined}
                   className="text-base font-medium text-black dark:text-white"
