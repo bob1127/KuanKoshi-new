@@ -25,11 +25,11 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const backgroundImages = [
-    "/images/hero-img/006-八展首富_231221_8_0.webp",
-    "/images/hero-img/007-八展首富_231221_2_0.webp",
-    "/images/hero-img/002八展首富_231221_3_0.webp",
-    "/images/hero-img/LINE_ALBUM_八展首富_231221_7_0.webp",
-    "/images/hero-img/468947784_122223976550031935_8836870033944229922_n_0.webp",
+    "/images/hero-img/首頁01.jpg",
+    "/images/hero-img/首頁02.jpg",
+    "/images/hero-img/首頁03.jpg",
+    "/images/hero-img/首頁04.jpg",
+    "/images/hero-img/首頁05.jpg",
   ];
   useEffect(() => {
     const timer = setInterval(() => {
@@ -204,10 +204,10 @@ export default function Home() {
       }
     });
 
-    tl.to(".spinner", {
-      opacity: 0,
-      duration: 0.3,
-    });
+    // tl.to(".spinner", {
+    //   opacity: 0,
+    //   duration: 0.3,
+    // });
 
     tl.to(
       ".word h1",
@@ -315,10 +315,10 @@ export default function Home() {
           </div>
 
           <div className="divider"></div>
-
+          {/* 
           <div className="spinner-container">
             <div className="spinner"></div>
-          </div>
+          </div> */}
 
           <div className="counter">
             <div className="count">
