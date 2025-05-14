@@ -144,7 +144,7 @@ const Nav = () => {
         </AnimatedLink>
         <AnimatedLink href="https://www.kuankoshi.com/project?cat=special-offers">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
-            小資專案
+            優惠方案
           </p>
         </AnimatedLink>
         <AnimatedLink href="https://www.kuankoshi.com/project?cat=commercial-public">

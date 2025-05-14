@@ -72,15 +72,22 @@ export default function ProjectListClient({ posts, categories }) {
       });
     }
 
-    if (sortOption === "size-asc") {
-      result.sort((a, b) => Number(a.acf?.size || 0) - Number(b.acf?.size || 0));
-    } else if (sortOption === "size-desc") {
-      result.sort((a, b) => Number(b.acf?.size || 0) - Number(a.acf?.size || 0));
-    } else if (sortOption === "price-asc") {
-      result.sort((a, b) => Number(a.acf?.price || 0) - Number(b.acf?.price || 0));
-    } else if (sortOption === "price-desc") {
-      result.sort((a, b) => Number(b.acf?.price || 0) - Number(a.acf?.price || 0));
-    }
+ if (sortOption === "default") {
+  result.sort((a, b) => {
+    const numA = parseInt(a.title.rendered.match(/^\d{1,3}/)?.[0] || "0", 10);
+    const numB = parseInt(b.title.rendered.match(/^\d{1,3}/)?.[0] || "0", 10);
+    return numA - numB;
+  });
+} else if (sortOption === "size-asc") {
+  result.sort((a, b) => Number(a.acf?.size || 0) - Number(b.acf?.size || 0));
+} else if (sortOption === "size-desc") {
+  result.sort((a, b) => Number(b.acf?.size || 0) - Number(a.acf?.size || 0));
+} else if (sortOption === "price-asc") {
+  result.sort((a, b) => Number(a.acf?.price || 0) - Number(b.acf?.price || 0));
+} else if (sortOption === "price-desc") {
+  result.sort((a, b) => Number(b.acf?.price || 0) - Number(a.acf?.price || 0));
+}
+
 
     return result;
   }, [postsWithSlug, activeCategory, minSize, maxSize, minPrice, maxPrice, sortOption]);

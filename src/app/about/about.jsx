@@ -7,7 +7,8 @@ import GsapText from "../../components/RevealText/index";
 import HomeSlider from "../../components/HeroSliderHome/page.jsx";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-
+import Link from "next/link.js";
+import AnimatedLink from "../../components/AnimatedLink.tsx";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ScrollTopCard from "../../components/ScrollTopCard/index.jsx";
 import ScrollTopCard1 from "../../components/ScrollTopCard1/index.jsx";
@@ -141,9 +142,7 @@ export default function About() {
                 <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
                   商業空間
                 </div>
-                <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
-                  小資專案
-                </div>
+
                 <div className="tag px-3 py-1 rounded-[20px] hover:bg-white hover:text-black duration-500 border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
                   豪宅住宅
                 </div>
@@ -172,20 +171,28 @@ export default function About() {
 
           <div className="flex flex-col lg:flex-row w-[90%] mx-auto max-w-[1380px] gap-10 sm:gap-16">
             {/* 第一塊內容 */}
+
             <div className="w-full lg:w-1/2 group flex px-4 sm:px-6 flex-col items-center">
-              <Image
-                src="https://store-palette.com/assets/img/common/layout/spesial_banner_1-pc.png"
-                alt="map-section"
-                width={1000}
-                height={600}
-                className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
-              />
+              <Link
+                href="https://www.google.com/maps/place/NTC國家商貿中心/@24.1639432,120.6367717,17z/data=!3m1!4b1!4m6!3m5!1s0x34693df19ad0ffff:0x732c9b912e7b06ae!8m2!3d24.1639432!4d120.6367717!16s%2Fg%2F11g4g_l5q4?entry=ttu&g_ep=EgoyMDI1MDUxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"
+                target="_blank"
+                className="w-full"
+              >
+                <Image
+                  src="https://store-palette.com/assets/img/common/layout/spesial_banner_1-pc.png"
+                  alt="map-section"
+                  width={1000}
+                  height={600}
+                  className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
+                />
+              </Link>
               <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
                 <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
-                  無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫，
+                  無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫
                   <br />
-                  我們將以專業與誠意回應每一個期待。
+                  公司位於NTC國家商貿中心大樓裡
                 </span>
+
                 <button className="mt-4 sm:mt-0 sm:ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border font-medium text-neutral-900">
                   <div className="translate-x-0 transition group-hover:translate-x-[300%]">
                     <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">
@@ -209,19 +216,22 @@ export default function About() {
 
             {/* 第二塊內容 */}
             <div className="w-full lg:w-1/2 group flex px-4 sm:px-6 flex-col items-center">
-              <Image
-                src="/images/about/spesial_banner_2-pc.png"
-                alt="map-section"
-                width={1000}
-                height={600}
-                className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
-              />
+              <AnimatedLink href="/contact" className="w-full">
+                <Image
+                  src="/images/about/spesial_banner_2-pc.png"
+                  alt="map-section"
+                  width={1000}
+                  height={600}
+                  className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
+                />
+              </AnimatedLink>
               <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
                 <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
                   寬越設計擁有跨領域合作經驗，歡迎品牌、建築師、開發商與我們洽談設計、
                   <br />
                   整合施工或空間創作項目，共同完成具備深度與美感的場域作品。
                 </span>
+
                 <button className="mt-4 sm:mt-0 sm:ml-3 relative inline-flex h-12 w-12 items-center justify-center overflow-hidden group-hover:bg-black group-hover:text-white rounded-full border-black border font-medium text-neutral-900">
                   <div className="translate-x-0 transition group-hover:translate-x-[300%]">
                     <svg className="h-5 w-5" viewBox="0 0 15 15" fill="none">

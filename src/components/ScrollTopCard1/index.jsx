@@ -26,7 +26,7 @@ const Card = () => {
         className={styles.card}
       >
         <div className="title flex items-center justify-center flex-col  w-[90%]  md:w-[60%] mx-auto">
-          <p className="text-[.8rem]">Project Name</p>
+          <p className="text-[.8rem]">About Us</p>
           <p className="text-[1.3rem] tracking-widest text-left font-bold">
             寬越室內設計-KUANKOSHI DESIGN
           </p>
@@ -35,8 +35,8 @@ const Card = () => {
           <ul>
             <li className=" border-b-[.5px] border-gray-400 py-3">
               <div className="flex justify-between">
-                <b className="text-[.85rem]">成立年份</b>
-                <span className="text-[.8rem]">2019年</span>
+                <b className="text-[.85rem]">業界資歷</b>
+                <span className="text-[.8rem]">20年</span>
               </div>
             </li>
             <li className=" border-b-[.5px] border-gray-400 py-3">
@@ -44,7 +44,7 @@ const Card = () => {
                 <b className="text-[.85rem]">業務範疇 </b>
                 <span className="text-[.8rem]">
                   室內設計、空間規劃、老屋翻新、商業空間、<br></br>
-                  系統櫃規劃、施工整合
+                  系統櫃規劃、施工整合、自地自建
                 </span>
               </div>
             </li>
@@ -59,23 +59,16 @@ const Card = () => {
             <li className=" border-b-[.5px] border-gray-400 py-3">
               <div className="flex justify-between">
                 <b className="text-[.85rem]">公司基地 </b>
-                <span className="text-[.8rem]">台中市北屯區，台灣</span>
+                <span className="text-[.8rem]">台中市西屯區，台灣</span>
               </div>
             </li>
-            <li className=" border-b-[.5px] border-gray-400 py-3">
-              <div className="flex justify-between">
-                <b className="text-[.85rem]">攝影合作 </b>
-                <span className="text-[.8rem]">
-                  室內攝影師 蔡○○（空間完工紀錄）
-                </span>
-              </div>
-            </li>
+
             <li className=" border-b-[.5px] border-gray-400 py-3">
               <div className="flex justify-between">
                 <b className="text-[.85rem]">合作施工夥伴 </b>
                 <span className="text-[.8rem]">
-                  系統櫃團隊、泥作、水電、<br></br>
-                  木作專業技師團隊（實作經驗逾15年）
+                  系統櫃團隊、泥作、水電、油漆、<br></br>
+                  木作專業技師團隊
                 </span>
               </div>
             </li>

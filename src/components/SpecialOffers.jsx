@@ -9,7 +9,6 @@ export default function SpecialOffers() {
   const [posts, setPosts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(12);
   const [totalCount, setTotalCount] = useState(0);
-
   useEffect(() => {
     fetch(
       "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=100&_embed"
@@ -21,6 +20,14 @@ export default function SpecialOffers() {
             (cat) => cat.slug === "special-offers"
           )
         );
+
+        // 🔽 依照標題前三位數字排序
+        filtered.sort((a, b) => {
+          const numA = parseInt(a.title.rendered.match(/^\d+/)?.[0] || "0", 10);
+          const numB = parseInt(b.title.rendered.match(/^\d+/)?.[0] || "0", 10);
+          return numA - numB;
+        });
+
         setPosts(filtered);
         setTotalCount(filtered.length);
       });

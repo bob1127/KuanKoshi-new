@@ -121,8 +121,8 @@ const ProjectPage = async ({ params }) => {
           <div className="w-full py-10 px-5 sm:px-0 lg:py-0 sm:w-[60%] mx-auto lg:w-[25%] pr-8 flex flex-col order-2 lg:order-3">
             <div>
               <span className="text-[.8rem]">
-                寬越設計推出【小資專案】，主打
-                50萬左右輕裝潢方案，由專業設計團隊為你量身打造專屬風格，從格局優化、收納規劃到氛圍營造，讓你的「家」既實用又有品味
+                寬越設計推出【優惠方案設計服務】，從 50
+                萬小資專案到千萬等級豪宅皆有豐富經驗，由專業設計團隊量身打造專屬風格。從格局優化、收納規劃到整體氛圍營造，讓每一個「家」都能兼具實用與品味。
               </span>
             </div>
             <div className="sticky my-4 top-24">

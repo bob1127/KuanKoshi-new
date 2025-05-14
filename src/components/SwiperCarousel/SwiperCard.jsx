@@ -35,17 +35,17 @@ export default function SwiperCardAbout() {
       <div className="w-[90%] mx-auto lg:w-[35%] flex flex-col justify-start px-4 lg:px-8">
         <div className="txt flex flex-col">
           <span className="text-[.9rem] text-gray-800">
-            用50萬左右就打造出屬於自己的高質感小宅
+            從 50 萬輕裝潢到千萬豪宅，我們都能為你量身打造理想空間
           </span>
           <div className="flex">
             <h2 className="text-[2.5rem] md:text-[4rem] mt-4 text-[#243629] font-normal border-b border-dashed border-black w-fit">
-              小資專案
+              優惠方案
             </h2>
           </div>
           <p className="text-[1rem] text-[#333] mt-4 leading-relaxed">
-            我們專注於小資族、小家庭、小坪數室內設計，提供輕裝潢、系統櫃設計到完整空間規劃，
+            我們專注於小資族、小家庭、小坪數的室內設計，也擅長高端豪宅規劃，
             <br />
-            讓每一個剛起步的新家庭，也能擁有舒適、實用又充滿溫度的生活空間。
+            從輕裝潢、系統櫃到整體風格設計，為每一種預算打造兼具品味與機能的生活空間。
           </p>
         </div>
 

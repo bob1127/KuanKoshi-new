@@ -210,14 +210,14 @@ export default function About() {
               <div className="flex  flex-col  w-full   justify-center max-w-[1920px] mx-auto items-cente items-center  mt-4">
                 <div className="flex flex-col mb-5 justify-center items-center  px-4 sm:px-8">
                   <GsapText
-                    text="為小家庭量身打造的設計日常"
+                    text="不論空間大小與預算高低，我們為每一個家打造剛剛好的設計日常"
                     id="headline"
                     className="text-[5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] leading-snug font-medium text-white text-center"
                   />
 
                   <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
-                    寬越設計專注於小資族、小家庭的小坪數空間，提供 50
-                    萬起的輕裝潢與系統櫃設計，打造舒適、實用又有溫度的生活空間，讓質感與機能成為家的標配。
+                    寬越設計從 50
+                    萬小資方案到千萬豪宅規劃皆具經驗，無論是小坪數輕裝潢，或全室訂製系統與高端設計，我們都能為每個預算量身打造舒適、實用且富有美感的生活空間。
                   </span>
                 </div>
 
