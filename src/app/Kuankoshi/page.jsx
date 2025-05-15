@@ -247,7 +247,7 @@ export default function About() {
                         </div>
                       </button>
                       <h3 className="text-[1rem] text-white font-normal">
-                        My Home Project-Yi Yuan
+                        My Home Project-KuanKoshi
                       </h3>
                     </div>
                     <div className="flex items-center">
@@ -295,7 +295,7 @@ export default function About() {
                         </div>
                       </button>
                       <h3 className="text-[1rem] text-white font-normal">
-                        My Home Project-Yi Yuan
+                        My Home Project-KuanKoshi
                       </h3>
                     </div>
                     <div className="flex items-center">
@@ -343,7 +343,7 @@ export default function About() {
                         </div>
                       </button>
                       <h3 className="text-[1rem] text-white font-normal">
-                        My Home Project-Yi Yuan
+                        My Home Project-KuanKoshi
                       </h3>
                     </div>
                     <div className="flex items-center">
@@ -391,7 +391,7 @@ export default function About() {
                         </div>
                       </button>
                       <h3 className="text-[1rem] text-white font-normal">
-                        My Home Project-Yi Yuan
+                        My Home Project-KuanKoshi
                       </h3>
                     </div>
                     <div className="flex items-center">

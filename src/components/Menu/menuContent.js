@@ -1,10 +1,10 @@
 export const links = [
-  { label: "• 設計理念", path: "/about", subtext: "首頁" },
-  { label: "• 空間案例", path: "/project", subtext: "最新作品" },
-  { label: "• 聯繫我們", path: "/contact", subtext: "過往案例" },
-  { label: "• 服務流程", path: "/ServiceProcess", subtext: "最新消息" },
-  { label: "• 客戶提問", path: "/qa", subtext: "進度查詢" },
-   { label: "• 設計誌", path: "/news", subtext: "進度查詢" },
+  { label: "• 設計理念", path: "/about", subtext: "關於寬越" },
+  { label: "• 空間案例", path: "/project", subtext: "過往案例" },
+  { label: "• 聯繫我們", path: "/contact", subtext: "洽談合作" },
+  { label: "• 服務流程", path: "/ServiceProcess", subtext: "了解更多" },
+  { label: "• 客戶提問", path: "/qa", subtext: "QA" },
+   { label: "• 設計誌", path: "/news", subtext: "最新消息" },
 ];
 
 export const socials = [

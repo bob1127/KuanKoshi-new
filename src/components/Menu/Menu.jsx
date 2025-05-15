@@ -7,6 +7,7 @@ import {
   useRef,
   useLayoutEffect,
 } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import MenuBar from "../MenuBar/MenuBar";
 import { links, socials } from "./menuContent";
@@ -241,9 +242,9 @@ const Menu = ({ isDarkBg }) => {
 
             {/* Images */}
             <div className="w-full lg:w-1/2 flex flex-row lg:flex-col justify-end items-end lg:justify-center gap-4 mt-6">
-              <AnimatedLink href="/contact">
+              <Link target="_blank" href="https://www.100.com.tw/11283">
                 <Image
-                  src="/images/about/spesial_banner_2-pc.png"
+                  src="/images/100-design.jpg"
                   alt="menu-img"
                   placeholder="empty"
                   loading="lazy"
@@ -251,10 +252,13 @@ const Menu = ({ isDarkBg }) => {
                   height={700}
                   className="w-full sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-md xl:rounded-2xl hover:shadow-xl  hover:border-2 hover:border-white  duration-700"
                 />
-              </AnimatedLink>
-              <AnimatedLink href="/contact">
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.facebook.com/people/寬越室內設計/61550958051323/"
+              >
                 <Image
-                  src="/images/about/spesial_banner_2-pc.png"
+                  src="/images/facebook.jpg"
                   alt="menu-img"
                   placeholder="empty"
                   loading="lazy"
@@ -262,7 +266,7 @@ const Menu = ({ isDarkBg }) => {
                   height={700}
                   className="w-full sm:w-[45%] md:w-[48%] lg:w-[60%] hover:scale-95 rounded-md xl:rounded-2xl hover:shadow-xl hover:border-2 hover:border-white duration-700"
                 />
-              </AnimatedLink>
+              </Link>
             </div>
           </div>
 

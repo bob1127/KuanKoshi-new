@@ -134,8 +134,7 @@ export default function About() {
             <Preloader />
           </div>
 
-          {/* <ThreedSlider /> */}
-          <section className="section-padding">
+          {/* <section className="section-padding">
             <div className="flex flex-col justify-center items-center  px-4 sm:px-8">
               <GsapText
                 text="從小資日常到質感夢想宅"
@@ -149,7 +148,7 @@ export default function About() {
               />
             </div>
             <div className="flex  flex-col md:flex-row max-w-[1400px] mx-auto w-[90%] gap-10 mt-10 md:mt-[50px]">
-              {/* 左圖區塊 */}
+     
               <div className="flex flex-col w-full">
                 <div className="w-full h-[60vh] md:h-[80vh] overflow-hidden">
                   <div className="relative w-full h-full">
@@ -165,57 +164,27 @@ export default function About() {
                     />
                   </div>
                 </div>
-
-                {/* 下面兩側文字按鈕 */}
-                {/* <div className="flex flex-col md:flex-row justify-between mt-8 gap-8 px-3">
-                  <div className="w-full flex flex-col md:w-1/2">
-                    <GsapText
-                      text="從日常到夢想，專屬你的理想宅"
-                      id="gsap-intro"
-                      fontWeight="500"
-                      color="#333"
-                      className="text-left text-[5.5vw] sm:text-[2.8vw] md:text-[2.2vw] lg:text-[2rem] leading-snug font-normal mb-4"
-                    />
-
-                    <b className="text-[1.2rem] font-normal ">
-                      想用50萬左右就打造出屬於自己的高質感小宅嗎？
-                    </b>
-                    <span className="text-sm tracking-wide leading-relaxed text-gray-500 mt-4 font-normal">
-                      我們專注於小資族、小家庭、小坪數室內設計，提供輕裝潢、系統櫃設計到完整空間規劃，
-                      <br></br>
-                      讓每一個剛起步的新家庭，也能擁有舒適、實用又充滿溫度的生活空間。
-                    </span>
-                  </div>
-
-                  <div className="w-full md:w-1/2 flex flex-col justify-end items-end text-right">
-                    <span className="text-sm tracking-wide leading-relaxed text-gray-500 mb-5">
-                      我們提供從新成屋裝潢、老屋翻新、預售屋客變到<br></br>
-                      系統家具配置的多元方案
-                    </span>
-                    <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full px-6 bg-neutral-800 text-white hover:bg-neutral-900 duration-300">
-                      <span className="relative inline-block">
-                        Go PROJECTS →
-                      </span>
-                    </button>
-                  </div>
-                </div> */}
               </div>
             </div>
-          </section>
+          </section> */}
           <section id="dark-section" className=" section-padding ">
             <div
               id="dark-section"
               className="flex flex-col justify-center  w-full md:w-[90%] max-w-[1920px] mx-auto"
             >
-              <div className="flex  flex-col  w-full   justify-center max-w-[1920px] mx-auto items-cente items-center  mt-4">
+              <div className="flex  flex-col  w-full   justify-center  mx-auto items-cente items-center  mt-4">
                 <div className="flex flex-col mb-5 justify-center items-center  px-4 sm:px-8">
                   <GsapText
-                    text="不論空間大小與預算高低，我們為每一個家打造剛剛好的設計日常"
+                    text="從小資日常到質感夢想宅"
                     id="headline"
                     className="text-[5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] leading-snug font-medium text-white text-center"
                   />
 
-                  <span className="mt-6 leading-loose font--normal text-base sm:text-md text-center text-gray-800 max-w-3xl">
+                  <h2 className="font-normal  text-[20px]">
+                    不論空間大小與預算高低，我們為每一個家打造剛剛好的設計日常
+                  </h2>
+
+                  <span className=" leading-loose font--normal max-w-3xl text-base sm:text-md text-center text-gray-800 ">
                     寬越設計從 50
                     萬小資方案到千萬豪宅規劃皆具經驗，無論是小坪數輕裝潢，或全室訂製系統與高端設計，我們都能為每個預算量身打造舒適、實用且富有美感的生活空間。
                   </span>

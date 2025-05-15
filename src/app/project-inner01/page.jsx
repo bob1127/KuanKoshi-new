@@ -170,7 +170,7 @@ export default function About() {
           <div className="relative w-full">
             <div className="absolute w-full h-full">
               <div className="flex text-[2.3vmin] text-white w-full h-full justify-center items-center">
-                YI YUAN BUILDING
+                KuanKoshi BUILDING
               </div>
             </div>
             <img

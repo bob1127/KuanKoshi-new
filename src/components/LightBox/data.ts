@@ -39,7 +39,7 @@ export const slides = [
     borderRadius: 'rounded-tr-2xl', // 右上角圓角更大
   },
    {
-    title: 'Yi Yuan',
+    title: 'KuanKoshi',
     description: 'This is a styled box without an image.',
     customStyle: "bg-[#35a9db]  text-white p-2 grid items-center text-center rounded-bl-2xl border-2 border-black rounded-tr-2xl",
   },

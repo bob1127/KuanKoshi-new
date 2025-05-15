@@ -46,7 +46,7 @@ export default function LayoutContent({ children }: { children: ReactNode }) {
             <div className="w-full md:w-[55%] flex flex-col">
               <div className="flex flex-row items-center">
                 <h2 className="font-extrabold text-[2.2rem] md:text-[4rem] text-nowrap mr-3">
-                  Yi Yuan
+                  KuanKoshi
                 </h2>
                 <TextGenerateEffect words="宜園建設" />
               </div>

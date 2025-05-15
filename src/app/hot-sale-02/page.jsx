@@ -279,7 +279,7 @@ export default function About() {
                     className="pr-4  flex justify-start items-center     pl-[1.5px] pt-[1.2px] group-hover:w-[560px]  "
                   >
                     <div className="text-white rounded-full  w-[9vmin] h-[9vmin] bg-[#5b8b5a] inline-flex  flex-col justify-center items-center hover:bg-[#487447]">
-                      <span>Yi Yuan</span>
+                      <span>KuanKoshi</span>
                     </div>
                     <span className="text-[1.1rem] ml-4 group-hover:block group-hover:opacity-100   duration-300 delay-150 hidden opacity-0 font-normal tracking-widest">
                       實在的構築 - 宜園大院

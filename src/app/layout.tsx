@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import "./globals.css";
 import "yakuhanjp";
+import Link from "next/link";
 import { ViewTransitions } from "next-view-transitions";
 import Menu from "../components/Menu/Menu";
 import Footer from "../components/Footer/Footer1";
@@ -58,7 +59,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en">
         <body>
           {/* ✅ LINE 按鈕區塊加上動畫效果 */}
-          <motion.div className="line-contact-bar fixed bottom-10 right-5 z-[999999999]">
+          <motion.div className="line-contact-bar fixed  sm:hidden bottom-10 right-5 z-[999999999]">
             <div>
               {(["blur"] as BackdropType[]).map((b) => (
                 <Button

@@ -34,25 +34,25 @@ export default function Content() {
       {/* <Marquee className="mb-12">
         <div className="flex justify-center items-center">
           <b className="text-[4.3vmin] mr-3 font-normal text-gray-50">
-            YI YUAN BUILDING DESIGN
+            KuanKoshi BUILDING DESIGN
           </b>
           <b className="text-[5.3vmin] mr-3 font-normal text-gray-50">
-            YI YUAN BUILDING DESIGN
+            KuanKoshi BUILDING DESIGN
           </b>
           <b className="text-[4.3vmin] mr-3 font-normal text-gray-50">
-            YI YUAN BUILDING DESIGN
+            KuanKoshi BUILDING DESIGN
           </b>
           <b className="text-[4.3vmin] mr-3 font-normal text-gray-50">
-            YI YUAN BUILDING DESIGN
+            KuanKoshi BUILDING DESIGN
           </b>
           <b className="text-[4.3vmin] mr-3 font-normal text-gray-50">
-            YI YUAN BUILDING DESIGN
+            KuanKoshi BUILDING DESIGN
           </b>
           <b className="text-[4.3vmin] mr-3 font-normal text-gray-50">
-            YI YUAN BUILDING DESIGN
+            KuanKoshi BUILDING DESIGN
           </b>
           <b className="text-[4.3vmin] mr-3 font-normal text-gray-50">
-            YI YUAN BUILDING DESIGN
+            KuanKoshi BUILDING DESIGN
           </b>
         </div>
       </Marquee> */}

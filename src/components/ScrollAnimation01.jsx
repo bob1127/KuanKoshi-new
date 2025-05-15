@@ -184,7 +184,7 @@ export default function ScrollAnimationComponent() {
 
       <section className="hero w-full h-[100svh] p-10 pt-16 flex flex-col justify-between">
         <h1 className="relative -left-[0.05em] uppercase font-medium text-[20vw] tracking-[-0.04em] leading-none">
-          Yi Yuan
+          KuanKoshi
         </h1>
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-[40% w-full] px-10">
@@ -274,7 +274,7 @@ export default function ScrollAnimationComponent() {
           </div>
           <div className="video-title">
             <p className="text-[78px] text-gray-800 font-medium relative">
-              PROJECT-YI YUAN
+              PROJECT-KuanKoshi
             </p>
             <p className="text-[78px] text-gray-800 font-medium relative">
               2023 - 2024

@@ -92,15 +92,14 @@ export default function FullInquiryForm() {
       >
         <Input
           isRequired
-          type="email"
-          label="Email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="輸入您的 Email"
+          type="tel"
+          label="聯絡電話"
+          name="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="輸入您的電話"
           className="w-full"
         />
-
         <Input
           type="text"
           label="聯絡姓名"
@@ -110,15 +109,13 @@ export default function FullInquiryForm() {
           placeholder="輸入您的姓名"
           className="w-full"
         />
-
         <Input
-          isRequired
-          type="tel"
-          label="聯絡電話"
-          name="phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="輸入您的電話"
+          type="email"
+          label="Email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="輸入您的 Email"
           className="w-full"
         />
 
