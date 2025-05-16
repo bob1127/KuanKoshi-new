@@ -159,14 +159,6 @@ const ProjectPage = async ({ params }) => {
                       {post.acf?.date || ""}
                     </span>
                   </div>
-                  <div className="border-t-1 py-4 px-1 flex justify-between items-start border-gray-400">
-                    <b className="text-[.9rem] font-normal text-white">
-                      特色：
-                    </b>
-                    <span className="text-[.85rem] w-3/4 text-white font-normal">
-                      {post.acf?.feature || ""}
-                    </span>
-                  </div>
                 </div>
               </div>
 

@@ -179,7 +179,7 @@ export default function About() {
                 className="w-full"
               >
                 <Image
-                  src="https://store-palette.com/assets/img/common/layout/spesial_banner_1-pc.png"
+                  src="/images/map.png"
                   alt="map-section"
                   width={1000}
                   height={600}
