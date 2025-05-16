@@ -59,7 +59,9 @@ const Card = () => {
             <li className=" border-b-[.5px] border-gray-400 py-3">
               <div className="flex justify-between">
                 <b className="text-[.85rem]">公司基地 </b>
-                <span className="text-[.8rem]">台中市西屯區，台灣</span>
+                <span className="text-[.8rem]">
+                  台中市西屯區市政北二路282號21樓-9
+                </span>
               </div>
             </li>
 

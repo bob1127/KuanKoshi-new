@@ -101,8 +101,17 @@ export default function FullInquiryForm() {
           className="w-full"
         />
         <Input
+          type="tel"
+          label="Line ID"
+          name="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="輸入您的Line ID"
+          className="w-full"
+        />
+        <Input
           type="text"
-          label="聯絡姓名"
+          label="聯絡人"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
