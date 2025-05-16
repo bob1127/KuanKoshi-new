@@ -1156,173 +1156,176 @@ const Photos = () => {
               </div>
             </div> */}
               <section className=" w-full mt-4">
-                <span className="text-white text-[1.4rem] mb-2">NEWS</span>
+                <span className="text-white text-[1.4rem] mb-2">PROJECT</span>
                 <div className="flex  mx-auto   lg:w-full  w-full flex-wrap flex-row">
-                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                    <div className="img   mx-auto  sm:group-hover:h-[40vh] delay-75 duration-500  h-auto md:h-[33vh]  overflow-hidden">
-                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                        <div className="image-container relative w-full h-full">
-                          <Image
-                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/02/AD-Awards_2024_list.jpg?fit=1280%2C1280&quality=85&strip=all&ssl=1"
-                            alt="About Image 1"
-                            fill
-                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
-                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                          />
-                          xs
+                  <AnimatedLink href="http://localhost:3000/project?cat=special-offers">
+                    <div className=" w-[90%] md:w-[240px] 2xl:w-[340px]  group ">
+                      <div className="img   mx-auto  sm:group-hover:h-[40vh] delay-75 duration-500  h-auto md:h-[33vh]  overflow-hidden">
+                        <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                          <div className="image-container relative w-full h-full">
+                            <Image
+                              src="/images/7caded2d-785f-4ccd-aa41-2c98678ca2fb.png"
+                              alt="About Image 1"
+                              fill
+                              className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                            />
+                            xs
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col px-3 py-4">
-                      <div className="inline-block pb-4">
-                        <button
-                          role="link"
-                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
-                        >
+                      <div className="flex flex-col px-3 py-4">
+                        <div className="inline-block pb-4">
                           <button
                             role="link"
-                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                           >
-                            <b className="text-[.9rem] font-bold text-white">
-                              {" "}
-                              「A&D Awards 2024」受賞
-                            </b>
+                            <button
+                              role="link"
+                              class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            >
+                              <b className="text-[.9rem] font-bold text-white">
+                                {" "}
+                                優惠方案案例
+                              </b>
+                            </button>
                           </button>
-                        </button>
+                        </div>
+                        <span className="text-[.75rem] text-gray-100">
+                          實際案例分享，透明預算內打造風格空間，兼顧設計感與實用性。
+                        </span>
+                        <span className="text-[.75rem] text-gray-100">
+                          Taichung - 西屯
+                        </span>
                       </div>
-                      <span className="text-[.75rem] text-gray-100">
-                        太陽印刷製造 InnoValley
-                        在最佳工作場所類別中獲得了最高獎項。
-                      </span>
-                      <span className="text-[.75rem] text-gray-100">
-                        Taichung - 2025.03.23
-                      </span>
                     </div>
-                  </div>
-
-                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                    <div className="img   mx-auto    h-auto md:h-[36vh] sm:group-hover:h-[44vh] delay-75 duration-500 overflow-hidden">
-                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                        <div className="image-container relative w-full h-full">
-                          <Image
-                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/01/08cda1286e0f3c4616fbf38cf569aa71.jpg?fit=1920%2C1152&quality=85&strip=all&ssl=1"
-                            alt="About Image 1"
-                            fill
-                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
-                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                          />
-                          xs
+                  </AnimatedLink>
+                  <AnimatedLink href="/about">
+                    <div className=" w-[90%] md:w-[240px] 2xl:w-[340px]  group ">
+                      <div className="img   mx-auto    h-auto md:h-[36vh] sm:group-hover:h-[44vh] delay-75 duration-500 overflow-hidden">
+                        <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                          <div className="image-container relative w-full h-full">
+                            <Image
+                              src="/images/taiwan.webp"
+                              alt="About Image 1"
+                              fill
+                              className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                            />
+                            xs
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col px-3 py-4">
-                      <div className="inline-block pb-4">
-                        <button
-                          role="link"
-                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
-                        >
+                      <div className="flex flex-col px-3 py-4">
+                        <div className="inline-block pb-4">
                           <button
                             role="link"
-                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                           >
-                            <b className="text-[.9rem] font-bold text-white">
-                              {" "}
-                              「A&D Awards 2024」受賞
-                            </b>
+                            <button
+                              role="link"
+                              class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            >
+                              <b className="text-[.9rem] font-bold text-white">
+                                {" "}
+                                設計理念
+                              </b>
+                            </button>
                           </button>
-                        </button>
+                        </div>
+                        <span className="text-[.75rem] text-gray-100">
+                          從生活出發，融合美感與機能，打造屬於你的舒適空間。
+                        </span>
+                        <span className="text-[.75rem] text-gray-100">
+                          Taichung - 西屯
+                        </span>
                       </div>
-                      <span className="text-[.75rem] text-gray-100">
-                        太陽印刷製造 InnoValley
-                        在最佳工作場所類別中獲得了最高獎項。
-                      </span>
-                      <span className="text-[.75rem] text-gray-100">
-                        Taichung - 2025.03.23
-                      </span>
                     </div>
-                  </div>
-                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                    <div className="img   mx-auto    h-auto md:h-[26vh] sm:group-hover:h-[33vh] delay-75 duration-500 overflow-hidden">
-                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                        <div className="image-container relative w-full h-full">
-                          <Image
-                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/10/2024_tjda-site_open_top_s.jpg?fit=1920%2C1046&quality=85&strip=all&ssl=1"
-                            alt="About Image 1"
-                            fill
-                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
-                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                          />
-                          xs
+                  </AnimatedLink>
+                  <AnimatedLink href="https://www.kuankoshi.com/project?cat=renovation-restoration">
+                    <div className=" w-[90%] md:w-[240px] 2xl:w-[340px]  group ">
+                      <div className="img   mx-auto    h-auto md:h-[26vh] sm:group-hover:h-[33vh] delay-75 duration-500 overflow-hidden">
+                        <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                          <div className="image-container relative w-full h-full">
+                            <Image
+                              src="/images/a26ae4a7-fba6-4e16-b07f-1839b0add281.png"
+                              alt="About Image 1"
+                              fill
+                              className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                            />
+                            xs
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col px-3 py-4">
-                      <div className="inline-block pb-4">
-                        <button
-                          role="link"
-                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
-                        >
+                      <div className="flex flex-col px-3 py-4">
+                        <div className="inline-block pb-4">
                           <button
                             role="link"
-                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                           >
-                            <b className="text-[.9rem] font-bold text-white">
-                              {" "}
-                              「A&D Awards 2024」受賞
-                            </b>
+                            <button
+                              role="link"
+                              class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            >
+                              <b className="text-[.9rem] font-bold text-white">
+                                {" "}
+                                老屋/舊屋翻新
+                              </b>
+                            </button>
                           </button>
-                        </button>
+                        </div>
+                        <span className="text-[.75rem] text-gray-100">
+                          結構重塑與格局優化，讓舊屋重獲新生，呈現嶄新生活樣貌。
+                        </span>
+                        <span className="text-[.75rem] text-gray-100">
+                          Taichung - 西屯
+                        </span>
                       </div>
-                      <span className="text-[.75rem] text-gray-100">
-                        太陽印刷製造 InnoValley
-                        在最佳工作場所類別中獲得了最高獎項。
-                      </span>
-                      <span className="text-[.75rem] text-gray-100">
-                        Taichung - 2025.03.23
-                      </span>
                     </div>
-                  </div>
-                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
-                    <div className="img   mx-auto    h-auto md:h-[30vh] sm:group-hover:h-[35vh] delay-75 duration-500 overflow-hidden">
-                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
-                        <div className="image-container relative w-full h-full">
-                          <Image
-                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/11/ELLE-DECOR_2412_PCichiran.jpg?fit=1920%2C1280&quality=85&strip=all&ssl=1"
-                            alt="About Image 1"
-                            fill
-                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
-                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                          />
-                          xs
+                  </AnimatedLink>
+                  <AnimatedLink href="/ServiceProcess">
+                    <div className=" w-[90%] md:w-[240px] 2xl:w-[340px]  group ">
+                      <div className="img   mx-auto    h-auto md:h-[30vh] sm:group-hover:h-[35vh] delay-75 duration-500 overflow-hidden">
+                        <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                          <div className="image-container relative w-full h-full">
+                            <Image
+                              src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/11/ELLE-DECOR_2412_PCichiran.jpg?fit=1920%2C1280&quality=85&strip=all&ssl=1"
+                              alt="About Image 1"
+                              fill
+                              className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                            />
+                            xs
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col px-3 py-4">
-                      <div className="inline-block pb-4">
-                        <button
-                          role="link"
-                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
-                        >
+                      <div className="flex flex-col px-3 py-4">
+                        <div className="inline-block pb-4">
                           <button
                             role="link"
-                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
                           >
-                            <b className="text-[.9rem] font-bold text-white">
-                              {" "}
-                              「A&D Awards 2024」受賞
-                            </b>
+                            <button
+                              role="link"
+                              class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                            >
+                              <b className="text-[.9rem] font-bold text-white">
+                                {" "}
+                                服務設計流程
+                              </b>
+                            </button>
                           </button>
-                        </button>
+                        </div>
+                        <span className="text-[.75rem] text-gray-100">
+                          從初談、丈量到完工，全流程專業陪伴，確保每一步都安心。
+                        </span>
+                        <span className="text-[.75rem] text-gray-100">
+                          Taichung - 西屯
+                        </span>
                       </div>
-                      <span className="text-[.75rem] text-gray-100">
-                        太陽印刷製造 InnoValley
-                        在最佳工作場所類別中獲得了最高獎項。
-                      </span>
-                      <span className="text-[.75rem] text-gray-100">
-                        Taichung - 2025.03.23
-                      </span>
                     </div>
-                  </div>
+                  </AnimatedLink>
                 </div>
               </section>
             </div>

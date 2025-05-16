@@ -43,30 +43,116 @@ const QaClient = () => {
       {/* <section className="section_hero">
         <HeroSlider />
       </section> */}
-      <section>
+      {/* <section>
         <div>
           <ScrollAnimate />
         </div>
-      </section>
+      </section> */}
       {/* 輪播區 */}
       <section className="section-padding">
         <Swiper />
       </section>
+      {/* 問答展開區 */}
+      <section className="question-section py-12 flex justify-end">
+        <div className="bg-[#E1E3D9] flex flex-col md:flex-row w-[90%] max-w-[1920px] rounded-tl-[40px] rounded-bl-[40px] overflow-hidden">
+          {/* QA 左邊 */}
+          <div className="w-full max-w-[1400px] mx-auto md:w-[85%] p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-normal mb-8">常見問題</h2>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem
+                value="item-1"
+                title={
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center gap-2">
+                      <span>預算與報價相關</span>
+                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
+                        QA
+                      </div>
+                    </div>
+                  </div>
+                }
+              >
+                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
+                  <p>裝潢費用怎麼計算？</p>
+                  <p>
+                    依坪數、設計內容與材料等條件評估，一般每坪價格約落在 3 萬至
+                    6 萬元，實際需依需求報價。
+                  </p>
+                  <p>有提供免費估價服務嗎？</p>
+                  <p>
+                    我們提供初步免費線上預估，正式丈量與規劃後會提供詳細報價單與時間表。
+                  </p>
+                  <p>設計費包含施工嗎？</p>
+                  <p>
+                    設計與施工可以分開報價，也可選擇整合方案，我們可依您需求彈性搭配。
+                  </p>
+                </div>
+              </AccordionItem>
 
+              {/* 第二題 */}
+              <AccordionItem
+                value="item-2"
+                title={
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center gap-2">
+                      <span>風格選擇與溝通</span>
+                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
+                        QA
+                      </div>
+                    </div>
+                  </div>
+                }
+              >
+                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
+                  <p>我不知道自己喜歡什麼風格，怎麼辦？</p>
+                  <p>
+                    我們會透過風格圖卡、空間提問與喜好分析，協助您找到最合適的空間樣貌。
+                  </p>
+                  <p>設計風格會跟我提供的圖片一樣嗎？</p>
+                  <p>
+                    我們會以圖片作為參考，並依實際空間比例、預算與建材，進行符合您需求的客製化設計。
+                  </p>
+                </div>
+              </AccordionItem>
+
+              {/* 第三題 */}
+              <AccordionItem
+                value="item-3"
+                title={
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center gap-2">
+                      <span>施工與工期問題</span>
+                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
+                        QA
+                      </div>
+                    </div>
+                  </div>
+                }
+              >
+                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
+                  <p>整體裝修會需要多久？</p>
+                  <p>
+                    一般小坪數住家（15~25坪）從施工到完工約需
+                    2～2.5個月，視工程內容與配合度調整。
+                  </p>
+                  <p>施工會不會有粉塵、噪音？如何管理？</p>
+                  <p>
+                    會有，但我們會加裝粉塵布、指定施工時間、使用靜音工具，並派駐現場監工控管品質。
+                  </p>
+                </div>
+              </AccordionItem>
+            </Accordion>
+          </div>
+
+          {/* 圖片右邊 */}
+        </div>
+      </section>
       {/* 動畫區 */}
 
       {/* 室內設計問題 區 */}
       <section className="section-qa section-padding flex flex-col items-center justify-center">
-        <div className="w-[90%] max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-center ">
-          {/* 左邊字：標籤 */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-start">
-            <span className="text-[1rem] md:text-[1.2rem] text-gray-800 rotate-0 md:rotate-90">
-              LIFE - DESIGN
-            </span>
-          </div>
-
-          {/* 右邊主標 + 說明 */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
+        <div className="w-[90%] max-w-[1920px] mx-auto  ">
+          <div className="w-full  flex flex-col ">
             <h2 className="text-[6vw] md:text-[2.4rem] leading-snug text-gray-900 font-normal">
               瞭解更多室內設計
               <br />
@@ -80,7 +166,7 @@ const QaClient = () => {
         </div>
 
         {/* QA 卡片區塊 */}
-        <div className="flex flex-col md:flex-row gap-6 mt-12 items-center justify-center w-full max-w-[1280px] px-4">
+        <div className="flex flex-col md:flex-row gap-6 mt-12 items-start justify-start w-[90%] max-w-[1920px] px-4">
           {[
             {
               title1: "設計階段有哪些？",
@@ -221,102 +307,6 @@ const QaClient = () => {
               ))}
             </div> */}
           </div>
-        </div>
-      </section>
-
-      {/* 問答展開區 */}
-      <section className="question-section py-12 flex justify-end">
-        <div className="bg-[#E1E3D9] flex flex-col md:flex-row w-[90%] max-w-[1920px] rounded-tl-[40px] rounded-bl-[40px] overflow-hidden">
-          {/* QA 左邊 */}
-          <div className="w-full max-w-[1400px] mx-auto md:w-[85%] p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-normal mb-8">常見問題</h2>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem
-                value="item-1"
-                title={
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-2">
-                      <span>預算與報價相關</span>
-                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
-                        QA
-                      </div>
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
-                  <p>裝潢費用怎麼計算？</p>
-                  <p>
-                    依坪數、設計內容與材料等條件評估，一般每坪價格約落在 3 萬至
-                    6 萬元，實際需依需求報價。
-                  </p>
-                  <p>有提供免費估價服務嗎？</p>
-                  <p>
-                    我們提供初步免費線上預估，正式丈量與規劃後會提供詳細報價單與時間表。
-                  </p>
-                  <p>設計費包含施工嗎？</p>
-                  <p>
-                    設計與施工可以分開報價，也可選擇整合方案，我們可依您需求彈性搭配。
-                  </p>
-                </div>
-              </AccordionItem>
-
-              {/* 第二題 */}
-              <AccordionItem
-                value="item-2"
-                title={
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-2">
-                      <span>風格選擇與溝通</span>
-                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
-                        QA
-                      </div>
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
-                  <p>我不知道自己喜歡什麼風格，怎麼辦？</p>
-                  <p>
-                    我們會透過風格圖卡、空間提問與喜好分析，協助您找到最合適的空間樣貌。
-                  </p>
-                  <p>設計風格會跟我提供的圖片一樣嗎？</p>
-                  <p>
-                    我們會以圖片作為參考，並依實際空間比例、預算與建材，進行符合您需求的客製化設計。
-                  </p>
-                </div>
-              </AccordionItem>
-
-              {/* 第三題 */}
-              <AccordionItem
-                value="item-3"
-                title={
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-2">
-                      <span>施工與工期問題</span>
-                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
-                        QA
-                      </div>
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
-                  <p>整體裝修會需要多久？</p>
-                  <p>
-                    一般小坪數住家（15~25坪）從施工到完工約需
-                    1.5～2個月，視工程內容與配合度調整。
-                  </p>
-                  <p>施工會不會有粉塵、噪音？如何管理？</p>
-                  <p>
-                    會有，但我們會加裝粉塵布、指定施工時間、使用靜音工具，並派駐現場監工控管品質。
-                  </p>
-                </div>
-              </AccordionItem>
-            </Accordion>
-          </div>
-
-          {/* 圖片右邊 */}
         </div>
       </section>
     </>

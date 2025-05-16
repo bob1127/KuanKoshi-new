@@ -61,7 +61,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
         <div className="flex mr-4">
           <Link
             className="hidden sm:block"
-            href="https://www.instagram.com/kk0927886699"
+            href="https://line.me/ti/p/5vNeu3b_5f"
             target="_blank"
           >
             <svg

@@ -36,7 +36,7 @@ const Card = () => {
             <li className=" border-b-[.5px] border-gray-400 py-3">
               <div className="flex justify-between">
                 <b className="text-[.85rem]">業界資歷</b>
-                <span className="text-[.8rem]">20年</span>
+                <span className="text-[.8rem]">30年</span>
               </div>
             </li>
             <li className=" border-b-[.5px] border-gray-400 py-3">
