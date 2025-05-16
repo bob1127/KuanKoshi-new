@@ -351,8 +351,8 @@ export default function About() {
                 <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/4] sm:aspect-[3/4] lg:aspect-[1920/1080] max-h-[650px] overflow-hidden">
                   <div className="m-2 ">
                     <Compare
-                      firstImage="/images/建築老屋/舊屋翻新/005-85D71E0D910C.jpg"
-                      secondImage="/images/建築老屋/舊屋翻新/004-AB3C5203321B.jpg"
+                      firstImage="/images/舊屋翻新before.webp"
+                      secondImage="/images/舊屋翻新after.webp"
                       firstImageClassName="object-cover "
                       secondImageClassname="object-cover "
                       className="h-[250px] w-full md:h-[500px] lg:h-[600px]"

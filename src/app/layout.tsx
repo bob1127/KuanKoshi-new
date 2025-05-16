@@ -63,6 +63,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <motion.div className="line-contact-bar fixed  sm:hidden bottom-10 right-5 z-[999999999]">
             <div className="flex flex-col justify-center items-center">
               <div>
+                <Link target="_blank" href="https://www.100.com.tw/11283">
+                  <div className="bg-black py-1 px-2 rounded-[8px] text-white flex justify-center text-[.8rem] font-bold items-center">
+                    100
+                  </div>
+                </Link>
+              </div>
+              <div className="mt-3">
                 <Link
                   target="_blank"
                   href="https://www.facebook.com/profile.php?id=61550958051323"
