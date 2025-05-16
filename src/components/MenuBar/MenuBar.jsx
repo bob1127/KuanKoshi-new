@@ -29,7 +29,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
             loading="eager"
             width={50}
             height={50}
-            className="w-[40px] md:w-[70px] h-auto"
+            className="w-[65px] h-auto"
           />
           <span className="ml-2 !textblack text-base md:text-lg">寬越設計</span>
         </AnimatedLink>
@@ -106,7 +106,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
             />
           </Link>
         </div>
-        <div className="ml-8 mr-5">
+        <div className="ml-8 mr-0">
           <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
       </div>
