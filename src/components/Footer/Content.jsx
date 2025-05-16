@@ -126,7 +126,7 @@ const Nav = () => {
         </AnimatedLink>
         <AnimatedLink href="/qa">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
-            客戶提問
+            裝修Q&A
           </p>
         </AnimatedLink>
         <AnimatedLink href="/news">

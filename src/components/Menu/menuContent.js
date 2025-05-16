@@ -3,7 +3,7 @@ export const links = [
   { label: "• 空間案例", path: "/project", subtext: "過往案例" },
   { label: "• 聯繫我們", path: "/contact", subtext: "洽談合作" },
   { label: "• 服務流程", path: "/ServiceProcess", subtext: "了解更多" },
-  { label: "• 客戶提問", path: "/qa", subtext: "QA" },
+  { label: "• 裝修Q&A", path: "/qa", subtext: "QA" },
    { label: "• 設計誌", path: "/news", subtext: "最新消息" },
 ];
 

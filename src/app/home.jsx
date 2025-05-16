@@ -175,19 +175,19 @@ export default function About() {
               <div className="flex  flex-col  w-full   justify-center  mx-auto items-cente items-center  mt-4">
                 <div className="flex flex-col mb-5 justify-center items-center  px-4 sm:px-8">
                   <GsapText
-                    text="從小資日常到質感夢想宅"
+                    text="小資首購裝修首選第一品牌"
                     id="headline"
                     className="text-[5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] leading-snug font-medium text-white text-center"
                   />
 
                   <h2 className="font-normal  text-[20px]">
-                    不論空間大小與預算高低，我們為每一個家打造剛剛好的設計日常
+                    50-100萬裝修專案量身訂做
                   </h2>
 
-                  <span className=" leading-loose font--normal max-w-3xl text-base sm:text-md text-center text-gray-800 ">
+                  {/* <span className=" leading-loose font--normal max-w-3xl text-base sm:text-md text-center text-gray-800 ">
                     寬越設計從 50
                     萬小資方案到千萬豪宅規劃皆具經驗，無論是小坪數輕裝潢，或全室訂製系統與高端設計，我們都能為每個預算量身打造舒適、實用且富有美感的生活空間。
-                  </span>
+                  </span> */}
                 </div>
 
                 <div className="w-[90%] md:w-full mx-auto">

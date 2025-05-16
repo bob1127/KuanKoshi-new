@@ -201,10 +201,10 @@ export const Timeline = () => {
 
   return (
     <div
-      className="w-full pt-[160px] dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full  dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+      {/* <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <div className="title flex justify-center flex-col items-center mx-auto w-[85%] sm:w-full">
           <TextGenerateEffect words="服務流程" />
           <p
@@ -215,7 +215,7 @@ export const Timeline = () => {
             感謝您對本建案的支持與關注！為了讓您即時掌握最新的施工進度，我們將定期更新工程狀況，確保施工品質與安全，敬請安心期待您的理想家園。
           </p>
         </div>
-      </div>
+      </div> */}
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (

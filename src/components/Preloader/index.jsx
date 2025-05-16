@@ -315,10 +315,10 @@ export default function Home() {
           </div>
 
           <div className="divider"></div>
-          {/* 
+
           <div className="spinner-container">
             <div className="spinner"></div>
-          </div> */}
+          </div>
 
           <div className="counter">
             <div className="count">

@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 // import "./photos.css";
+import Marquee from "react-fast-marquee";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
 import GsapText from "../../components/RevealText/index";
@@ -180,7 +181,7 @@ const Photos = () => {
           </section>
         </section>
 
-        <section className="flex py-[140px] bg-[#375E77]">
+        <section className="flex py-[140px] bg-custom-gradient">
           <div className="w-[30%]  flex items-center justify-end">
             <div className="card-text flex flex-col justify-center items-center">
               <h2 className="text-[9.5vmin] text-[#F1F1F1] rotate-[90deg] tracking-wide">
@@ -981,6 +982,640 @@ const Photos = () => {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+        <section className="w-full pt-20 bg-custom-gradient section-content">
+          <section className="mx-auto  max-w-[1920px]">
+            <div className="flex w-[80%] flex-col md:flex-row h-full justify-center items-center mx-auto">
+              <div className=" w-full md:w-1/2  pr-5 ">
+                <GsapText
+                  text="持續進化的空間設計"
+                  id="gsap-intro"
+                  fontSize="1.3rem"
+                  fontWeight="800"
+                  color="#fff"
+                  className="text-left  tracking-widest inline-block mb-0 h-auto"
+                />
+
+                <p className="text-[.85rem]   tracking-widest leading-loose text-gray-100 ">
+                  從玄關延伸至室內動線，以工業風吊燈串聯，搭配異材質元素與層次光源，
+                  <br></br>營造出個性鮮明又富有活力的居家氛圍。
+                </p>
+              </div>
+              <div className=" w-full md:w-1/2 flex mt-8 lg:mt-0  justify-center lg:justify-end items-center">
+                <div className="max-w-[580px] ">
+                  <Image
+                    src="/images/taiwan.webp"
+                    placeholder="empty"
+                    loading="lazy"
+                    alt=""
+                    width={1500}
+                    height={800}
+                    className="w-full"
+                  ></Image>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section-footer mx-auto max-w-[1920px] ">
+            <div className="mx-auto w-[80%] 2xl:w-[80%] py-20">
+              <div className="top flex justify-between flex-col sm:flex-row">
+                <h3 className="text-white text-center sm:text-left text-[1.8rem] font-bold">
+                  KuanKshi
+                </h3>
+                <AnimatedLink href="/project">
+                  <button class="group relative inline-flex text-[1rem] 2xl:text-[1.2rem] h-12 items-center justify-center  border-b-1 border-white px-6 font-medium text-neutral-100">
+                    <span>More</span>
+                    <div class="relative ml-1 h-5 w-5 overflow-hidden">
+                      <div class="absolute transition-all duration-200 sm:group-hover:-translate-y-5 sm:group-hover:translate-x-4">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                        >
+                          <path
+                            d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 -translate-x-4"
+                        >
+                          <path
+                            d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                </AnimatedLink>
+              </div>
+              {/* <div className="middle flex  flex-col lg:flex-row">
+              <div className=" w-full lg:w-[40%]">
+                <div className="grid grid-cols-2">
+                  <div className="flex py-8 flex-col">
+                    <div className="flex flex-col">
+                      <b className="text-gray-400 text-[.8rem]">新案件賞</b>
+                      <span className="text-[.8rem] text-white mt-1">
+                        新屋裝修
+                      </span>
+                      <span className="text-[.8rem] text-white mt-1">
+                        老屋翻新
+                      </span>
+                    </div>
+                    <div className="flex mt-8 flex-col">
+                      <b className="text-gray-400 text-[.8rem]">NEWS</b>
+                      <span className="text-[.8rem] text-white mt-1">
+                        寬越設計案例
+                      </span>
+                      <span className="text-[.8rem] text-white mt-1">
+                        預售屋
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex pl-8 py-8 flex-col">
+                    <div className="flex flex-col">
+                      <b className="text-gray-400 text-[.8rem]">新案件賞</b>
+                      <span className="text-[.8rem] text-white mt-1">
+                        辦公空間
+                      </span>
+                      <span className="text-[.8rem] text-white mt-1">
+                        商業空間
+                      </span>
+                    </div>
+                    <div className="flex mt-8 flex-col">
+                      <b className="text-gray-400 text-[.8rem]">NEWS</b>
+                      <span className="text-[.8rem] text-white mt-1">
+                        寬越設計案例
+                      </span>
+                      <span className="text-[.8rem] text-white mt-1">
+                        商務空間
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className=" w-full lg:w-[60%] pb-5 flex justify-start lg:justify-end">
+                <div className=" flex flex-col items-end justify-end">
+                  <div className="flex flex-row items-center">
+                    <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
+                      Public 2024 Building By
+                    </span>
+                    <span className="text-[.8rem]  text-white mt-1">
+                      寬越設計案例
+                    </span>
+                  </div>
+                  <div className="flex flex-row items-center mt-1">
+                    <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
+                      Public 2024 Building By
+                    </span>
+                    <span className="text-[.8rem]  text-white mt-1">
+                      寬越設計案例
+                    </span>
+                  </div>
+                  <div className="flex flex-row items-center mt-1">
+                    <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
+                      Public 2024 Building By
+                    </span>
+                    <span className="text-[.8rem] hover:border-b-1 border-white duration-500  text-white mt-1">
+                      寬越設計案例
+                    </span>
+                  </div>
+                  <div className="flex flex-row items-center mt-1">
+                    <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
+                      Website Sesign
+                    </span>
+                    <span className="text-[.8rem]  text-white mt-1">
+                      極客網頁設計
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bottom mt-10 sm:mt-[10vh] pb-10 border-b-1 border-[#6f6f6f]">
+              <div className="flex flex-row items-center mt-1">
+                <span className="text-[.8rem] mr-2 mt-1 text-gray-400">
+                  Website Sesign
+                </span>
+                <span className="text-[.95rem]  text-white mt-1">
+                  極客網頁設計
+                </span>
+              </div>
+            </div> */}
+              <section className=" w-full mt-4">
+                <span className="text-white text-[1.4rem] mb-2">NEWS</span>
+                <div className="flex  mx-auto   lg:w-full  w-full flex-wrap flex-row">
+                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+                    <div className="img   mx-auto  sm:group-hover:h-[40vh] delay-75 duration-500  h-auto md:h-[33vh]  overflow-hidden">
+                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                        <div className="image-container relative w-full h-full">
+                          <Image
+                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/02/AD-Awards_2024_list.jpg?fit=1280%2C1280&quality=85&strip=all&ssl=1"
+                            alt="About Image 1"
+                            fill
+                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                          xs
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col px-3 py-4">
+                      <div className="inline-block pb-4">
+                        <button
+                          role="link"
+                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                        >
+                          <button
+                            role="link"
+                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                          >
+                            <b className="text-[.9rem] font-bold text-white">
+                              {" "}
+                              「A&D Awards 2024」受賞
+                            </b>
+                          </button>
+                        </button>
+                      </div>
+                      <span className="text-[.75rem] text-gray-100">
+                        太陽印刷製造 InnoValley
+                        在最佳工作場所類別中獲得了最高獎項。
+                      </span>
+                      <span className="text-[.75rem] text-gray-100">
+                        Taichung - 2025.03.23
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+                    <div className="img   mx-auto    h-auto md:h-[36vh] sm:group-hover:h-[44vh] delay-75 duration-500 overflow-hidden">
+                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                        <div className="image-container relative w-full h-full">
+                          <Image
+                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2025/01/08cda1286e0f3c4616fbf38cf569aa71.jpg?fit=1920%2C1152&quality=85&strip=all&ssl=1"
+                            alt="About Image 1"
+                            fill
+                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                          xs
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col px-3 py-4">
+                      <div className="inline-block pb-4">
+                        <button
+                          role="link"
+                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                        >
+                          <button
+                            role="link"
+                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                          >
+                            <b className="text-[.9rem] font-bold text-white">
+                              {" "}
+                              「A&D Awards 2024」受賞
+                            </b>
+                          </button>
+                        </button>
+                      </div>
+                      <span className="text-[.75rem] text-gray-100">
+                        太陽印刷製造 InnoValley
+                        在最佳工作場所類別中獲得了最高獎項。
+                      </span>
+                      <span className="text-[.75rem] text-gray-100">
+                        Taichung - 2025.03.23
+                      </span>
+                    </div>
+                  </div>
+                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+                    <div className="img   mx-auto    h-auto md:h-[26vh] sm:group-hover:h-[33vh] delay-75 duration-500 overflow-hidden">
+                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                        <div className="image-container relative w-full h-full">
+                          <Image
+                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/10/2024_tjda-site_open_top_s.jpg?fit=1920%2C1046&quality=85&strip=all&ssl=1"
+                            alt="About Image 1"
+                            fill
+                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                          xs
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col px-3 py-4">
+                      <div className="inline-block pb-4">
+                        <button
+                          role="link"
+                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                        >
+                          <button
+                            role="link"
+                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                          >
+                            <b className="text-[.9rem] font-bold text-white">
+                              {" "}
+                              「A&D Awards 2024」受賞
+                            </b>
+                          </button>
+                        </button>
+                      </div>
+                      <span className="text-[.75rem] text-gray-100">
+                        太陽印刷製造 InnoValley
+                        在最佳工作場所類別中獲得了最高獎項。
+                      </span>
+                      <span className="text-[.75rem] text-gray-100">
+                        Taichung - 2025.03.23
+                      </span>
+                    </div>
+                  </div>
+                  <div className=" w-[90%] mx-auto md:w-[240px] 2xl:w-[340px]  group mx-1">
+                    <div className="img   mx-auto    h-auto md:h-[30vh] sm:group-hover:h-[35vh] delay-75 duration-500 overflow-hidden">
+                      <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/5] md:h-full overflow-hidden ">
+                        <div className="image-container relative w-full h-full">
+                          <Image
+                            src="https://i0.wp.com/draft.co.jp/wp-content/uploads/2024/11/ELLE-DECOR_2412_PCichiran.jpg?fit=1920%2C1280&quality=85&strip=all&ssl=1"
+                            alt="About Image 1"
+                            fill
+                            className="object-cover sm:group-hover:scale-[1.05] duration-700"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
+                          />
+                          xs
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col px-3 py-4">
+                      <div className="inline-block pb-4">
+                        <button
+                          role="link"
+                          class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                        >
+                          <button
+                            role="link"
+                            class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] sm:group-hover:after:origin-bottom-left sm:group-hover:after:scale-x-100"
+                          >
+                            <b className="text-[.9rem] font-bold text-white">
+                              {" "}
+                              「A&D Awards 2024」受賞
+                            </b>
+                          </button>
+                        </button>
+                      </div>
+                      <span className="text-[.75rem] text-gray-100">
+                        太陽印刷製造 InnoValley
+                        在最佳工作場所類別中獲得了最高獎項。
+                      </span>
+                      <span className="text-[.75rem] text-gray-100">
+                        Taichung - 2025.03.23
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+          <section className="relative ">
+            <div className="bg-white mx-auto   max-w-[1400px] pt-10 w-[90%] lg:w-[78%] flex md:flex-row flex-col justify-center items-center">
+              <div className="title w-full md:w-1/2 px-4 md:px-[9%] xl:px-[15%] h-full flex flex-col justify-between">
+                <b className="text-bold tracking-widest text-[1.4rem]">
+                  打造理想居所
+                </b>
+                <div>
+                  <b className="text-[.9rem] tracking-widest leading-loose font-normal">
+                    對於新婚小家庭或小資族，我們以聰明布局與細緻機能，讓有限空間也能兼顧舒適與收納。從溫馨客廳到未來育兒彈性規劃，寬越以專業設計，陪伴你們築起幸福起點。
+                  </b>
+                </div>
+              </div>
+              <div className=" w-full md:w-1/2 p-4 flex  justify-center items-center">
+                <Image
+                  src="/images/03-ADDＢ.webp"
+                  alt=""
+                  placeholder="empty"
+                  loading="lazy"
+                  width={800}
+                  height={800}
+                  className="w-full"
+                ></Image>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <div className="bg-white z-[99999999] py-10 bottom-section flex flex-col justify-center items-center">
+          <Marquee>
+            <div className="flex flex-row py-10 justify-center items-center">
+              <div className="h-[1px] bg-black w-[50vw]"></div>
+              <div className="flex flex-col sm:flex-row justify-center items-center">
+                <p className="text-[3rem] mx-4">NEWS</p>
+                <button class="group relative mr-3 inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950">
+                  <div class="transition duration-300 sm:group-hover:rotate-[360deg]">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-neutral-200"
+                    >
+                      <path
+                        d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <div className="h-[1px] bg-black w-[50vw]"></div>
+            </div>
+          </Marquee>
+
+          <div className="flex bg-white flex-row justify-center items-center flex-wrap">
+            <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('/images/商業空間.webp')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+              <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
+                <p className="text-[.8rem] hidden sm:block">
+                  打造吸睛又實用的品牌場域，讓空間成為說故事的第一站。
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center">
+                  <b className="text-[.8rem] mr-3 mt-4"> 商業空間</b>
+                  <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                    <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>{" "}
+                </div>
+              </div>
+            </div>
+            <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('/images/建築老屋/舊屋翻新/001南屯郭S_250330_1.webp')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+              <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
+                <p className="text-[.8rem] hidden sm:block">
+                  讓老宅重拾光彩，透過設計賦予新生命，從舊時記憶走向嶄新未來。
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center">
+                  <b className="text-[.8rem] mr-3 mt-4"> 老屋翻新重建</b>
+                  <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                    <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>{" "}
+                </div>
+              </div>
+            </div>
+            <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('/images/辦公空間.webp')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+              <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
+                <p className="text-[.8rem] hidden sm:block">
+                  設計出舒適與效率兼具的辦公場域，提升團隊氛圍與工作表現。
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center">
+                  <b className="text-[.8rem] mr-3 mt-4"> 辦公空間</b>
+                  <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                    <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>{" "}
+                </div>
+              </div>
+            </div>
+            <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('/images/住家豪宅.webp')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+              <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
+                <p className="text-[.8rem] hidden sm:block">
+                  一寸細節都為生活而設計，專屬你的質感美宅從這裡開始。
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center">
+                  <b className="text-[.8rem] mr-3 mt-4"> 住家豪宅</b>
+                  <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                    <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>{" "}
+                </div>
+              </div>
+            </div>
+            <div className="news-item overflow-hidden group  m-1 sm:m-2 bg-[url('/images/taiwan.webp')] bg-no-repeat relative bg-cover bg-center w-[170px] sm:w-[230px] lg:w-[270px] h-[230px]  sm:h-[300px] lg:h-[340px]">
+              <div className="description absolute w-full bottom-0 h-[0%] opacity-0 sm:group-hover:opacity-100 duration-500 sm:group-hover:h-[40%] flex flex-col bg-white p-3">
+                <p className="text-[.8rem] hidden sm:block">
+                  用有限預算打造無限可能，小空間也能擁有風格與機能。
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center">
+                  <b className="text-[.8rem] mr-3 mt-4"> 小資專案</b>
+                  <button class="group relative inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200">
+                    <div class="translate-x-0 transition sm:group-hover:translate-x-[300%]">
+                      <svg
+                        width="10"
+                        height="10"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="absolute -translate-x-[300%] transition sm:group-hover:translate-x-0 duration-1000">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                      >
+                        <path
+                          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ReactLenis>

@@ -13,7 +13,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
     { label: "空間案例", href: "/project" },
     { label: "聯繫我們", href: "/contact" },
     { label: "服務流程", href: "/ServiceProcess" },
-    { label: "客戶提問", href: "/qa" },
+    { label: "裝修Q&A", href: "/qa" },
     { label: "設計誌", href: "/news" },
   ];
 
