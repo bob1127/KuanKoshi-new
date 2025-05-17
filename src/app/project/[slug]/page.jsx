@@ -9,6 +9,7 @@ import HoverItem from "../../../components/HoverItem.jsx";
 import Marquee from "react-fast-marquee";
 import gsap from "gsap";
 import Link from "next/link";
+import ProjectPostContent from "../../../components/ProjectPostContent";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,7 +116,7 @@ const ProjectPage = async ({ params }) => {
           </div>
 
           <div className="w-full lg:w-[60%] order-1 lg:order-2 prose prose-neutral 2xl:px-[150px] px-4 md:px-[70px] [&_img]:my-8">
-            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+            <ProjectPostContent html={post.content.rendered} />
           </div>
 
           <div className="w-full py-10 px-5 sm:px-0 lg:py-0 sm:w-[60%] mx-auto lg:w-[25%] pr-8 flex flex-col order-2 lg:order-3">
