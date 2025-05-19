@@ -9,6 +9,8 @@ import HoverItem from "../../../components/HoverItem.jsx";
 import Marquee from "react-fast-marquee";
 import gsap from "gsap";
 import Link from "next/link";
+import Head from "next/head.js";
+import { getStructuredProjectData } from "../../../lib/getStructuredProjectData.js";
 import ProjectPostContent from "../../../components/ProjectPostContent";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -50,6 +52,8 @@ export async function generateMetadata({ params }) {
   const post = await getPost(params.slug);
   if (!post) return {};
 
+  const structuredData = getStructuredProjectData(post);
+
   return {
     title: `${post.title.rendered.replace(/<[^>]+>/g, "")}｜寬越設計`,
     description:
@@ -59,13 +63,13 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${post.title.rendered.replace(/<[^>]+>/g, "")}｜寬越設計`,
       description: post.excerpt?.rendered?.replace(/<[^>]+>/g, "").trim() || "",
-      url: `https://inf.fjg.mybluehost.me/website_61ba641a/project/${params.slug}`,
+      url: `https://kuankoshi.com/project/${params.slug}`,
       siteName: "寬越設計 Kuankoshi Design",
       images: [
         {
           url:
             post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-            "https://inf.fjg.mybluehost.me/website_61ba641a/default-og.jpg",
+            "https://kuankoshi.com/default-og.jpg",
           width: 1200,
           height: 630,
           alt: post.title.rendered.replace(/<[^>]+>/g, ""),
@@ -73,6 +77,9 @@ export async function generateMetadata({ params }) {
       ],
       locale: "zh_TW",
       type: "article",
+    },
+    other: {
+      "ld+json": JSON.stringify(structuredData),
     },
   };
 }
@@ -85,6 +92,14 @@ const ProjectPage = async ({ params }) => {
 
   return (
     <div className="py-12 w-full">
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getStructuredProjectData(post)),
+          }}
+        />
+      </Head>
       <div className="py-12 w-full">
         {/* <Head>
         <title>{post.title.rendered}｜寬越設計</title>

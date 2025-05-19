@@ -32,6 +32,7 @@
     "@tsparticles/slim": "^3.8.1",
     "aos": "^2.3.4",
     "canvas-confetti": "^1.9.3",
+    "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
