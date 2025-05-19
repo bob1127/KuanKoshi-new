@@ -434,8 +434,8 @@ export default function About() {
           <section className="section-padding border-t border-gray-300 w-full">
             <div className="flex justify-between items-center px-4 md:px-8 pb-8">
               <div className="flex items-center gap-2">
-                <b className="text-lg ">Featured</b>
-                <span className="text-lg ">Project</span>
+                <b className="text-lg font-mode">Featured</b>
+                <span className="text-lg font-mode">Project</span>
               </div>
               <AnimatedLink href="project">
                 <b className="text-lg font-mode">看更多案例</b>
