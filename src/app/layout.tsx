@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import "./globals.css";
 import "yakuhanjp";
+import { metadata } from "./metadata"; // 放在 layout.tsx 頂部
+
 import AnimatedLink from "../components/AnimatedLink";
 import Link from "next/link";
 import { ViewTransitions } from "next-view-transitions";
