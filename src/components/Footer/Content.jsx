@@ -82,13 +82,13 @@ const Section2 = () => {
 
       <div className="copy flex  flex-col lg:flex-row  border-b-1 border-white pb-4">
         <div className="flex flex-col w-full lg:w-1/2  items-start justify-start">
-          <h1 className="text-[2rem] text-gray-100 leading-[0.8] mt-10">
+          <h1 className="text-[2rem] text-gray-100 font-mode leading-[0.8] mt-10">
             Kuankoshi
           </h1>
           {/* <p className="text-[.9rem] text-gray-200 font-light">
             Copyright © 2023︎ Ait Design Inc.
           </p> */}
-          <p className="text-[.9rem] text-gray-200 font-light">
+          <p className="text-[.9rem]  text-gray-200 font-light">
             Copyright © {new Date().getFullYear()} 寬越室內設計
           </p>
         </div>
@@ -113,7 +113,7 @@ const Nav = () => {
   return (
     <div className="flex shrink-0 gap-20">
       <div className="flex flex-col gap-2">
-        <h3 className="mb-2 uppercase text-gray-200">ABOUT</h3>
+        <h3 className="mb-2 uppercase text-gray-200 font-mode">ABOUT</h3>
         <AnimatedLink href="/about">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             設計理念
@@ -136,7 +136,7 @@ const Nav = () => {
         </AnimatedLink>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="mb-2 uppercase text-gray-200">PROJECT</h3>
+        <h3 className="mb-2 uppercase text-gray-200 font-mode">PROJECT</h3>
         <AnimatedLink href="https://www.kuankoshi.com/project?cat=renovation-restoration">
           <p className="text-gray-400 font-light  text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             老屋翻新

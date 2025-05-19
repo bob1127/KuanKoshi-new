@@ -38,7 +38,7 @@ export default function SwiperCardAbout() {
             從 50 萬輕裝潢到千萬豪宅，我們都能為你量身打造理想空間
           </span>
           <div className="flex">
-            <h2 className="text-[2.5rem] md:text-[4rem] mt-4 text-[#243629] font-normal border-b border-dashed border-black w-fit">
+            <h2 className="text-[2.5rem] !font-mode md:text-[4rem] mt-4 text-[#243629] font-normal border-b border-dashed border-black w-fit">
               優惠方案
             </h2>
           </div>

@@ -31,7 +31,9 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
             height={50}
             className="w-[65px] h-auto"
           />
-          <span className="ml-2 !textblack text-base md:text-lg">寬越設計</span>
+          <span className="ml-2 font-mode !textblack text-base md:text-lg">
+            寬越設計
+          </span>
         </AnimatedLink>
       </div>
 
@@ -43,10 +45,10 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
               className={`group relative font-medium  flex items-center justify-center`}
             >
               <span className="relative inline-flex overflow-hidden">
-                <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] font-normal text-sm md:text-base group-hover:skew-y-12 !text-black  flex items-center">
+                <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] font-mode text-sm md:text-base group-hover:skew-y-12 !text-black  flex items-center">
                   {label}
                 </div>
-                <div className="absolute font-normal text-sm md:text-base translate-y-[110%] skew-y-12 transition duration-500 !text-black  group-hover:translate-y-0 group-hover:skew-y-0  flex items-center">
+                <div className="absolute font-mode text-sm md:text-base translate-y-[110%] skew-y-12 transition duration-500 !text-black  group-hover:translate-y-0 group-hover:skew-y-0  flex items-center">
                   {label}
                 </div>
               </span>

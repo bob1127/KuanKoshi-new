@@ -142,7 +142,7 @@ export default function ProjectListClient({ posts, categories }) {
 
       <div className="max-w-[1920px] w-full md:w-[85%] mt-[10vh] px-6 lg:px-0 mx-auto">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold">設計作品</h1>
+          <h1 className="text-3xl font-mode">設計作品</h1>
           <div className="flex gap-2 ml-auto">
             <div className="sm:hidden flex gap-2">
               <button onClick={() => setColumns(1)} className={`p-2 rounded-md ${columns === 1 ? "bg-gray-300" : "bg-gray-100"}`}><Grid size={18} /></button>

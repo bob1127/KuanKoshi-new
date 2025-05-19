@@ -368,13 +368,9 @@ export default function About() {
         <div className="flex max-w-[1920px] mx-auto p-20 w-[95%] flex-col">
           <div className="title  sm:w-2/3 w-full lg:w-1/2">
             <div className="text-left px-4">
-              <GsapText
-                text="[免費提供設計圖兩次修改]"
-                id="gsap-intro"
-                fontWeight="600"
-                color="#000"
-                className="text-left !text-[1.8rem]  tracking-widest inline-block mb-0 h-auto"
-              />
+              <h2 className="text-left !text-[1.8rem] font-mode tracking-widest inline-block mb-0 h-auto">
+                [免費提供設計圖兩次修改]
+              </h2>
             </div>
 
             <p className="text-[.9rem] leading-loose tracking-widest">

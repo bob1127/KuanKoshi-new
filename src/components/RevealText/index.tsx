@@ -54,14 +54,12 @@ const GsapText: React.FC<GsapTextProps> = ({
     <p
       ref={textRef}
       id={id}
-      className={`leading-tight tracking-wide ${className}`}
+      className={`leading-tight !font-mode tracking-wide ${className}`}
       style={{
         fontSize: "clamp(1.5rem, 5vw, 3rem)", // ⭐ 新增 clamp 自適應大小
-        fontWeight,
+
         color,
-        lineHeight: "1.2em",
-        textTransform: "uppercase",
-        fontFamily: "'ResourceHanRoundedCN-Heavy', sans-serif",
+
         overflow: "hidden",
       }}
     >

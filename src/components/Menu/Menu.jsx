@@ -185,11 +185,11 @@ const Menu = ({ isDarkBg }) => {
           {/* Logo */}
           <div className="flex flex-col sm:flex-row sm:mt-[100px] mt-[20px] lg:mt-[130px] items-start md:items-center mb-0 sm:mb-12 px-6 w-full justify-start">
             <div className="flex items-center">
-              <p className="text-white ml-4 text-[clamp(1.5rem,3vw,2.5rem)]">
+              <p className="text-white ml-4 font-mode text-[clamp(1.5rem,3vw,2.5rem)]">
                 Kuankoshi
               </p>
             </div>
-            <span className="text-[#d8d8d8] ml-0 mt-3 sm:mt-0 sm:ml-3 text-[clamp(0.7rem,2vw,1rem)] font-light">
+            <span className="text-[#d8d8d8] font-mormal ml-0 mt-3 sm:mt-0 sm:ml-3 text-[clamp(0.7rem,2vw,1rem)] font-light">
               讓生活，在空間裡展開
             </span>
           </div>

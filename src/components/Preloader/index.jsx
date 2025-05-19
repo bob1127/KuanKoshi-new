@@ -455,12 +455,12 @@ export default function Home() {
                   <GsapText
                     text="kuankoshi"
                     id="hero-title-1"
-                    className="block !text-white !text-[clamp(1.8rem,5vw,3rem)] font-medium leading-tight"
+                    className="block !text-white !text-[clamp(1.8rem,5vw,3rem)] !font-mode leading-tight"
                   />
                   <GsapText
                     text="Interior Design,"
                     id="hero-title-2"
-                    className="block !text-white !text-[clamp(.9rem,2vw,1.2rem)] font-light leading-tight"
+                    className="block !text-white !text-[clamp(.9rem,2vw,1.2rem)] !font-mode leading-tight"
                   />
                 </div>
 

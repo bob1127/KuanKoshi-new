@@ -169,7 +169,7 @@ export default function About() {
                 fontWeight="500"
                 color="#fff"
                 lineHeight="60px"
-                className="text-center inline-block mb-0 h-auto "
+                className="!font-mode "
               />
               <div className="news-tag mt-4 flex justify-center">
                 <div className="tag px-3 hover:bg-white hover:text-black duration-500 py-1 rounded-[20px] border border-white text-white flex justify-center items-center mx-2 text-[.8rem]">
@@ -223,7 +223,7 @@ export default function About() {
                 />
               </Link>
               <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
-                <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
+                <span className="text-[.9rem] font-bold leading-loose tracking-widest text-center sm:text-left">
                   無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫
                   <br />
                   公司位於NTC國家商貿中心大樓裡
@@ -262,7 +262,7 @@ export default function About() {
                 />
               </AnimatedLink>
               <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
-                <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
+                <span className="text-[.9rem] font-mode leading-loose tracking-widest text-center sm:text-left">
                   寬越設計擁有跨領域合作經驗，歡迎品牌、建築師、開發商與我們洽談設計、
                   <br />
                   整合施工或空間創作項目，共同完成具備深度與美感的場域作品。

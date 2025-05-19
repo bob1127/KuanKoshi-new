@@ -109,10 +109,11 @@ export default function SpecialOffers() {
             onClick={handleShowMore}
           >
             <span className="tracking-widest flex justify-center items-center text-[.9rem] group-hover:text-white duration-500">
-              <span>MORE</span> <span>▼</span>
+              <span className="font-mode">MORE</span>{" "}
+              <span className="font-mode">▼</span>
             </span>
           </div>
-          <span className="text-[1rem] text-gray-700 mt-4">
+          <span className="text-[1rem] font-mode text-gray-700 mt-4">
             {totalCount} + | 文章
           </span>
         </motion.div>

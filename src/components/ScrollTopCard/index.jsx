@@ -27,7 +27,7 @@ const Card = () => {
 
         <div className="flex flex-col w-full mx-auto md:w-[60%] mt-8 gap-6  md:gap-10">
           <div className="flex-1 leading-[1.8] tracking-[0.09em] text-gray-800  !text-[.8rem]">
-            <p>
+            <p className="">
               寬越室內設計，立足台中，專注於住宅、商空、老屋翻新等空間設計與施工整合。我們相信設計不只是風格堆疊，更是日常生活的延伸與情感的投射。
               從空間的光影比例、材質語彙到動線的敘事鋪陳，寬越擅長將業主的生活樣貌、文化習慣，轉化為獨一無二的空間語言，使家不僅僅是建築，而是一種更貼近人心的存在。
               <br />

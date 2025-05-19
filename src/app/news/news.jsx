@@ -1025,7 +1025,7 @@ const Photos = () => {
                 </h3>
                 <AnimatedLink href="/project">
                   <button class="group relative inline-flex text-[1rem] 2xl:text-[1.2rem] h-12 items-center justify-center  border-b-1 border-white px-6 font-medium text-neutral-100">
-                    <span>More</span>
+                    <span className="font-mode">More</span>
                     <div class="relative ml-1 h-5 w-5 overflow-hidden">
                       <div class="absolute transition-all duration-200 sm:group-hover:-translate-y-5 sm:group-hover:translate-x-4">
                         <svg

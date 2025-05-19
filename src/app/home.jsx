@@ -223,7 +223,7 @@ export default function About() {
                   <GsapText
                     text="小資首購裝修首選第一品牌"
                     id="headline"
-                    className="text-[5vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] leading-snug font-medium text-white text-center"
+                    className="text-[5vw] font-mode sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] leading-snug  text-white text-center"
                   />
 
                   <h2 className="font-normal  text-[20px]">
@@ -261,7 +261,7 @@ export default function About() {
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
                       <button className="relative !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
-                        <b className="text-[.9rem] font-bold"> 商業空間</b>
+                        <b className="text-[.9rem] font-mode"> 商業空間</b>
                       </button>
                     </div>
                     <span className="text-[.75rem]">Project</span>
@@ -299,10 +299,10 @@ export default function About() {
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
                       <button className="relative !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
-                        <b className="text-[.9rem] font-bold"> 辦公空間</b>
+                        <b className="text-[.9rem] font-mode"> 辦公空間</b>
                       </button>
                     </div>
-                    <span className="text-[.75rem]">瑞其科技</span>
+                    <span className="text-[.75rem]">商辦科技</span>
                     <span className="text-[.75rem]">Taichung - 西屯</span>
                   </div>
 
@@ -321,7 +321,7 @@ export default function About() {
                     <div className="image-container overflow-hidden relative w-full h-full">
                       <Image
                         src="/images/辦公空間.webp"
-                        alt="辦公空間-瑞其科技|寬越室內設計"
+                        alt="辦公空間-商辦科技|寬越室內設計"
                         fill
                         className="object-cover group-hover:scale-110 duration-2000"
                         sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
@@ -337,7 +337,7 @@ export default function About() {
                   <div className="flex flex-col pl-4 py-4">
                     <div className="inline-block pb-4">
                       <button className="relative !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
-                        <b className="text-[.9rem] font-bold"> 住家豪宅</b>
+                        <b className="text-[.9rem] font-mode"> 住家豪宅</b>
                       </button>
                     </div>
                     <span className="text-[.75rem]">Project</span>
@@ -387,7 +387,7 @@ export default function About() {
                         role="link"
                         class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
                       >
-                        <b className="text-[.9rem] font-bold"> 建築老屋</b>
+                        <b className="text-[.9rem] font-mode"> 建築老屋</b>
                       </button>
                     </button>
                   </div>
@@ -434,11 +434,11 @@ export default function About() {
           <section className="section-padding border-t border-gray-300 w-full">
             <div className="flex justify-between items-center px-4 md:px-8 pb-8">
               <div className="flex items-center gap-2">
-                <b className="text-lg font-bold">Featured</b>
-                <span className="text-lg">Project</span>
+                <b className="text-lg ">Featured</b>
+                <span className="text-lg ">Project</span>
               </div>
               <AnimatedLink href="project">
-                <b className="text-lg font-bold">看更多案例</b>
+                <b className="text-lg font-mode">看更多案例</b>
               </AnimatedLink>
             </div>
 
@@ -513,7 +513,7 @@ export default function About() {
                     {/* 文字 */}
                     <div className="flex flex-col py-4 pl-4 pr-4 bg-white w-full overflow-hidden break-words">
                       <div className="relative inline-block pb-2">
-                        <span className="relative font-bold text-base group-hover:text-black">
+                        <span className="relative font-mode text-base group-hover:text-black">
                           {item.title}
                         </span>
                         <div className="absolute bottom-0 left-0 h-[2px] w-full origin-bottom-right scale-x-0 bg-neutral-800 transition-transform duration-300 ease-[cubic-bezier(0.65,0.05,0.36,1)] group-hover:origin-bottom-left group-hover:scale-x-100"></div>

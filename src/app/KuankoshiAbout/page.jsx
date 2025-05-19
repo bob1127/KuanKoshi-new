@@ -178,7 +178,7 @@ export default function About() {
                 className="w-full max-w-[600px] group-hover:rounded-[40px] duration-700"
               />
               <div className="description mt-5 flex flex-col sm:flex-row items-center justify-between sm:pl-5 w-full">
-                <span className="text-[.9rem] leading-loose tracking-widest text-center sm:text-left">
+                <span className="text-[.9rem] font-mode leading-loose tracking-widest text-center sm:text-left">
                   無論是住宅規劃、商業提案或空間優化，歡迎與我們聯繫，
                   <br />
                   我們將以專業與誠意回應每一個期待。

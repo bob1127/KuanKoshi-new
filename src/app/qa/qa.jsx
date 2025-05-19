@@ -127,7 +127,7 @@ const QaClient = () => {
         <div className="bg-[#E1E3D9] flex flex-col md:flex-row w-[90%] max-w-[1920px] rounded-tl-[40px] rounded-bl-[40px] overflow-hidden">
           {/* QA 左邊 */}
           <div className="w-full max-w-[1400px] mx-auto md:w-[85%] p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-normal mb-8">常見問題</h2>
+            <h2 className="text-2xl md:text-3xl font-mode mb-8">常見問題</h2>
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem
                 value="item-1"
@@ -223,13 +223,13 @@ const QaClient = () => {
       <section className="section-qa section-padding flex flex-col items-center justify-center">
         <div className="w-[90%] max-w-[1920px] mx-auto  ">
           <div className="w-full  flex flex-col ">
-            <h2 className="text-[6vw] md:text-[2.4rem] leading-snug text-gray-900 font-normal">
+            <h2 className="text-[6vw] md:text-[2.4rem] leading-snug text-gray-900 font-mode">
               瞭解更多室內設計
               <br />
               相關問題
             </h2>
             <div className="line bg-black h-[1px] w-[80px] my-4"></div>
-            <p className="text-gray-800 text-sm md:text-base font-light max-w-[400px]">
+            <p className="text-gray-800 text-sm md:text-base font-mormal max-w-[400px]">
               想知道更多關於室內設計流程或者相關問題
             </p>
           </div>
@@ -277,7 +277,7 @@ const QaClient = () => {
                 <span className="text-gray-600 text-sm">- {item.tag}</span>
                 <button className="relative h-12 bg-transparent px-2 text-neutral-800 font-semibold">
                   <span className="relative inline-flex overflow-hidden">
-                    <div className="translate-y-0 text-[1.1rem] skew-y-0 transition duration-500 group-hover:-translate-y-[119%] group-hover:skew-y-12">
+                    <div className="translate-y-0 text-[1.1rem] skew-y-0 transition duration-500 group-hover:-translate-y-[119%] font-mode group-hover:skew-y-12">
                       {item.title1}
                     </div>
                     <div className="absolute text-[1.1rem] translate-y-[119%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
@@ -304,7 +304,7 @@ const QaClient = () => {
                 fontSize="20px"
                 fontWeight="500"
                 lineHeight="60px"
-                className="!text-[22px] text-gray-600"
+                className="!text-[22px] !font-mode text-gray-600"
               />
               <Character
                 className="text-sm md:text-base text-[#131313] text-left mt-4 leading-relaxed tracking-wide"
