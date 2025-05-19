@@ -6,12 +6,13 @@ module.exports = {
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,
+  autoLastmod: false, // ❌ 關閉預設 lastmod，因為你手動設定了
   transform: async (config, url) => {
     return {
-      loc: decodeURI(url), // ✅ 保持中文路徑
+      loc: decodeURI(url), // ✅ 中文路徑可讀性
       changefreq: 'daily',
       priority: 0.7,
-      lastmod: new Date().toISOString(),
+      lastmod: new Date().toISOString(), // ✅ 自訂 lastmod
     };
   },
   additionalPaths: async (config) => {
@@ -20,13 +21,11 @@ module.exports = {
     );
     const posts = await res.json();
 
-    const paths = posts.map((post) => ({
-      loc: decodeURI(`/project/${post.slug}`), // ✅ 同樣加 decodeURI
+    return posts.map((post) => ({
+      loc: decodeURI(`/project/${post.slug}`),
       changefreq: 'daily',
       priority: 0.7,
       lastmod: new Date().toISOString(),
     }));
-
-    return paths;
   },
 };

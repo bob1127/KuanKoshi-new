@@ -56,12 +56,15 @@ h6,
 p,
 span,
 div {
-  font-family: 'ModeMinAStd', 'PingFang TC', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'PingFang TC', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
   font-feature-settings: "palt";
   -webkit-font-feature-settings: "palt";
   -moz-font-feature-settings: "palt";
   -ms-font-feature-settings: "palt";
   -o-font-feature-settings: "palt";
+}
+.font-mode {
+  font-family: 'ModeMinAStd', sans-serif;
 }
 
 /* 頁面文字樣式 */
