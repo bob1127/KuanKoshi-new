@@ -10,7 +10,8 @@ import Swiper from "../../components/SwiperCarousel/SwiperCard";
 import SwiperSingle from "../../components/SwiperCarousel/SwiperCardAbout";
 import Image from "next/image";
 import { Grid2X2, Grid } from "lucide-react";
-
+import Head from "next/head";
+import { getProjectListStructuredData } from "../../lib/structuredData";
 export default function ProjectListClient({ posts, categories }) {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("cat");
@@ -102,6 +103,14 @@ export default function ProjectListClient({ posts, categories }) {
 
   return (
     <div className="pt-[10vh]">
+      <Head>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(getProjectListStructuredData(sortedPosts)),
+    }}
+  />
+</Head>
       <div className="mx-auto 2xl:w-[87%] w-[98%]">
         <div className="title w-[75%] mx-auto flex flex-col">
           <h1 className="text-[5rem] font-bold flex-col sm:flex-row flex items-center justify-between">

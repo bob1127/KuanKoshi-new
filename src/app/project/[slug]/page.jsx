@@ -9,8 +9,9 @@ import HoverItem from "../../../components/HoverItem.jsx";
 import Marquee from "react-fast-marquee";
 import gsap from "gsap";
 import Link from "next/link";
-import Head from "next/head.js";
-import { getStructuredProjectData } from "../../../lib/getStructuredProjectData.js";
+import Head from "next/head";
+
+import { getStructuredProjectData } from "../../../lib/structuredData.js";
 import ProjectPostContent from "../../../components/ProjectPostContent";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
