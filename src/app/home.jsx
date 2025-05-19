@@ -14,7 +14,7 @@ import GsapText from "../components/RevealText/index";
 import Preloader from "../components/Preloader/index";
 // import HomeSlider from "../components/HeroSliderHome/page.jsx";
 import AnimatedLink from "../components/AnimatedLink";
-import Head from "next/head";
+import Script from "next/script";
 import LogoLoader from "../components/Loderanimation.jsx";
 // import Marquee from "react-fast-marquee";
 import { Compare } from "../components/ui/compare";
@@ -159,14 +159,14 @@ export default function About() {
 
   return (
     <ReactLenis root>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(homeStructuredData),
-          }}
-        />
-      </Head>
+      <Script
+        id="home-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeStructuredData),
+        }}
+      />
       {loading ? (
         <LogoLoader onFinish={handleLogoFinish} />
       ) : (

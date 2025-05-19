@@ -1,8 +1,6 @@
 import Client from "./about";
+import Script from "next/script";
 
-// /app/photos/metadata.js
-// /app/news/metadata.js
-// /app/about/metadata.js
 export const metadata = {
   title: "關於寬越設計｜空間規劃、品牌合作與設計理念介紹",
   description:
@@ -44,6 +42,46 @@ export const metadata = {
 
 export const revalidate = 60;
 
-export default function QaPage() {
-  return <Client />;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "寬越設計 Kuankoshi Design",
+  url: "https://www.kuankoshi.com",
+  logo: "https://www.kuankoshi.com/images/logo/company-logo.png",
+  description:
+    "寬越設計專注於老屋翻新、商業空間與住宅設計，融合風格與機能，打造舒適與美感並存的空間。",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "NTC國家商貿中心",
+    addressLocality: "台中市",
+    addressRegion: "台灣",
+    postalCode: "407",
+    addressCountry: "TW",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "客戶服務",
+    availableLanguage: ["zh-TW"],
+    url: "https://www.kuankoshi.com/contact",
+  },
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61550958051323",
+    "https://www.instagram.com/kuankoshi.design",
+  ],
+};
+
+export default function AboutPage() {
+  return (
+    <>
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <Client />
+    </>
+  );
 }

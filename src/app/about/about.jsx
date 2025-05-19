@@ -14,7 +14,7 @@ import ScrollTopCard from "../../components/ScrollTopCard/index.jsx";
 import ScrollTopCard1 from "../../components/ScrollTopCard1/index.jsx";
 import ScrollTopCard2 from "../../components/ScrollTopCard2/index.jsx";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import Head from "next/head.js";
+import Script from "next/script";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
@@ -119,42 +119,44 @@ export default function About() {
 
     requestAnimationFrame(raf);
   });
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "寬越設計 Kuankoshi Design",
+    url: "https://www.kuankoshi.com",
+    logo: "https://www.kuankoshi.com/images/logo/company-logo.png",
+    description:
+      "寬越設計專注於老屋翻新、商業空間與住宅設計，融合風格與機能，打造舒適與美感並存的空間。",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "NTC國家商貿中心",
+      addressLocality: "台中市",
+      addressRegion: "台灣",
+      postalCode: "407",
+      addressCountry: "TW",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "客戶服務",
+      availableLanguage: ["zh-TW"],
+      url: "https://www.kuankoshi.com/contact",
+    },
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=61550958051323",
+      "https://www.instagram.com/kuankoshi.design",
+    ],
+  };
+
   return (
     <ReactLenis root>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "寬越設計 Kuankoshi Design",
-              url: "https://www.kuankoshi.com",
-              logo: "https://www.kuankoshi.com/images/logo/company-logo.png",
-              description:
-                "寬越設計專注於老屋翻新、商業空間與住宅設計，融合風格與機能，打造舒適與美感並存的空間。",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "NTC國家商貿中心",
-                addressLocality: "台中市",
-                addressRegion: "台灣",
-                postalCode: "407",
-                addressCountry: "TW",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "客戶服務",
-                availableLanguage: ["zh-TW"],
-                url: "https://www.kuankoshi.com/contact",
-              },
-              sameAs: [
-                "https://www.facebook.com/profile.php?id=61550958051323",
-                "https://www.instagram.com/kuankoshi.design",
-              ],
-            }),
-          }}
-        />
-      </Head>
+      <Script
+        id="structured-data-about"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className="">
         <section className=" border w-[100%] mx-auto section-news 2xl:aspect-[1920/800] aspect-[500/500] md:aspect-[1024/576]   lg:aspect-[1920/768]  relative overflow-hidden">
           <div className="mask bg-[#000] absolute opacity-25 w-full h-full top-0 left-0 z-30"></div>
