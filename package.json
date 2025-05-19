@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap && node ping-sitemap.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -43,6 +44,7 @@
     "marquee": "^0.2.1",
     "motion": "^12.6.3",
     "next": "^14.2.24",
+    "next-sitemap": "^4.2.3",
     "next-view-transitions": "^0.3.4",
     "nodemailer": "^7.0.0",
     "qss": "^3.0.0",
