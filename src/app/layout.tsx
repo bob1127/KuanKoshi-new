@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import "./globals.css";
 import "yakuhanjp";
-import { metadata } from "./metadata"; // 放在 layout.tsx 頂部
+import Head from "next/head";
 
 import AnimatedLink from "../components/AnimatedLink";
 import Link from "next/link";
@@ -61,22 +61,28 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
   return (
     <ViewTransitions>
-      <head>
-        {/* ✅ Google Tag Manager (head) */}
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PVLBC57F');
-          `,
-          }}
+      <Head>
+        <title>寬越設計｜商業空間與住宅設計</title>
+        <meta
+          name="description"
+          content="寬越設計專注於舊屋翻新、住宅裝修與商業空間的室內設計整合服務。"
         />
-      </head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Script
+        id="gtm-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PVLBC57F');
+    `,
+        }}
+      />
       <html lang="en">
         <body>
           <noscript>

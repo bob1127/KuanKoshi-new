@@ -1,6 +1,9 @@
+/* Tailwind base setup */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hero 動畫 */
 @layer utilities {
   @keyframes heroFadeIn {
     0% {
@@ -14,64 +17,35 @@
       opacity: 1;
     }
   }
-
   .animate-heroFadeIn {
     animation: heroFadeIn 2.5s ease-out 1s forwards;
   }
 }
+
+/* 文字區塊圖片設定 */
 @layer base {
   .prose img {
-    margin-top: 2rem; /* 上間距 */
-    margin-bottom: 2rem; /* 下間距 */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
+
+/* Section padding */
 @layer utilities {
   .section-padding {
     @apply py-[30px] sm:py-[50px] md:py-[70px] lg:py-[90px] xl:py-[100px];
   }
 }
 
-/* 定義蘋方字體 */
+/* ✅ 新增 ModeMinAStd 字體定義 */
 @font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Regular'),
-    local('PingFang TC'),
-    local('PingFang SC Regular'),
-    local('PingFang SC');
+  font-family: 'ModeMinAStd';
+  src: url('/fonts/ModeMinAStd-B.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Medium'),
-    local('PingFang SC Medium');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Semibold'),
-    local('PingFang SC Semibold');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'PingFang TC';
-  src: local('PingFang TC Bold'),
-    local('PingFang SC Bold');
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* 自定義文字 */
-body {
-  @apply bg-[var(--main-beige-color)]
-}
-
-/* 應用 YakuHan JP 和蘋方字體 */
+/* ✅ 直接套用到全站文字 */
 body,
 h1,
 h2,
@@ -82,14 +56,15 @@ h6,
 p,
 span,
 div {
+  font-family: 'ModeMinAStd', 'PingFang TC', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
   font-feature-settings: "palt";
   -webkit-font-feature-settings: "palt";
   -moz-font-feature-settings: "palt";
   -ms-font-feature-settings: "palt";
   -o-font-feature-settings: "palt";
-  font-family: 'PingFang TC', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* 頁面文字樣式 */
 h1 {
   @apply text-[3rem] font-semibold text-gray-800 mt-4 mb-6;
 }
@@ -104,16 +79,14 @@ p {
   color: var(--dark-light-gray);
 }
 
+/* 主題變數 */
 :root {
-  /* 標題和內文顏色 */
   --font-deep-black: #1b1b1b;
   --font-deep-gray: #1f1f1f;
   --dark-light-gray: #3a3a3a;
-  /* 主題色和輔助色 */
   --main-green-color: #333;
   --main-beige-color: #f5f1ec;
 
-  /* 第三方插件顏色 */
   --white-gradient: repeating-linear-gradient(100deg,
       var(--white) 0%,
       var(--white) 7%,
@@ -137,39 +110,34 @@ p {
   --background-end-rgb: 255, 255, 255;
 }
 
+/* 捲動動畫 */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-100%);
   }
 }
-
 .animate-scroll {
   animation: scroll var(--animation-duration) linear infinite;
 }
 
-/* 支援 mask-image */
+/* 支援遮罩效果 */
 @layer utilities {
   .mask-radial {
     mask-image: radial-gradient(ellipse at 20% 0%, black 10%, transparent 30%);
   }
 }
 
+/* 基本樣式 */
 body {
+  @apply bg-[var(--main-beige-color)];
   transition-property: opacity, transform, filter, background;
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-end-rgb));
-  font-feature-settings: "palt";
-  -webkit-font-feature-settings: "palt";
-  -moz-font-feature-settings: "palt";
-  -ms-font-feature-settings: "palt";
-  -o-font-feature-settings: "palt";
-  font-feature-settings: "palt";
 }
 
 .page-transition {
