@@ -5,6 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "inf.fjg.mybluehost.me",
+        pathname: "/website_61ba641a/wp-content/uploads/**", // 👈 加上正確的圖片路徑
       },
     ],
   },
