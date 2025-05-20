@@ -125,12 +125,7 @@ const ProjectPage = async ({ params }) => {
       }
     },
   };
-  const ProjectPostContent = dynamic(
-    () => import("../../../components/ProjectPostContent.tsx"),
-    {
-      ssr: false,
-    }
-  );
+
   return (
     <div className="py-12 w-full">
       <Head>

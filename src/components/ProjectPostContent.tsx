@@ -6,30 +6,14 @@ import Image from "next/image";
 
 export default function ProjectPostContent({ html }: { html: string }) {
   const [popupImg, setPopupImg] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const container = document.querySelector(".post-content");
-    if (!container) return;
-
-    const images = container.querySelectorAll("img");
-
-    const handleClick = (e: Event) => {
-      const target = e.currentTarget as HTMLImageElement;
-      setPopupImg(target.getAttribute("src"));
-    };
-
-    images.forEach((img) => {
-      img.style.cursor = "zoom-in";
-      img.removeEventListener("click", handleClick);
-      img.addEventListener("click", handleClick);
-    });
-
-    return () => {
-      images.forEach((img) => {
-        img.removeEventListener("click", handleClick);
-      });
-    };
-  }, [html]); // 🔁 popupImg 改為 html，避免重複 re-render 造成 reload
+    if (typeof window !== "undefined") {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+    }
+  }, []);
 
   const content = parse(html, {
     replace: (domNode: any) => {
@@ -46,9 +30,10 @@ export default function ProjectPostContent({ html }: { html: string }) {
         return (
           <div
             style={{
-              aspectRatio: "4 / 3",
               position: "relative",
+              aspectRatio: "4 / 3",
               width: "100%",
+              maxWidth: "1000px",
               margin: "1rem auto",
             }}
           >
@@ -56,9 +41,12 @@ export default function ProjectPostContent({ html }: { html: string }) {
               src={originalSrc}
               alt={alt}
               fill
-              quality={5}
-              sizes="(max-width: 768px) 100vw, 60vw"
-              style={{ objectFit: "cover", cursor: "zoom-in" }}
+              quality={isMobile ? 20 : 75} // 手機壓得重，桌機保留畫質
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+              style={{
+                objectFit: "cover",
+                cursor: "zoom-in",
+              }}
               onClick={() => setPopupImg(originalSrc)}
             />
           </div>
