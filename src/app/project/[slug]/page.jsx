@@ -26,10 +26,9 @@ async function getPost(slug) {
 
   if (!post) return null;
 
-  post.content.rendered = post.content.rendered.replace(
-    /(<img[^>]+src="[^"]*?)(-\d{2,4}x\d{2,4})(\.[a-z]{3,4}")/g,
-    "$1$3"
-  );
+  post.content.rendered = post.content.rendered
+    .replace(/<body[^>]*>/, "")
+    .replace(/<\/body>/, "");
 
   return post;
 }
@@ -90,6 +89,42 @@ const ProjectPage = async ({ params }) => {
   if (!post) return notFound();
 
   const { prev, next } = await getRandomAdjacentPosts(params.slug);
+
+  const options = {
+    replace: (domNode) => {
+      if (domNode.name === "img" && domNode.attribs?.src) {
+        const { src, alt = "" } = domNode.attribs;
+
+        const matched = src.match(/(.*?)(-\d+x\d+)?(\.(webp|jpg|jpeg|png))/i);
+        if (!matched) return;
+
+        const baseUrl = matched[1];
+        const ext = matched[3];
+
+        const newSrc = isMobile
+          ? `${baseUrl}-768x512${ext}`
+          : `${baseUrl}${ext}`;
+
+        return (
+          <Image
+            src={newSrc}
+            alt={alt}
+            width={isMobile ? 768 : 1024}
+            height={isMobile ? 512 : 600}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              margin: "0 auto",
+            }}
+            loading="lazy"
+            decoding="async"
+          />
+        );
+      }
+    },
+  };
 
   return (
     <div className="py-12 w-full">

@@ -20,7 +20,7 @@ export const metadata = {
     "空間風格規劃",
   ],
   icons: {
-    icon: "/images/logo/company-logo.ico",
+    icon: "/images/favicon.ico",
   },
   openGraph: {
     type: "website",
@@ -32,7 +32,7 @@ export const metadata = {
       "寬越設計專注於從 50 萬小資預算到千萬豪宅空間的全案設計，融合風格美學與生活機能，為您打造最適合的居家與商業場域。",
     images: [
       {
-        url: "https://www.kuankoshi.com/images/舊屋翻新/004-AB3C5203321B.jpg",
+        url: "https://www.kuankoshi.com/images/OpenGraph-img02.jpg",
         width: 1200,
         height: 630,
         alt: "寬越設計室內空間封面",
@@ -59,7 +59,7 @@ const homeStructuredData = {
     url: "https://www.kuankoshi.com/",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.kuankoshi.com/images/logo/company-logo.svg",
+      url: "https://www.kuankoshi.com/images/favicon.ico",
     },
   },
   mainEntity: [

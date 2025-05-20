@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import parse from "html-react-parser";
+import Image from "next/image";
 
 export default function ProjectPostContent({ html }: { html: string }) {
   const [popupImg, setPopupImg] = useState<string | null>(null);
 
-  // 每次 popup 關閉或 html 更新都重新掛載 click 事件
   useEffect(() => {
     const container = document.querySelector(".post-content");
     if (!container) return;
@@ -19,7 +20,7 @@ export default function ProjectPostContent({ html }: { html: string }) {
 
     images.forEach((img) => {
       img.style.cursor = "zoom-in";
-      img.removeEventListener("click", handleClick); // 確保不重複綁
+      img.removeEventListener("click", handleClick);
       img.addEventListener("click", handleClick);
     });
 
@@ -28,14 +29,45 @@ export default function ProjectPostContent({ html }: { html: string }) {
         img.removeEventListener("click", handleClick);
       });
     };
-  }, [html, popupImg]); // 👈 重點：popup 關閉時也重新觸發
+  }, [html, popupImg]);
+
+  const content = parse(html, {
+    replace: (domNode: any) => {
+      if (domNode.name === "img" && domNode.attribs?.src) {
+        const { src, alt = "" } = domNode.attribs;
+
+        const match = src.match(/(.*?)(-\d+x\d+)?(\.(webp|jpg|jpeg|png))/i);
+        if (!match) return;
+
+        const baseUrl = match[1];
+        const ext = match[3];
+        const originalSrc = `${baseUrl}${ext}`;
+
+        return (
+          <div style={{ margin: "1rem auto", width: "100%" }}>
+            <Image
+              src={originalSrc}
+              alt={alt}
+              width={800}
+              height={600}
+              quality={30} // 強制壓縮
+              sizes="(max-width: 768px) 100vw, 60vw"
+              style={{
+                width: "100%",
+                height: "auto",
+                cursor: "zoom-in",
+              }}
+              onClick={() => setPopupImg(originalSrc)}
+            />
+          </div>
+        );
+      }
+    },
+  });
 
   return (
     <>
-      <div
-        className="post-content"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <div className="post-content">{content}</div>
 
       {popupImg && (
         <div
@@ -46,7 +78,7 @@ export default function ProjectPostContent({ html }: { html: string }) {
             <img
               src={popupImg}
               alt="popup"
-              className="w-full h-auto max-h-[90vh]  2xl:max-h-[95vh] object-contain rounded shadow-2xl"
+              className="w-full h-auto max-h-[90vh] 2xl:max-h-[95vh] object-contain rounded shadow-2xl"
             />
             <button
               className="absolute top-3 right-3 text-white text-3xl font-bold"
