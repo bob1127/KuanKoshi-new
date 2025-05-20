@@ -84,7 +84,23 @@ const homeStructuredData = {
   ],
 };
 
-export default function Page() {
+export default async function Page() {
+  const res = await fetch(
+    "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=100&_embed",
+    { next: { revalidate: 60 } } // 👈 App Router 寫法
+  );
+  const data = await res.json();
+
+  const filtered = data.filter((post) =>
+    post._embedded["wp:term"][0]?.some((cat) => cat.slug === "special-offers")
+  );
+
+  filtered.sort((a, b) => {
+    const numA = parseInt(a.title.rendered.match(/^\d+/)?.[0] || "0", 10);
+    const numB = parseInt(b.title.rendered.match(/^\d+/)?.[0] || "0", 10);
+    return numA - numB;
+  });
+
   return (
     <>
       <Script
@@ -95,7 +111,7 @@ export default function Page() {
           __html: JSON.stringify(homeStructuredData),
         }}
       />
-      <Client />
+      <Client specialPosts={filtered} /> {/* 👈 傳資料給 client component */}
     </>
   );
 }

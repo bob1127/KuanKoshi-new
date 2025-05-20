@@ -13,9 +13,7 @@ const config: Config = {
 
   theme: {
   	extend: {
-      fontFamily: {
-      mode: ['ModeMinAStd', 'sans-serif'],
-    },
+      
       transitionDuration: {
         2000: '2000ms', // 加入 2000 毫秒
         3000: '3000ms',

@@ -27,7 +27,7 @@ export default function Content() {
   return (
     <div
       id="dark-section"
-      className="pb-2  pt-20 sm:pt-[300px] md:pt-[360px] xl:pt-[380px] 2xl:pt-[350px] bg-[url('/images/hero-img/footer03.png')] bg-left bg-no-repeat bg-cover py-8 2xl:px-[200px] lg:px-[150px] px-[40px] h-full  w-full flex flex-col justify-center"
+      className="pb-2  pt-20 sm:pt-[300px] md:pt-[360px] xl:pt-[380px] 2xl:pt-[350px] bg-[url('/images/hero-img/footer03.webp')] bg-left bg-no-repeat bg-cover py-8 2xl:px-[200px] lg:px-[150px] px-[40px] h-full  w-full flex flex-col justify-center"
     >
       <Section2 />
       <div className=" md:w-1/2 max-w-[900px] flex justify-start"></div>

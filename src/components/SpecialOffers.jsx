@@ -1,37 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AnimatedLink from "../components/AnimatedLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function SpecialOffers() {
-  const [posts, setPosts] = useState([]);
+export default function SpecialOffers({ posts }) {
   const [visibleCount, setVisibleCount] = useState(12);
-  const [totalCount, setTotalCount] = useState(0);
-  useEffect(() => {
-    fetch(
-      "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=100&_embed"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        const filtered = data.filter((post) =>
-          post._embedded["wp:term"][0]?.some(
-            (cat) => cat.slug === "special-offers"
-          )
-        );
-
-        // 🔽 依照標題前三位數字排序
-        filtered.sort((a, b) => {
-          const numA = parseInt(a.title.rendered.match(/^\d+/)?.[0] || "0", 10);
-          const numB = parseInt(b.title.rendered.match(/^\d+/)?.[0] || "0", 10);
-          return numA - numB;
-        });
-
-        setPosts(filtered);
-        setTotalCount(filtered.length);
-      });
-  }, []);
+  const totalCount = posts.length;
 
   const extractFirstTwoImages = (htmlString) => {
     const matches = [...htmlString.matchAll(/<img[^>]+src="([^"]+\.webp)"/g)];

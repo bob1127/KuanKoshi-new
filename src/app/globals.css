@@ -40,9 +40,10 @@
 /* ✅ 新增 ModeMinAStd 字體定義 */
 @font-face {
   font-family: 'ModeMinAStd';
-  src: url('/fonts/ModeMinAStd-B.otf') format('opentype');
+  src: url('/fonts/modeminastd-b-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ✅ 直接套用到全站文字 */
@@ -56,12 +57,7 @@ h6,
 p,
 span,
 div {
-  font-family: 'PingFang TC', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-feature-settings: "palt";
-  -webkit-font-feature-settings: "palt";
-  -moz-font-feature-settings: "palt";
-  -ms-font-feature-settings: "palt";
-  -o-font-feature-settings: "palt";
+ 
 }
 .font-mode {
   font-family: 'ModeMinAStd', sans-serif;

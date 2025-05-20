@@ -20,7 +20,7 @@ import LogoLoader from "../components/Loderanimation.jsx";
 import { Compare } from "../components/ui/compare";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function About() {
+export default function HomeClient({ specialPosts }) {
   const imageRefs = useRef([]);
   const containerRef = useRef(null);
   const [loading, setLoading] = useState(true);
@@ -237,7 +237,7 @@ export default function About() {
                 </div>
 
                 <div className="w-[90%] md:w-full mx-auto">
-                  <SpecialOffers />
+                  <SpecialOffers posts={specialPosts} />
                 </div>
                 {/* <div className="text w-[95%] lg:w-1/2 p-8 flex flex-col justify-center items-center">
             <TextGenerateEffect words="宜居" />
