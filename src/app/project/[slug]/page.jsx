@@ -10,7 +10,7 @@ import Marquee from "react-fast-marquee";
 import gsap from "gsap";
 import Link from "next/link";
 import Head from "next/head";
-
+import dynamic from "next/dynamic";
 import { getStructuredProjectData } from "../../../lib/structuredData.js";
 import ProjectPostContent from "../../../components/ProjectPostContent";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -125,7 +125,12 @@ const ProjectPage = async ({ params }) => {
       }
     },
   };
-
+  const ProjectPostContent = dynamic(
+    () => import("../../../components/ProjectPostContent.tsx"),
+    {
+      ssr: false,
+    }
+  );
   return (
     <div className="py-12 w-full">
       <Head>
