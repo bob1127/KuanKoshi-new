@@ -29,7 +29,7 @@ export default function ProjectPostContent({ html }: { html: string }) {
         img.removeEventListener("click", handleClick);
       });
     };
-  }, [html, popupImg]);
+  }, [html]); // 🔁 popupImg 改為 html，避免重複 re-render 造成 reload
 
   const content = parse(html, {
     replace: (domNode: any) => {
@@ -44,19 +44,21 @@ export default function ProjectPostContent({ html }: { html: string }) {
         const originalSrc = `${baseUrl}${ext}`;
 
         return (
-          <div style={{ margin: "1rem auto", width: "100%" }}>
+          <div
+            style={{
+              aspectRatio: "4 / 3",
+              position: "relative",
+              width: "100%",
+              margin: "1rem auto",
+            }}
+          >
             <Image
               src={originalSrc}
               alt={alt}
-              width={800}
-              height={600}
-              quality={30} // 強制壓縮
+              fill
+              quality={5}
               sizes="(max-width: 768px) 100vw, 60vw"
-              style={{
-                width: "100%",
-                height: "auto",
-                cursor: "zoom-in",
-              }}
+              style={{ objectFit: "cover", cursor: "zoom-in" }}
               onClick={() => setPopupImg(originalSrc)}
             />
           </div>
