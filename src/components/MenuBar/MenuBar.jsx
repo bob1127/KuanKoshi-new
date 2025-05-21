@@ -21,14 +21,13 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
     <div className="menu-bar  py-0 my-0 bg-white flex items-center justify-between fixed top-0 left-0 w-full px-0 md:px-8 2xl:px-10  z-10">
       {/* Logo區 */}
       <div className="flex items-center cursor-pointer" onClick={closeMenu}>
-        <AnimatedLink href="/" className={`flex items-center `}>
+        <AnimatedLink href="/" className="flex items-center">
           <Image
-            src="/images/logo/company-logo.jpg"
+            src="/images/logo/company-logo-2.webp" // ✅ 改為 .webp 壓縮版
             alt="logo"
-            placeholder="empty"
-            loading="eager"
-            width={50}
-            height={50}
+            width={65}
+            height={65}
+            priority // ✅ 取代 loading="eager"，專為 LCP 圖片設計
             className="w-[65px] h-auto"
           />
           <span className="ml-2 font-mode !textblack text-base md:text-lg">
