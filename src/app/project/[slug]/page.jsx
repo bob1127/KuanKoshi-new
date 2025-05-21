@@ -132,7 +132,10 @@ const ProjectPage = async ({ params }) => {
           </div>
 
           <div className="w-full lg:w-[60%] order-1 lg:order-2 prose prose-neutral 2xl:px-[150px] px-4 md:px-[70px] [&_img]:my-8">
-            <ProjectPostContent html={post.content.rendered} />
+            <ProjectPostContent
+              html={post.content.rendered}
+              title={post.title.rendered.replace(/<[^>]+>/g, "")}
+            />
           </div>
 
           <div className="w-full py-10 px-5 sm:px-0 lg:py-0 sm:w-[60%] mx-auto lg:w-[25%] pr-8 flex flex-col order-2 lg:order-3">
@@ -241,7 +244,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/913新成屋透天兩層99萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/913新成屋透天兩層99萬裝潢成家專案.webp"
                   text="913新成屋透天兩層99萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -255,7 +258,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/321新成屋兩房69萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/321新成屋兩房69萬裝潢成家專案.webp"
                   text="321新成屋兩房69萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -268,7 +271,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/609新成屋三房129萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/609新成屋三房129萬裝潢成家專案.webp"
                   text="609新成屋三房129萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -281,7 +284,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/316新成屋兩房69萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/316新成屋兩房69萬裝潢成家專案.webp"
                   text="316新成屋兩房69萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -294,7 +297,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/309新成屋兩房50萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/309新成屋兩房50萬裝潢成家專案.webp"
                   text="309新成屋兩房50萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -307,7 +310,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/318新成屋兩房60萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/318新成屋兩房60萬裝潢成家專案.webp"
                   text="318新成屋兩房60萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -320,7 +323,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/609新成屋三房129萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/609新成屋三房129萬裝潢成家專案.webp"
                   text="609新成屋三房129萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -333,7 +336,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/316新成屋兩房69萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/316新成屋兩房69萬裝潢成家專案.webp"
                   text="316新成屋兩房69萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -346,7 +349,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/309新成屋兩房50萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/309新成屋兩房50萬裝潢成家專案.webp"
                   text="309新成屋兩房50萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"
@@ -359,7 +362,7 @@ const ProjectPage = async ({ params }) => {
                 target="_blank"
               >
                 <HoverItem
-                  imageUrl="/images/SocialMedia/318新成屋兩房60萬裝潢成家專案.jpg"
+                  imageUrl="/images/SocialMedia/318新成屋兩房60萬裝潢成家專案.webp"
                   text="318新成屋兩房60萬裝潢成家專案"
                   fontSize="2rem"
                   fontWeight="300"

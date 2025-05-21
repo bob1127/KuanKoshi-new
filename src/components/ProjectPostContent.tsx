@@ -2,7 +2,13 @@
 
 import { useState, useEffect } from "react";
 
-export default function ProjectPostContent({ html }: { html: string }) {
+export default function ProjectPostContent({
+  html,
+  title,
+}: {
+  html: string;
+  title: string;
+}) {
   const [popupImg, setPopupImg] = useState<string | null>(null);
 
   useEffect(() => {
@@ -10,6 +16,7 @@ export default function ProjectPostContent({ html }: { html: string }) {
     if (!container) return;
 
     const images = container.querySelectorAll("img");
+    let imgIndex = 1;
 
     const handleClick = (e: Event) => {
       const target = e.currentTarget as HTMLImageElement;
@@ -21,15 +28,18 @@ export default function ProjectPostContent({ html }: { html: string }) {
       img.removeEventListener("click", handleClick);
       img.addEventListener("click", handleClick);
 
-      // ✅ 強化基本屬性
+      // ✅ 強化屬性
       img.setAttribute("loading", "lazy");
       img.setAttribute("decoding", "async");
-
-      // ✅ 如果尚未設定寬高，就補上預估值
       if (!img.getAttribute("width")) img.setAttribute("width", "800");
       if (!img.getAttribute("height")) img.setAttribute("height", "600");
 
-      // ✅ 自動套用 srcset
+      // ✅ 補 alt：專案名稱 + 圖片順序
+      const altText = `${title} - 圖片${imgIndex}`;
+      img.setAttribute("alt", altText);
+      imgIndex++;
+
+      // ✅ 套用 srcset
       const src = img.getAttribute("src");
       if (src) {
         const match = src.match(/(.*?)(-\d+x\d+)?(\.(webp|jpg|jpeg|png))/i);
@@ -58,7 +68,7 @@ export default function ProjectPostContent({ html }: { html: string }) {
         img.removeEventListener("click", handleClick);
       });
     };
-  }, [html, popupImg]);
+  }, [html, popupImg, title]);
 
   return (
     <>
