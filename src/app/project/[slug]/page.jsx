@@ -92,7 +92,7 @@ const ProjectPage = async ({ params }) => {
   const { prev, next } = await getRandomAdjacentPosts(params.slug);
 
   return (
-    <div className="py-12 w-full">
+    <div className="py-6 w-full ">
       <Head>
         <script
           type="application/ld+json"
@@ -123,7 +123,7 @@ const ProjectPage = async ({ params }) => {
           </div>
         </section>
 
-        <section className="pb-0 md:pb-[80px] xl:pb-[150px] flex flex-col lg:flex-row pt-8 border-t-1 border-gray-300 w-full">
+        <section className="pb-0 md:pb-[80px] max-w-[1920px] mx-auto xl:pb-[150px] flex flex-col lg:flex-row pt-8 border-t-1 border-gray-300 w-full">
           {/* 手機版：內容-資訊-分類(下拉) 排序 */}
           <div className="lg:hidden block order-1">
             <Suspense fallback={<div></div>}>

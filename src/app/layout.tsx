@@ -6,16 +6,13 @@ import "./globals.css";
 import "yakuhanjp";
 import Head from "next/head";
 import LenisWrapper from "../components/LenisWrapper";
-
 import AnimatedLink from "../components/AnimatedLink";
 import Link from "next/link";
 import { ViewTransitions } from "next-view-transitions";
 import Menu from "../components/Menu/Menu";
 import Footer from "../components/Footer/Footer1";
-import Script from "next/script";
-
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Modal,
   ModalContent,
@@ -23,6 +20,9 @@ import {
   Button,
   useDisclosure,
 } from "@heroui/react";
+
+// ✅ 匯入延遲載入 GTM 元件
+import GTMDeferred from "../components/GTMDeferred";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -35,25 +35,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const isHomePage = pathname === "/";
 
   const [isDarkBg, setIsDarkBg] = useState(false);
-
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  // useEffect(() => {
-  //   const target = document.getElementById("dark-section");
-  //   if (!target) return;
-
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       setIsDarkBg(entry.isIntersecting);
-  //     },
-  //     { threshold: 0.5 }
-  //   );
-  //   observer.observe(target);
-  //   return () => observer.disconnect();
-  // }, []);
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [backdrop, setBackdrop] = useState<BackdropType>("opaque");
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpen = (backdrop: BackdropType) => {
     setBackdrop(backdrop);
@@ -71,31 +54,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
 
-      <Script
-        id="gtm-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PVLBC57F');
-    `,
-        }}
-      />
-      <html lang="en">
+      <html lang="zh-Hant">
         <body>
           <LenisWrapper enable={true}>
-            <noscript>
-              <iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-PVLBC57F"
-                height="0"
-                width="0"
-                style={{ display: "none", visibility: "hidden" }}
-              ></iframe>
-            </noscript>
-            {/* ✅ LINE 按鈕區塊加上動畫效果 */}
+            {/* ✅ 使用懶載入的 GTM 元件 */}
+            <GTMDeferred />
+
             <motion.div className="line-contact-bar fixed  sm:hidden bottom-10 right-5 z-[999999999]">
               <div className="flex flex-col justify-center items-center">
                 <div>
