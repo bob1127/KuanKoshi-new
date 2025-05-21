@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import AnimatedLink from "../AnimatedLink";
-import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input";
+// import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input";
 export default function Content() {
   // ✅ 修正卡住滾動的 bug：每次進入頁面都清除 .page-transition
   useEffect(() => {
@@ -93,11 +93,11 @@ const Section2 = () => {
           </p>
         </div>
         <div className="flex w-full lg:w-1/2 py-8 lg:py-0 justify-center sm:justify-start lg:justify-end   flex-col items-center sm:items-start lg:items-end">
-          <PlaceholdersAndVanishInput
+          {/* <PlaceholdersAndVanishInput
             placeholders={placeholders}
             onChange={handleChange}
             onSubmit={onSubmit}
-          />
+          /> */}
           ;
           <p className="text-[.9rem] text-gray-200 font-light">
             {" "}

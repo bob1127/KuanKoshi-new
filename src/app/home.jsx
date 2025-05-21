@@ -213,7 +213,7 @@ export default function HomeClient({ specialPosts }) {
               </div>
             </div>
           </section> */}
-          <section id="dark-section" className=" section-padding  !mt-8">
+          <section id="dark-section" className=" section-padding  ">
             <div
               id="dark-section"
               className="flex flex-col justify-center  w-full md:w-[90%] max-w-[1920px] mx-auto"
