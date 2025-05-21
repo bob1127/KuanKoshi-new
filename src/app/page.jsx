@@ -20,7 +20,7 @@ export const metadata = {
     "空間風格規劃",
   ],
   icons: {
-    icon: "/images/favicon.ico",
+    icon: "https://www.kuankoshi.com/images/logo/company-logo.ico",
   },
   openGraph: {
     type: "website",
@@ -59,7 +59,7 @@ const homeStructuredData = {
     url: "https://www.kuankoshi.com/",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.kuankoshi.com/images/favicon.ico",
+      url: "https://www.kuankoshi.com/images/logo/company-logo.ico",
     },
   },
   mainEntity: [

@@ -51,7 +51,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           name="description"
           content="寬越設計專注於舊屋翻新、住宅裝修與商業空間的室內設計整合服務。"
         />
-        <link rel="icon" href="/images/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://www.kuankoshi.com/images/logo/company-logo.ico"
+        />
       </Head>
 
       <html lang="zh-Hant">

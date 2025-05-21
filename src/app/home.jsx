@@ -37,7 +37,7 @@ export default function HomeClient({ specialPosts }) {
       url: "https://www.kuankoshi.com/",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.kuankoshi.com/images/favicon.ico",
+        url: "https://www.kuankoshi.com/images/logo/company-logo.ico",
       },
     },
     mainEntity: [
