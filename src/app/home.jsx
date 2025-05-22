@@ -175,7 +175,7 @@ export default function HomeClient({ specialPosts }) {
         <div className="overflow-hidden ">
           <div
             id="dark-section"
-            className="relative w-full aspect-[16/9] md:aspect-[1024/576] min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] xl:min-h-[85vh] "
+            className="relative w-full aspect-[16/9] md:aspect-[1024/576]  "
           >
             <Preloader />
           </div>

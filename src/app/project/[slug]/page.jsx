@@ -49,35 +49,53 @@ async function getRandomAdjacentPosts(currentSlug) {
   };
 }
 
+function extractFirstImageFromContent(html) {
+  const match = html.match(/<img[^>]+src="([^">]+)"/i);
+  if (!match) return null;
+  return match[1].replace(/-\d+x\d+(?=\.[a-z]{3,4}$)/, "");
+}
+
 export async function generateMetadata({ params }) {
   const post = await getPost(params.slug);
   if (!post) return {};
 
   const structuredData = getStructuredProjectData(post);
+  const imageFromContent = extractFirstImageFromContent(post.content.rendered);
+  const ogImage =
+    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    imageFromContent ||
+    "https://kuankoshi.com/default-og.jpg";
+
+  const title = `${post.title.rendered.replace(/<[^>]+>/g, "")}｜寬越設計`;
+  const description =
+    post.excerpt?.rendered?.replace(/<[^>]+>/g, "").trim() ||
+    post.title?.rendered.replace(/<[^>]+>/g, "") ||
+    "";
 
   return {
-    title: `${post.title.rendered.replace(/<[^>]+>/g, "")}｜寬越設計`,
-    description:
-      post.excerpt?.rendered?.replace(/<[^>]+>/g, "").trim() ||
-      post.title?.rendered.replace(/<[^>]+>/g, "") ||
-      "",
+    title,
+    description,
     openGraph: {
-      title: `${post.title.rendered.replace(/<[^>]+>/g, "")}｜寬越設計`,
-      description: post.excerpt?.rendered?.replace(/<[^>]+>/g, "").trim() || "",
+      title,
+      description,
       url: `https://kuankoshi.com/project/${params.slug}`,
       siteName: "寬越設計 Kuankoshi Design",
       images: [
         {
-          url:
-            post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-            "https://kuankoshi.com/default-og.jpg",
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: post.title.rendered.replace(/<[^>]+>/g, ""),
+          alt: title,
         },
       ],
       locale: "zh_TW",
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
     },
     other: {
       "ld+json": JSON.stringify(structuredData),

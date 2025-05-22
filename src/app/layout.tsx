@@ -119,7 +119,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </motion.div>
 
             {/* 導覽 */}
-            <div className="w-[100vw] z-[999999999999999] left-0 top-0 fixed">
+            <div className="w-[100vw] z-[999] left-0 top-0 fixed">
               <Menu isDarkBg={isDarkBg} />
             </div>
 

@@ -51,7 +51,7 @@ const GsapText: React.FC<GsapTextProps> = ({
   }, [text, id]);
 
   return (
-    <p
+    <h3
       ref={textRef}
       id={id}
       className={`leading-tight !font-mode tracking-wide ${className}`}
@@ -64,7 +64,7 @@ const GsapText: React.FC<GsapTextProps> = ({
       }}
     >
       {text}
-    </p>
+    </h3>
   );
 };
 

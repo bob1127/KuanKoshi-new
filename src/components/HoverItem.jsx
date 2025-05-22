@@ -25,9 +25,9 @@ function HoverItem({
       <Image
         src={imageUrl}
         alt={text}
-        fill
-        sizes="(max-width: 768px) 180px, 330px"
-        className="object-cover"
+        width={500}
+        height={800}
+        className="object-cover w-full h-full"
         loading="lazy"
       />
 
