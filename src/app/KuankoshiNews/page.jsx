@@ -123,13 +123,15 @@ export default function About() {
   // 所有圖片統一管理，順序要與文章一致
   const slides = [
     {
-      src: "/images/小資專案/469720578_122225453222031935_8767653310245579018_n.jpg",
+      src: "/images/blog/006-20250224-109.jpg",
     },
-    { src: "/images/小資專案/006-20250317寬越設計-12.jpg" },
-    { src: "/images/小資專案/001-20250317寬越設計-74.jpg" },
+    { src: "/images/blog/001-20250317-74.jpg" },
+    { src: "/images/blog/006-20250317.jpg" },
 
-    { src: "/images/小資專案/001-LINE_ALBUM_梧棲 卓r_250105_8.jpg" },
-    { src: "/images/小資專案/003-400683_0.jpg" },
+    {
+      src: "/images/blog/469720578_122225453222031935_8767653310245579018_n.jpg",
+    },
+    { src: "/images/blog/250105_8.jpg" },
   ];
 
   return (
@@ -285,7 +287,7 @@ export default function About() {
                       <br></br>
                     </div>
                     <Image
-                      src="/images/小資專案/469720578_122225453222031935_8767653310245579018_n.jpg"
+                      src="/images/blog/006-20250224-109.jpg"
                       alt=""
                       placeholder="empty"
                       loading="lazy"
@@ -385,7 +387,7 @@ export default function About() {
                       </section>
                     </div>
                     <Image
-                      src="/images/小資專案/006-20250317寬越設計-12.jpg"
+                      src="/images/blog/001-20250317-74.jpg"
                       alt=""
                       placeholder="empty"
                       loading="lazy"
@@ -503,7 +505,7 @@ export default function About() {
                     </section>
                     <div className="flex">
                       <Image
-                        src="/images/小資專案/001-20250317寬越設計-74.jpg"
+                        src="/images/blog/006-20250317.jpg"
                         alt=""
                         placeholder="empty"
                         loading="lazy"
@@ -614,7 +616,7 @@ export default function About() {
                       </div>
                     </section>
                     <Image
-                      src="/images/小資專案/001-LINE_ALBUM_梧棲 卓r_250105_8.jpg"
+                      src="/images/blog/469720578_122225453222031935_8767653310245579018_n.jpg"
                       alt=""
                       placeholder="empty"
                       loading="lazy"
@@ -624,7 +626,7 @@ export default function About() {
                       className="w-full m-3 cursor-zoom-in"
                     ></Image>
                     <Image
-                      src="/images/小資專案/003-400683_0.jpg"
+                      src="/images/blog/250105_8.jpg"
                       alt=""
                       placeholder="empty"
                       loading="lazy"
