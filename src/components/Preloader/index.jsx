@@ -30,62 +30,62 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!showLoader) return;
+  // useEffect(() => {
+  //   if (!showLoader) return;
 
-    gsap.registerPlugin(CustomEase);
-    CustomEase.create("hop", "0.9, 0, 0.1, 1");
+  //   gsap.registerPlugin(CustomEase);
+  //   CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
-    const tl = gsap.timeline({
-      delay: 0.3,
-      defaults: { ease: "hop" },
-      onComplete: () => {
-        setShowHero(true);
-        setShowLoader(false);
-      },
-    });
+  //   const tl = gsap.timeline({
+  //     delay: 0.3,
+  //     defaults: { ease: "hop" },
+  //     onComplete: () => {
+  //       setShowHero(true);
+  //       setShowLoader(false);
+  //     },
+  //   });
 
-    const counts = document.querySelectorAll(".count");
-    counts.forEach((count, index) => {
-      const digits = count.querySelectorAll(".digit h1");
-      tl.to(digits, { y: "0%", duration: 1, stagger: 0.075 }, index * 1);
-      if (index < counts.length) {
-        tl.to(
-          digits,
-          { y: "-100%", duration: 1, stagger: 0.075 },
-          index * 1 + 1
-        );
-      }
-    });
+  //   const counts = document.querySelectorAll(".count");
+  //   counts.forEach((count, index) => {
+  //     const digits = count.querySelectorAll(".digit h1");
+  //     tl.to(digits, { y: "0%", duration: 1, stagger: 0.075 }, index * 1);
+  //     if (index < counts.length) {
+  //       tl.to(
+  //         digits,
+  //         { y: "-100%", duration: 1, stagger: 0.075 },
+  //         index * 1 + 1
+  //       );
+  //     }
+  //   });
 
-    tl.to(".spinner", { opacity: 0, duration: 0.3 });
-    tl.to(".word h1", { y: "0%", duration: 1 }, "<");
-    tl.to(".divider", {
-      scaleY: "100%",
-      duration: 1,
-      onComplete: () =>
-        gsap.to(".divider", { opacity: 0, duration: 0.3, delay: 0.3 }),
-    });
-    tl.to("#word-1 h1", { y: "100%", duration: 1, delay: 0.3 });
-    tl.to("#word-2 h1", { y: "-100%", duration: 1 }, "<");
-    tl.to(
-      ".-div",
-      {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        duration: 1,
-        stagger: 0.1,
-      },
-      "<"
-    );
-  }, [showLoader]);
+  //   tl.to(".spinner", { opacity: 0, duration: 0.3 });
+  //   tl.to(".word h1", { y: "0%", duration: 1 }, "<");
+  //   tl.to(".divider", {
+  //     scaleY: "100%",
+  //     duration: 1,
+  //     onComplete: () =>
+  //       gsap.to(".divider", { opacity: 0, duration: 0.3, delay: 0.3 }),
+  //   });
+  //   tl.to("#word-1 h1", { y: "100%", duration: 1, delay: 0.3 });
+  //   tl.to("#word-2 h1", { y: "-100%", duration: 1 }, "<");
+  //   tl.to(
+  //     ".-div",
+  //     {
+  //       clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+  //       duration: 1,
+  //       stagger: 0.1,
+  //     },
+  //     "<"
+  //   );
+  // }, [showLoader]);
 
-  useEffect(() => {
-    if (!showHero) return;
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [showHero]);
+  // useEffect(() => {
+  //   if (!showHero) return;
+  //   const timer = setInterval(() => {
+  //     setCurrentIndex((prev) => (prev + 1) % backgroundImages.length);
+  //   }, 5000);
+  //   return () => clearInterval(timer);
+  // }, [showHero]);
 
   return (
     <>
