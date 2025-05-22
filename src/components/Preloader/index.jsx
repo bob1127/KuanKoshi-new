@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 import { motion } from "framer-motion";
-import GsapText from "../../components/RevealText/index";
+import GsapText from "../RevealText/index";
 
 export default function Home() {
   const [showLoader, setShowLoader] = useState(false);
@@ -50,7 +50,11 @@ export default function Home() {
       const digits = count.querySelectorAll(".digit h1");
       tl.to(digits, { y: "0%", duration: 1, stagger: 0.075 }, index * 1);
       if (index < counts.length) {
-        tl.to(digits, { y: "-100%", duration: 1, stagger: 0.075 }, index * 1 + 1);
+        tl.to(
+          digits,
+          { y: "-100%", duration: 1, stagger: 0.075 },
+          index * 1 + 1
+        );
       }
     });
 
@@ -59,15 +63,20 @@ export default function Home() {
     tl.to(".divider", {
       scaleY: "100%",
       duration: 1,
-      onComplete: () => gsap.to(".divider", { opacity: 0, duration: 0.3, delay: 0.3 }),
+      onComplete: () =>
+        gsap.to(".divider", { opacity: 0, duration: 0.3, delay: 0.3 }),
     });
     tl.to("#word-1 h1", { y: "100%", duration: 1, delay: 0.3 });
     tl.to("#word-2 h1", { y: "-100%", duration: 1 }, "<");
-    tl.to(".-div", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-      duration: 1,
-      stagger: 0.1,
-    }, "<");
+    tl.to(
+      ".-div",
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 1,
+        stagger: 0.1,
+      },
+      "<"
+    );
   }, [showLoader]);
 
   useEffect(() => {
@@ -88,7 +97,9 @@ export default function Home() {
           </div>
           <div className="intro-logo">
             <div className="word" id="word-1">
-              <h1 className="text-white"><span>寬越</span></h1>
+              <h1 className="text-white">
+                <span>寬越</span>
+              </h1>
             </div>
             <div className="word" id="word-2">
               <h1 className="text-white">設計</h1>
@@ -102,7 +113,9 @@ export default function Home() {
             {["00", "27", "65", "98", "99"].map((pair, i) => (
               <div className="count" key={i}>
                 {[...pair].map((num, j) => (
-                  <div className="digit" key={j}><h1>{num}</h1></div>
+                  <div className="digit" key={j}>
+                    <h1>{num}</h1>
+                  </div>
                 ))}
               </div>
             ))}
