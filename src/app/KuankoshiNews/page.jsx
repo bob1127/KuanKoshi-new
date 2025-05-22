@@ -293,6 +293,7 @@ export default function About() {
                       loading="lazy"
                       width={800}
                       height={1100}
+                      unoptimized
                       onClick={() => setIndex(1)} // ← 對應上面 slides[1]
                       className="w-full max-w-[1200px] cursor-zoom-in"
                     ></Image>
@@ -393,6 +394,7 @@ export default function About() {
                       loading="lazy"
                       width={800}
                       height={1100}
+                      unoptimized
                       onClick={() => setIndex(2)}
                       className="w-full mt-8 max-w-[1200px] cursor-zoom-in"
                     ></Image>
@@ -509,6 +511,7 @@ export default function About() {
                         alt=""
                         placeholder="empty"
                         loading="lazy"
+                        unoptimized
                         width={800}
                         height={1100}
                         onClick={() => setIndex(3)}
@@ -621,6 +624,7 @@ export default function About() {
                       placeholder="empty"
                       loading="lazy"
                       width={800}
+                      unoptimized
                       height={1100}
                       onClick={() => setIndex(4)}
                       className="w-full m-3 cursor-zoom-in"
@@ -630,6 +634,7 @@ export default function About() {
                       alt=""
                       placeholder="empty"
                       loading="lazy"
+                      unoptimized
                       width={800}
                       onClick={() => setIndex(5)}
                       height={1100}
