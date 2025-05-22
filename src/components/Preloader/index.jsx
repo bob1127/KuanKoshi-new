@@ -89,7 +89,7 @@ export default function Home() {
 
   return (
     <>
-      {showLoader && (
+      {/* {showLoader && (
         <div className="loader z-[9999999999] static">
           <div className="overlay">
             <div className="block-div"></div>
@@ -121,7 +121,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      )}
+      )} */}
 
       {showHero && (
         <section className="section-hero w-full aspect-[500/500] sm:aspect-[500/400]  md:aspect-[1024/768] xl:aspect-[1920/1080] 2xl:aspect-[1920/1080]  overflow-hidden relative">

@@ -63,7 +63,7 @@ export default function HomeClient({ specialPosts }) {
   };
 
   const initGSAPAnimations = useCallback(() => {
-    if (window.innerWidth < 580) return;
+    if (window.innerWidth < 0) return;
 
     const ctx = gsap.context(() => {
       const images = document.querySelectorAll(".animate-image-wrapper");
