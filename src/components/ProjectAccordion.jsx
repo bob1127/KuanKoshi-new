@@ -10,7 +10,7 @@ export default function ProjectAccordion() {
   const sections = [
     {
       title: "建築老屋",
-      subtitle: ["舊屋翻新", "Taichung - 南屯鄭宅"],
+      subtitle: ["舊屋翻新", "Taichung - 南屯李宅"],
       link: "/project?cat=renovation-restoration",
       beforeImg:
         "/images/舊屋翻新/project-01/南屯鄭宅-before_寬越室內設計.webp",
