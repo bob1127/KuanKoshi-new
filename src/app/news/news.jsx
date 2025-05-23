@@ -133,7 +133,7 @@ const Photos = () => {
               {backgroundImages.map((bg, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 1 }}
+                  initial={{ opacity: i === currentIndex ? 1 : 0, scale: 1 }}
                   animate={{
                     opacity: i === currentIndex ? 1 : 0,
                     scale: i === currentIndex ? 1.15 : 1,
@@ -142,10 +142,11 @@ const Photos = () => {
                     opacity: { duration: 1.5, ease: "easeInOut" },
                     scale: { duration: 20, ease: "linear" },
                   }}
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
                   style={{
                     backgroundImage: `url(${bg})`,
+                    zIndex: i === currentIndex ? 10 : 0,
                   }}
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 />
               ))}
             </div>
