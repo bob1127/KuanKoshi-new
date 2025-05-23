@@ -1,15 +1,51 @@
 import ProjectListClient from "./ProjectListClient";
 import { Suspense } from "react";
+import { Metadata } from "next";
+import { getProjectListStructuredData } from "../../lib/structuredData";
+
+export const metadata = {
+  title: "設計案例總覽｜寬越設計",
+  description:
+    "瀏覽寬越設計過去精選的室內設計實績案例，從老屋翻新、新成屋裝潢，到高端訂製空間，探索我們的美學與細節。",
+  keywords: [
+    "室內設計",
+    "裝潢案例",
+    "老屋翻新",
+    "新成屋裝修",
+    "商業空間設計",
+    "寬越設計",
+  ],
+  openGraph: {
+    title: "設計案例總覽｜寬越設計",
+    description: "精選室內裝潢實績，展現空間設計的美學與細節。",
+    url: "https://kuankoshi.com/project",
+    images: [
+      {
+        url: "https://www.kuankoshi.com/images/hero-img/468947784_122223976550031935_8836870033944229922_n_0.webp",
+        width: 1200,
+        height: 630,
+        alt: "寬越室內設計作品",
+      },
+    ],
+    siteName: "寬越設計 Kuankoshi",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "設計案例總覽｜寬越設計",
+    description: "從老屋翻新到新成屋裝潢，探索寬越的設計實力。",
+    images: [
+      "https://www.kuankoshi.com/images/hero-img/468947784_122223976550031935_8836870033944229922_n_0.webp",
+    ],
+  },
+};
 
 async function getProjectData() {
-  // 1. 抓全部分類
   const categoriesRes = await fetch(
     "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/categories?per_page=100",
     { next: { revalidate: 60 } }
   );
   const allCategories = await categoriesRes.json();
 
-  // 2. 篩選目標 slug
   const targetSlugs = [
     "commercial-public",
     "renovation-restoration",
@@ -20,19 +56,15 @@ async function getProjectData() {
     targetSlugs.includes(cat.slug)
   );
 
-  // 3. 抓全部文章含內嵌資料
   const postsRes = await fetch(
     "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?_embed&per_page=100",
     { next: { revalidate: 60 } }
   );
   const rawPosts = await postsRes.json();
 
-  // 4. 處理 featured image：強制使用原圖網址
   const posts = rawPosts.map((post) => {
     const featuredMedia =
       post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
-
-    // 若圖片帶有 -150x150.jpg 或 -768x512.webp 等，轉成原圖路徑
     const cleanImage = featuredMedia
       ? featuredMedia.replace(/-\d+x\d+(?=\.\w{3,4}$)/, "")
       : null;
@@ -48,12 +80,20 @@ async function getProjectData() {
 
 export default async function ProjectListPage() {
   const { posts, categories } = await getProjectData();
+  const structuredData = getProjectListStructuredData(posts);
 
   return (
-    <div>
+    <>
       <Suspense fallback={<div></div>}>
         <ProjectListClient posts={posts} categories={categories} />
       </Suspense>
-    </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+    </>
   );
 }

@@ -4,6 +4,8 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import SpecialOffers from "../components/SpecialOffers";
+import ProjectAccordion from "../components/ProjectAccordion";
+
 // import ThreedSlider from "../components/ThreeDSlider/ThreeSlider";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
@@ -375,60 +377,7 @@ export default function HomeClient({ specialPosts }) {
             <ThreeDBanner />
           </section> */}
           <section className="section-padding">
-            <div className="img group w-[98%]    ">
-              <AnimatedLink href="https://www.kuankoshi.com/project?cat=renovation-restoration">
-                <div className="flex flex-col pl-4 py-4">
-                  <div className="inline-block pb-4">
-                    <button
-                      role="link"
-                      class="relative  !inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                    >
-                      <button
-                        role="link"
-                        class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-                      >
-                        <b className="text-[.9rem] font-mode"> 建築老屋</b>
-                      </button>
-                    </button>
-                  </div>
-                  <span className="text-[.75rem]">舊屋翻新</span>
-                  <span className="text-[.75rem]">Taichung - 南屯</span>
-                </div>
-                <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/4] sm:aspect-[3/4] lg:aspect-[1920/1080] max-h-[650px] overflow-hidden">
-                  <div className="m-2 ">
-                    <Compare
-                      firstImage="/images/舊屋翻新before.webp"
-                      secondImage="/images/舊屋翻新after.webp"
-                      firstImageClassName="object-cover "
-                      secondImageClassname="object-cover "
-                      className="h-[250px] w-full md:h-[500px] lg:h-[600px]"
-                      slideMode="hover"
-                    />
-                  </div>
-                  {/* <div className="mask-up p-4 md:p-10 absolute h-0 opacity-0 group-hover:h-[30%] md:group-hover:h-[35%] group-hover:opacity-100 duration-500 z-40 bottom-0 left-0 w-full  bg-white ">
-                    <div className="txt">
-                      <b className="text-xs xl:text-normal">
-                        健身中心｜汽車旅館｜手作美學
-                      </b>
-                      <p className="xl:text-normal text-xs md:block hidden">
-                        結合品牌精神與市場洞察，量身打造具吸引力與記憶點的商業空間，助力品牌形象升級與業績成長
-                      </p>
-                    </div>
-                  </div>
-                  <div className="overlay absolute inset-0 bg-black hidden sm:block z-10"></div>
-                  <div className="image-container overflow-hidden relative w-full h-full">
-                    <Image
-                      src="/images/img01.webp"
-                      alt="About Image 1"
-                      fill
-                      className="object-cover group-hover:scale-110 duration-2000"
-                      sizes="(max-width: 768px) 90vw, (max-width: 1024px) 550px, 85vw"
-                    />
-                    xs
-                  </div> */}
-                </div>
-              </AnimatedLink>
-            </div>
+            <ProjectAccordion />
           </section>
 
           <section className="section-padding border-t border-gray-300 w-full">

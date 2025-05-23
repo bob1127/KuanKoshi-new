@@ -54,33 +54,28 @@ export default function SwiperCardAbout({ items = [] }) {
             key={index}
             className="overflow-hidden group relative duration-1000"
           >
-            <AnimatedLink href={item.href}>
-              <div className="absolute z-50 w-full h-full inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0)_0%,_rgba(0,0,0,0.7)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-in-out" />
-              <Card
-                className="border-white pb-4 w-full h-[500px] md:h-[580px] lg:h-[600px] 2xl:h-[600px] max-h-[850px] border relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
-                style={{ backgroundImage: `url(${item.image})` }}
-              >
-                <CardBody className="flex relative flex-col h-full w-full px-0">
-                  <div className="title absolute top-5 left-5 z-[999]">
-                    <span className="text-white text-[.9rem]">
-                      {item.title}
+            <Card
+              className="border-white pb-4 w-full h-[500px] md:h-[580px] lg:h-[600px] 2xl:h-[600px] max-h-[850px] border relative bg-no-repeat bg-center bg-cover shadow-none overflow-hidden transition-transform duration-1000 ease-in-out hover:scale-110"
+              style={{ backgroundImage: `url(${item.image})` }}
+            >
+              <CardBody className="flex relative flex-col h-full w-full px-0">
+                <div className="title absolute top-5 left-5 z-[999]">
+                  <span className="text-white text-[.9rem]">{item.title}</span>
+                </div>
+                <div className="title absolute bottom-5 right-5 flex z-[999]">
+                  <button className="relative h-12 rounded-full bg-transparent px-4 group-hover:text-white text-neutral-950">
+                    <span className="relative inline-flex overflow-hidden">
+                      <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
+                        View More
+                      </div>
+                      <div className="absolute translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                        View More
+                      </div>
                     </span>
-                  </div>
-                  <div className="title absolute bottom-5 right-5 flex z-[999]">
-                    <button className="relative h-12 rounded-full bg-transparent px-4 group-hover:text-white text-neutral-950">
-                      <span className="relative inline-flex overflow-hidden">
-                        <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
-                          View More
-                        </div>
-                        <div className="absolute translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
-                          View More
-                        </div>
-                      </span>
-                    </button>
-                  </div>
-                </CardBody>
-              </Card>
-            </AnimatedLink>
+                  </button>
+                </div>
+              </CardBody>
+            </Card>
           </SwiperSlide>
         ))}
       </Swiper>
