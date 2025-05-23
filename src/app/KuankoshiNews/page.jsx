@@ -249,7 +249,7 @@ export default function About() {
                     <div className="w-[100%] ">
                       <div className="top-title flex justify-start">
                         <div className=" w-full md:w-[80%] flex flex-col">
-                          <h2 className="paragraph-title font-bold text-[1.3rem] ">
+                          <h2 className="paragraph-title ">
                             室內設計預算怎麼抓才合理？
                           </h2>
                           <p className="tracking-widest content-normal">
@@ -333,7 +333,7 @@ export default function About() {
                     ></Image>
                     <div className="paragraph">
                       <section className="px-6 py-12 max-w-5xl mx-auto">
-                        <h2 className="text-3xl paragraph-title font-bold mb-6">
+                        <h2 className=" paragraph-title ">
                           室內設計預算評估指南
                         </h2>
 
@@ -430,7 +430,7 @@ export default function About() {
                       className="w-full mt-8 max-w-[1200px] cursor-zoom-in"
                     ></Image>
                     <section className="px-6 py-12 max-w-5xl mx-auto">
-                      <h2 className="text-3xl paragraph-title font-bold mb-6">
+                      <h2 className=" paragraph-title ">
                         室內裝潢預算組成：別只看設計費
                       </h2>
 
@@ -550,7 +550,7 @@ export default function About() {
                       ></Image>
                     </div>
                     <section className="px-6 py-12 max-w-4xl mx-auto">
-                      <h2 className="text-3xl paragraph-title font-bold mb-6">
+                      <h2 className=" paragraph-title ">
                         親身案例分享：如何從 100 萬預算做到高質感？
                       </h2>
 
@@ -596,7 +596,7 @@ export default function About() {
                       </div>
                     </section>
                     <section className="px-6 py-12 max-w-4xl mx-auto">
-                      <h2 className="text-3xl paragraph-title font-bold mb-6">
+                      <h2 className=" paragraph-title ">
                         2025 裝潢行情參考價（根據我們與同業統計）
                       </h2>
 

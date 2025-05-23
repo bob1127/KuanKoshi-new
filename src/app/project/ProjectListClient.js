@@ -122,7 +122,7 @@ export default function ProjectListClient({ posts, categories }) {
           <SwiperSingle items={[
             {
       title: "老屋翻新設計",
-      image: "/images/hero-img/img06.png",
+      image: "/images/hero-img/img06.webp",
     
     },
     {
@@ -222,7 +222,10 @@ export default function ProjectListClient({ posts, categories }) {
             <AnimatePresence>
               {paginatedPosts.map((post) => {
                 const rawImage = post.clean_featured_image || extractFirstGalleryImage(post.content?.rendered);
-                const previewImage = rawImage || "/images/fallback.jpg";
+     const previewImage = rawImage && rawImage.startsWith("http")
+  ? rawImage
+  : "/images/fallback.jpg";
+
 
                 return (
                   <motion.div
@@ -231,25 +234,35 @@ export default function ProjectListClient({ posts, categories }) {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{
-                      opacity: { duration: 0.4 },
-                      layout: { type: "spring", stiffness: 300, damping: 30 },
-                      scale: { type: "spring", stiffness: 300, damping: 30 },
-                    }}
+                  transition={{
+  layout: { type: "spring", stiffness: 300, damping: 30 },
+  opacity: { duration: 0.3 },
+  scale: { duration: 0.3 },
+}}
+
                   >
                     <AnimatedLink
                       href={`/project/${post.slug}`}
                       className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
                     >
-                      <div className={`${viewMode === "list" ? "w-[10%] aspect-auto" : "aspect-[4/5] w-full"} overflow-hidden rounded-md bg-gray-100`}>
-                        <Image
-                          src={previewImage}
-                          alt={post.title.rendered}
-                          width={400}
-                          height={500}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
+                      <div
+  className={`${
+    viewMode === "list"
+      ? "w-[100px] h-[120px] flex-shrink-0"
+      : "aspect-[4/5] w-full"
+  } overflow-hidden rounded-md bg-gray-100`}
+>
+  <Image
+    src={previewImage}
+    alt={post.title.rendered}
+    width={400}
+    height={500}
+    priority={false}
+    placeholder="empty"
+    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
+
                       <div className={`${viewMode === "list" ? "w-[60%]" : "w-full"}`}>
                         <h2 className="mt-2 font-bold text-sm group-hover:text-neutral-700 transition">
                           {post.title.rendered.replace(/<[^>]+>/g, "")}
