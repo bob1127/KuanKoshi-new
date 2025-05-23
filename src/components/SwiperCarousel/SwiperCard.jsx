@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Pagination, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card, CardBody } from "@nextui-org/react";
@@ -10,8 +10,24 @@ import AnimatedLink from "../AnimatedLink";
 import "swiper/css";
 import "swiper/css/pagination";
 
-export default function SwiperCardAbout({ posts = [] }) {
+export default function SwiperCardAbout() {
+  const [posts, setPosts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(1);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=20&_embed`
+        );
+        const data = await res.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-col lg:flex-row w-full m-0 p-0 items-start gap-8">
@@ -57,11 +73,13 @@ export default function SwiperCardAbout({ posts = [] }) {
       <div className="w-full lg:w-[65%] px-4 lg:px-0">
         <Swiper
           modules={[Pagination, A11y, Autoplay]}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
           loop={true}
           speed={1200}
           spaceBetween={16}
-          pagination={{ clickable: true }}
           onSlideChange={(swiper) => {
             setCurrentIndex(((swiper.realIndex ?? 0) % posts.length) + 1);
           }}
@@ -75,9 +93,12 @@ export default function SwiperCardAbout({ posts = [] }) {
           }}
           className="m-0 p-0 !overflow-visible sm:!overflow-hidden"
         >
-          {posts.map((post) => {
-            const match = post.content.rendered.match(/<img[^>]+src="([^"]+)"/);
-            const imageUrl = match ? match[1] : "/images/fallback.jpg";
+          {posts.map((post, idx) => {
+            // 嘗試從內文中擷取第一張圖
+            const match = post.content.rendered.match(
+              /<img[^>]+src=\"([^\"]+)\"/
+            );
+            const imageUrl = match ? match[1] : "";
             return (
               <SwiperSlide
                 key={post.id}
