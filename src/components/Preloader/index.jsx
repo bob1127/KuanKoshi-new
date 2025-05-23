@@ -296,7 +296,7 @@ export default function Home() {
 
   return (
     <>
-      {showLoader && (
+      {/* {showLoader && (
         <div className="loader ">
           <div className="overlay">
             <div className="preloader-block "></div>
@@ -363,7 +363,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
       <div className="container w-full max-w-[100%]">
         <div className="hero-img">
           <Image src="/hero-img.jpg" alt="KindRoot Hero Image" fill priority />

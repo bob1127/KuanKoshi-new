@@ -12,7 +12,7 @@ import Image from "next/image";
 import { Grid2X2, Grid } from "lucide-react";
 import Head from "next/head";
 import { getProjectListStructuredData } from "../../lib/structuredData";
-export default function ProjectListClient({ posts, categories }) {
+export default function ProjectListClient({ posts, categories, aboutPosts }) {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("cat");
 
@@ -135,7 +135,7 @@ export default function ProjectListClient({ posts, categories }) {
         </div>
         <section className="categories-01 mx-auto">
           <div className="w-full px-0 mx-0 overflow-hidden">
-            <Swiper />
+            <Swiper  items={aboutPosts} />
           </div>
         </section>
       </div>
