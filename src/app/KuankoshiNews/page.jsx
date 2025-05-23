@@ -35,7 +35,19 @@ gsap.registerPlugin(ScrollTrigger);
 export default function About() {
   const imageRefs = useRef([]);
   const containerRef = useRef(null);
-
+  const [sections, setSections] = useState([]);
+  useEffect(() => {
+    const titles = Array.from(document.querySelectorAll(".paragraph-title"));
+    titles.forEach((title, index) => {
+      title.id = `section-${index}`;
+    });
+    setSections(
+      titles.map((el, index) => ({
+        id: `section-${index}`,
+        text: el.innerText,
+      }))
+    );
+  }, []);
   useEffect(() => {
     const initGSAPAnimations = () => {
       const ctx = gsap.context(() => {
@@ -205,10 +217,29 @@ export default function About() {
             </div>
           </section>
           <section className=" mt-[10px] md:mt-[10vh] lg:mt-[15vh] ">
-            <div className="flex flex-col md:flex-row w-[95%] md:w-[80%]   mx-auto">
-              <div className="stick-section  justify-end relative md:flex hidden  pt-[80px] w-[5%] sm:w-[10%] lg:w-[30%] h-200vh ">
-                <div className="square sticky flex    pr-14 right-4 top-[90px] h-[100px]  ">
-                  <span>IDEA DESIGN</span>
+            <div className="flex flex-col lg:flex-row w-[95%] md:w-[80%]   mx-auto">
+              <div className="stick-section  justify-start bg-white lg:bg-transparent p-8 lg:p-0   lg:justify-end relative  flex   pt-[80px] w-full sm:w-[85%]  lg:w-[30%]  ">
+                <div className="square sticky flex  flex-col  right-4  pr-0 lg:pr-[15%] top-2 lg:top-[90px] h-auto lg:h-[100px]  ">
+                  <span className="font-bold">IDEA DESIGN</span>
+                  <ul className="space-y-2 text-sm mt-4 text-gray-700">
+                    {sections.map((section) => (
+                      <li key={section.id}>
+                        <button
+                          onClick={() => {
+                            const el = document.getElementById(section.id);
+                            if (el)
+                              el.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                              });
+                          }}
+                          className="hover:underline transition"
+                        >
+                          {section.text}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
               <div className="content-section pt-[10px] md:pt-[50px] flex justify-end w-[95%] md:w-[88%] lg:w-[70%]">
@@ -218,6 +249,9 @@ export default function About() {
                     <div className="w-[100%] ">
                       <div className="top-title flex justify-start">
                         <div className=" w-full md:w-[80%] flex flex-col">
+                          <h2 className="paragraph-title font-bold text-[1.3rem] ">
+                            室內設計預算怎麼抓才合理？
+                          </h2>
                           <p className="tracking-widest content-normal">
                             在我們諮詢案件中，近年來最多客戶提問的問題之一就是：「室內設計預算到底要抓多少？」這個問題沒有絕對的答案，但根據我們多年協助屋主規劃預算的經驗，確實能提供一個有依據、有彈性的參考方向。
                           </p>
@@ -229,7 +263,7 @@ export default function About() {
                             到我們實際協助客戶的案例，全方位帶你掌握 2025
                             室內裝修費用的真實狀況。
                           </p>
-                          <div className="flex items-center mt-10 justify-between">
+                          <div className="flex items-center mt-10 ">
                             <span className="text-[.9rem] mx-4 text-gray-700">
                               其他相關：
                             </span>
@@ -298,11 +332,8 @@ export default function About() {
                       className="w-full max-w-[1200px] cursor-zoom-in"
                     ></Image>
                     <div className="paragraph">
-                      <h2 className="title-content font-bold text-[1.3rem] ">
-                        室內設計預算怎麼抓才合理？
-                      </h2>
                       <section className="px-6 py-12 max-w-5xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-6">
+                        <h2 className="text-3xl paragraph-title font-bold mb-6">
                           室內設計預算評估指南
                         </h2>
 
@@ -399,7 +430,7 @@ export default function About() {
                       className="w-full mt-8 max-w-[1200px] cursor-zoom-in"
                     ></Image>
                     <section className="px-6 py-12 max-w-5xl mx-auto">
-                      <h2 className="text-3xl font-bold mb-6">
+                      <h2 className="text-3xl paragraph-title font-bold mb-6">
                         室內裝潢預算組成：別只看設計費
                       </h2>
 
@@ -519,7 +550,7 @@ export default function About() {
                       ></Image>
                     </div>
                     <section className="px-6 py-12 max-w-4xl mx-auto">
-                      <h2 className="text-3xl font-bold mb-6">
+                      <h2 className="text-3xl paragraph-title font-bold mb-6">
                         親身案例分享：如何從 100 萬預算做到高質感？
                       </h2>
 
@@ -565,7 +596,7 @@ export default function About() {
                       </div>
                     </section>
                     <section className="px-6 py-12 max-w-4xl mx-auto">
-                      <h2 className="text-3xl font-bold mb-6">
+                      <h2 className="text-3xl paragraph-title font-bold mb-6">
                         2025 裝潢行情參考價（根據我們與同業統計）
                       </h2>
 
@@ -645,20 +676,17 @@ export default function About() {
               </div>
             </div>
           </section>
-          <div className="flex flex-col py-5 sm:flex-row justify-center items-center gap-4 mt-6">
-            <AnimatedLink href="" className="group w-[90%] sm:w-auto mx-auto">
-              <div className="bg-white rounded-full py-4 px-8 sm:px-12 group-hover:bg-black transition duration-300 text-center">
+          <div className="flex flex-col py-5 sm:flex-row justify-center  items-center gap-4 mt-6">
+            <AnimatedLink href="" className="group ">
+              <div className="bg-white rounded-full py-5 xl:py-6 px-8 sm:px-12 group-hover:bg-black transition duration-300 text-center">
                 <span className="tracking-widest text-sm group-hover:text-white transition duration-300">
                   ← PREV
                 </span>
               </div>
             </AnimatedLink>
 
-            <AnimatedLink
-              href=""
-              className="group flex flex-col items-center w-[90%] sm:w-auto mx-auto"
-            >
-              <div className="bg-white rounded-full w-full py-10 px-8 sm:px-12 group-hover:bg-black transition duration-300 text-center">
+            <AnimatedLink href="" className="group flex flex-col items-center ">
+              <div className="bg-white rounded-full w-full  py-5 xl:py-6 px-8 sm:px-12 group-hover:bg-black transition duration-300 text-center">
                 <span className="tracking-widest text-sm group-hover:text-white transition duration-300">
                   MENU
                 </span>
@@ -666,8 +694,8 @@ export default function About() {
               <span className="text-sm text-gray-700 mt-2">30+ | 案例</span>
             </AnimatedLink>
 
-            <AnimatedLink href="" className="group w-[90%] sm:w-auto mx-auto">
-              <div className="bg-white rounded-full py-4 px-8 sm:px-12 group-hover:bg-black transition duration-300 text-center">
+            <AnimatedLink href="" className="group ">
+              <div className="bg-white rounded-full py-5 xl:py-6 px-8 sm:px-12 group-hover:bg-black transition duration-300 text-center">
                 <span className="tracking-widest text-sm group-hover:text-white transition duration-300">
                   NEXT →
                 </span>
@@ -758,9 +786,9 @@ const DummyContent = () => {
 };
 const data = [
   {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/ho4.jpg",
+    category: "各種室內設計 - 專案",
+    title: "BLOG",
+    src: "/images/小資專案/469120903_122223965966031935_3027154932930762522_n.jpg",
     content: <DummyContent />,
   },
   {
