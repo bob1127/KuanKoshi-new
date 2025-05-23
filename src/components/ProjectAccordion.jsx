@@ -95,7 +95,7 @@ export default function ProjectAccordion() {
                 transition={{ duration: 0.4, ease: [0.65, 0.05, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <div className="animate-image-wrapper mx-auto relative w-full aspect-[3/4] sm:aspect-[3/4] lg:aspect-[1920/1080] max-h-[650px] overflow-hidden">
+                <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/3] sm:aspect-[4/3] lg:aspect-[1920/1080] max-h-[650px] overflow-hidden">
                   <div className="m-2">
                     <AnimatedLink href={section.link}>
                       <Compare
