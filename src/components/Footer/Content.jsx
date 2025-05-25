@@ -62,7 +62,7 @@ const Nav = () => {
             裝修Q&A
           </p>
         </Link>
-        <Link href="/news">
+        <Link href="/blog">
           <p className="text-gray-400 font-light text-[.85rem] hover:text-gray-300 duration-500 hover:font-bold">
             設計誌
           </p>

@@ -30,7 +30,7 @@ const links = [
   },
   {
     title: "新聞中心",
-    href: "/news",
+    href: "/blog",
     src: "contact.png",
   },
 

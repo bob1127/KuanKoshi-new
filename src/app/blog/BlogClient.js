@@ -29,7 +29,7 @@ export default function BlogListClient({ posts }) {
               <div className="card border border-gray-200 group overflow-hidden rounded-[25px] hover:shadow-2xl">
                 <div className="card-title aspect-square w-full border relative overflow-hidden">
                   <div className="absolute bottom-5 right-5 z-20">
-                    <button className="relative group-hover:opacity-100 duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden font-medium text-neutral-200 border border-white rounded-full">
+                    <button className="relative group-hover:opacity-100 opacity-0  duration-500 inline-flex h-12 w-12 items-center justify-center overflow-hidden font-medium text-neutral-200 border border-white rounded-full">
                       <div className="translate-x-0 transition group-hover:translate-x-[300%]">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
                           <path d="M8.146 3.146a.5.5 0 01.708 0l4 4a.5.5 0 010 .708l-4 4a.5.5 0 01-.708-.708L11.293 8H2.5a.5.5 0 010-1h8.793L8.146 3.854a.5.5 0 010-.708z" fill="currentColor"/>
@@ -50,17 +50,22 @@ export default function BlogListClient({ posts }) {
                     <span className="text-xs font-light mt-2 text-white">閱讀更多</span>
                   </div>
 
-                  <Image
-                    src={post.previewImage || "/images/fallback.jpg"}
-                    alt={post.title.rendered}
-                    fill
-                    className="object-cover group-hover:scale-[1.16] duration-2000"
-                  />
+                <img
+  src={post.previewImage || "/images/fallback.jpg"}
+  alt={post.title.rendered.replace(/<[^>]+>/g, "")}
+  loading="lazy"
+  decoding="async"
+  className="object-cover w-full h-full absolute left-0 top-0 group-hover:scale-[1.16] duration-2000"
+/>
+
                 </div>
                 <div className="card-content bg-white p-8">
                   <div className="txt">
                     <b dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                    <p className="text-[14px] mt-4 line-clamp-3" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}></p>
+               <div className="text-[14px] mt-4 line-clamp-3">
+  {post.excerpt.rendered.replace(/<[^>]+>/g, "")}
+</div>
+
                   </div>
                 </div>
               </div>

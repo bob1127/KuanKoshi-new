@@ -4,7 +4,7 @@ export const links = [
   { label: "• 聯繫我們", path: "/contact", subtext: "洽談合作" },
   { label: "• 服務流程", path: "/ServiceProcess", subtext: "了解更多" },
   { label: "• 裝修Q&A", path: "/qa", subtext: "QA" },
-   { label: "• 設計誌", path: "/news", subtext: "最新消息" },
+   { label: "• 設計誌", path: "/blog", subtext: "最新消息" },
 ];
 
 export const socials = [
