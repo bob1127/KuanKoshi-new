@@ -203,7 +203,7 @@ const ImageDistortion = () => {
               className=""
             />
           </div>
-          <div className="size-full w-full lg:w-[35%] pl-5  items-center justify-center overflow-hidden pt-8">
+          <div className="w-full lg:w-[35%] pl-5  items-center justify-center overflow-hidden pt-8">
             <BoxReveal boxColor={"#9ea849"} duration={0.5}>
               <p className="text-[3.5rem] font-semibold">
                 Magic UI<span className="">.</span>
