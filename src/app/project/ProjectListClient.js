@@ -252,15 +252,17 @@ export default function ProjectListClient({ posts, categories }) {
       : "aspect-[4/5] w-full"
   } overflow-hidden rounded-md bg-gray-100`}
 >
-  <Image
-    src={previewImage}
-    alt={post.title.rendered}
-    width={400}
-    height={500}
-    priority={false}
-    placeholder="empty"
-    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-  />
+  <img
+  src={previewImage}
+  alt={post.title.rendered}
+  loading="lazy"
+  decoding="async"
+  width="400"
+  height="500"
+  onError={(e) => { e.target.src = "/images/fallback.jpg"; }}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
+
 </div>
 
                       <div className={`${viewMode === "list" ? "w-[60%]" : "w-full"}`}>
