@@ -9,9 +9,17 @@ export default function SpecialOffers({ posts }) {
   const [visibleCount, setVisibleCount] = useState(12);
   const totalCount = posts.length;
 
+  // 修正：解碼 HTML 中的 &amp; 與 URI 編碼
   const extractFirstTwoImages = (htmlString) => {
     const matches = [...htmlString.matchAll(/<img[^>]+src="([^"]+\.webp)"/g)];
-    return matches.slice(0, 2).map((match) => match[1]);
+    return matches.slice(0, 2).map((match) => {
+      try {
+        const cleaned = match[1].replace(/&amp;/g, "&");
+        return decodeURIComponent(cleaned);
+      } catch {
+        return match[1]; // fallback
+      }
+    });
   };
 
   const handleShowMore = () => {
