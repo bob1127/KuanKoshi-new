@@ -5,8 +5,6 @@ import AnimatedLink from "@/components/AnimatedLink";
 import { Compare } from "@/components/ui/compare";
 
 export default function ProjectAccordion() {
-  const [openIndex, setOpenIndex] = useState(0); // 預設展開第一個
-
   const sections = [
     {
       title: "建築老屋",
@@ -58,16 +56,29 @@ export default function ProjectAccordion() {
       beforeImg: "/images/舊屋翻新/project-07/S__28344502.webp",
       afterImg: "/images/舊屋翻新/project-07/S__28344501.webp",
     },
-    // 可加更多區塊
   ];
 
+  // 預設所有區塊都展開
+  const [openIndexes, setOpenIndexes] = useState(
+    sections.map((_, index) => index)
+  );
+
+  const toggleIndex = (index) => {
+    setOpenIndexes(
+      (prev) =>
+        prev.includes(index)
+          ? prev.filter((i) => i !== index) // 如果已展開 -> 收起
+          : [...prev, index] // 如果收起 -> 展開
+    );
+  };
+
   return (
-    <section className=" w-[98%] mx-auto">
+    <section className="w-[98%] mx-auto">
       {sections.map((section, index) => (
         <div key={index} className="border-b pb-4">
           {/* Accordion 標題 */}
           <button
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            onClick={() => toggleIndex(index)}
             className="w-full text-left group"
           >
             <div className="flex flex-col pl-4 py-4">
@@ -84,9 +95,9 @@ export default function ProjectAccordion() {
             </div>
           </button>
 
-          {/* 展開內容 with framer-motion */}
+          {/* 展開內容 */}
           <AnimatePresence initial={false}>
-            {openIndex === index && (
+            {openIndexes.includes(index) && (
               <motion.div
                 key="content"
                 initial={{ height: 0, opacity: 0 }}

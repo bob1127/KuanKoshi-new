@@ -36,6 +36,7 @@ export default function About() {
   const imageRefs = useRef([]);
   const containerRef = useRef(null);
   const [sections, setSections] = useState([]);
+
   useEffect(() => {
     const titles = Array.from(document.querySelectorAll(".paragraph-title"));
     titles.forEach((title, index) => {
