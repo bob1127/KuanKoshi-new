@@ -9,17 +9,9 @@ export default function SpecialOffers({ posts }) {
   const [visibleCount, setVisibleCount] = useState(12);
   const totalCount = posts.length;
 
-  // 修正：解碼 HTML 中的 &amp; 與 URI 編碼
   const extractFirstTwoImages = (htmlString) => {
     const matches = [...htmlString.matchAll(/<img[^>]+src="([^"]+\.webp)"/g)];
-    return matches.slice(0, 2).map((match) => {
-      try {
-        const cleaned = match[1].replace(/&amp;/g, "&");
-        return decodeURIComponent(cleaned);
-      } catch {
-        return match[1]; // fallback
-      }
-    });
+    return matches.slice(0, 2).map((match) => match[1]);
   };
 
   const handleShowMore = () => {
@@ -45,7 +37,7 @@ export default function SpecialOffers({ posts }) {
                 <AnimatedLink href={`/project/${post.slug}`}>
                   <div className="relative w-full h-full">
                     {img1 && (
-                      <Image
+                      <img
                         src={img1}
                         alt={post.title.rendered}
                         fill
@@ -56,7 +48,7 @@ export default function SpecialOffers({ posts }) {
                       />
                     )}
                     {img2 && (
-                      <Image
+                      <img
                         src={img2}
                         placeholder="empty"
                         loading="lazy"
