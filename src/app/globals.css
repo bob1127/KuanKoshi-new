@@ -416,6 +416,13 @@ body {
   /* 讓遮罩覆蓋影片 */
 }
 
+img.size-full {
+  width: 100%;
+  height: auto !important;
+  max-width: 100%;
+}
+
+
 .col {
   flex: 1;
 }
