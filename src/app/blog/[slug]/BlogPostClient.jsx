@@ -254,13 +254,23 @@ export default function BlogPostClient({ post }) {
     [&_td]:py-2"
                   dangerouslySetInnerHTML={{
                     __html: post.content.rendered
-                      // 表格處理
+
                       .replace(
                         /<table([^>]*)>/g,
                         '<div class="table-wrapper overflow-x-auto w-full"><table$1>'
                       )
                       .replace(/<\/table>/g, "</table></div>")
-                      // ✅ 加上 h2 字體大小自適應樣式
+
+                      .replace(
+                        /<figure class="wp-block-image size-full">/g,
+                        '<figure class="wp-block-image">'
+                      )
+
+                      .replace(
+                        /class="([^"]*?)\bsize-full\b([^"]*?)"/g,
+                        'class="$1$2"'
+                      )
+
                       .replace(
                         /<h2 class="wp-block-heading">/g,
                         '<h2 class="wp-block-heading" style="font-size:clamp(1.25rem,2.3vw,1.75rem);line-height:1.4;">'
