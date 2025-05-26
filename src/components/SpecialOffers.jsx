@@ -40,21 +40,21 @@ export default function SpecialOffers({ posts }) {
                       <img
                         src={img1}
                         alt={post.title.rendered}
-                        fill
-                        placeholder="empty"
                         loading="lazy"
-                        className="object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
+                        decoding="async"
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0"
+                        srcSet={`${img1}?w=480 480w, ${img1}?w=768 768w, ${img1}?w=1080 1080w, ${img1} 1920w`}
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     )}
                     {img2 && (
                       <img
                         src={img2}
-                        placeholder="empty"
-                        loading="lazy"
                         alt={`${post.title.rendered}-hover`}
-                        fill
-                        className="object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
+                        srcSet={`${img2}?w=480 480w, ${img2}?w=768 768w, ${img2}?w=1080 1080w, ${img2} 1920w`}
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     )}
