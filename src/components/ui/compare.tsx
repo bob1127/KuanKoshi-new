@@ -4,7 +4,6 @@ import { SparklesCore } from "./sparkles";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "../../lib/utils";
 import { IconDotsVertical } from "@tabler/icons-react";
-import Image from "next/image";
 
 interface CompareProps {
   firstImage?: string;
@@ -34,7 +33,6 @@ export const Compare = ({
   const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage);
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [isMouseOver, setIsMouseOver] = useState(false);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
   const startAutoplay = useCallback(() => {
@@ -74,9 +72,8 @@ export const Compare = ({
   return (
     <div
       ref={sliderRef}
-      className={cn("w-[400px] h-[400px] overflow-hidden", className)}
+      className={cn("w-[400px] h-[400px] overflow-hidden relative", className)}
       style={{
-        position: "relative",
         cursor: slideMode === "drag" ? "grab" : "col-resize",
       }}
       onMouseMove={(e) =>
@@ -120,36 +117,38 @@ export const Compare = ({
         </motion.div>
       </AnimatePresence>
 
-      <div className="overflow-hidden w-full h-full relative z-20 pointer-events-none">
+      {/* 上層圖片（裁切左半） */}
+      <div className="overflow-hidden w-full h-full absolute inset-0 z-20 pointer-events-none">
         {firstImage && (
           <motion.div
-            className={cn("absolute inset-0 z-20", firstImageClassName)}
+            className={cn("absolute inset-0", firstImageClassName)}
             style={{ clipPath: `inset(0 ${100 - sliderXPercent}% 0 0)` }}
             transition={{ duration: 0 }}
           >
-            <Image
-              alt="first image"
+            <img
               src={firstImage}
-              fill
-              className="object-cover"
-              priority={false}
-              quality={80}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+              alt="first image"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover"
+              width={1600}
+              height={1200}
             />
           </motion.div>
         )}
       </div>
 
+      {/* 下層圖片（整張） */}
       {secondImage && (
         <div className="absolute top-0 left-0 z-[19] w-full h-full">
-          <Image
-            alt="second image"
+          <img
             src={secondImage}
-            fill
-            className="object-cover"
-            priority={false}
-            quality={80}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+            alt="second image"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+            width={1600}
+            height={1200}
           />
         </div>
       )}
