@@ -11,14 +11,27 @@ import { cn } from "@/lib/utils";
 
 const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      if (!isMobile) setScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobile]);
+
+  const useWhiteBackground = isMobile || scrolled;
 
   const navItems = [
     { label: "設計理念", href: "/about" },
@@ -33,10 +46,10 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
     <motion.div
       className={cn(
         "menu-bar flex items-center justify-between fixed top-0 left-0 w-full z-50 border-b px-4 md:px-8 2xl:px-10 py-2",
-        scrolled ? "border-neutral-200" : "border-transparent"
+        useWhiteBackground ? "border-neutral-200" : "border-transparent"
       )}
       animate={{
-        backgroundColor: scrolled ? "#ffffff" : "rgba(0, 0, 0, 0)",
+        backgroundColor: useWhiteBackground ? "#ffffff" : "rgba(0, 0, 0, 0)",
         transition: { duration: 0.3 },
       }}
     >
@@ -55,7 +68,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
           <span
             className={cn(
               "ml-2 font-mode text-base md:text-lg transition-colors",
-              scrolled ? "text-black" : "text-white"
+              useWhiteBackground ? "text-black" : "text-white"
             )}
           >
             寬越設計
@@ -72,7 +85,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
                 <div
                   className={cn(
                     "translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] font-mode text-sm md:text-base group-hover:skew-y-12 flex items-center",
-                    scrolled ? "text-black" : "text-white"
+                    useWhiteBackground ? "text-black" : "text-white"
                   )}
                 >
                   {label}
@@ -80,7 +93,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
                 <div
                   className={cn(
                     "absolute font-mode text-sm md:text-base translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0 flex items-center",
-                    scrolled ? "text-black" : "text-white"
+                    useWhiteBackground ? "text-black" : "text-white"
                   )}
                 >
                   {label}
@@ -91,9 +104,9 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
         ))}
       </div>
 
-      {/* Menu 按鈕 + icon 區 */}
+      {/* Icon + Menu 按鈕 */}
       <div className="flex">
-        {/* Icon 區 - 不變色 */}
+        {/* Icons 不受滾動變色影響 */}
         <div className="flex mr-4">
           <Link
             className="hidden sm:block"

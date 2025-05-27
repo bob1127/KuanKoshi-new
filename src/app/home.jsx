@@ -254,7 +254,9 @@ export default function HomeClient({ specialPosts }) {
           <section className="section-ThreeD-carousel section-padding">
             <ThreeDSlider />
           </section>
-
+          <section className="section-padding">
+            <ProjectAccordion />
+          </section>
           <section>
             <div className="flex flex-col sm:flex-row section-padding items-end">
               {/* 第一張圖 */}
@@ -304,7 +306,7 @@ export default function HomeClient({ specialPosts }) {
                         <b className="text-[.9rem] font-mode"> 辦公空間</b>
                       </button>
                     </div>
-                    <span className="text-[.75rem]">商辦科技</span>
+                    <span className="text-[.75rem]">科技商辦</span>
                     <span className="text-[.75rem]">Taichung - 西屯</span>
                   </div>
 
@@ -376,9 +378,6 @@ export default function HomeClient({ specialPosts }) {
           {/* <section className="">
             <ThreeDBanner />
           </section> */}
-          <section className="section-padding">
-            <ProjectAccordion />
-          </section>
 
           <section className="section-padding border-t border-gray-300 w-full">
             <div className="flex justify-between items-center px-4 md:px-8 pb-8">
