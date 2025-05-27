@@ -4,6 +4,7 @@ import { SparklesCore } from "./sparkles";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "../../lib/utils";
 import { IconDotsVertical } from "@tabler/icons-react";
+import Image from "next/image";
 
 interface CompareProps {
   firstImage?: string;
@@ -122,36 +123,35 @@ export const Compare = ({
       <div className="overflow-hidden w-full h-full relative z-20 pointer-events-none">
         {firstImage && (
           <motion.div
-            className={cn(
-              "absolute inset-0 z-20 w-full h-full",
-              firstImageClassName
-            )}
+            className={cn("absolute inset-0 z-20", firstImageClassName)}
             style={{ clipPath: `inset(0 ${100 - sliderXPercent}% 0 0)` }}
             transition={{ duration: 0 }}
           >
-            <img
+            <Image
               alt="first image"
               src={firstImage}
-              className={cn(
-                "absolute inset-0 z-20 w-full h-full",
-                firstImageClassName
-              )}
-              draggable={false}
+              fill
+              className="object-cover"
+              priority={false}
+              quality={80}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
             />
           </motion.div>
         )}
       </div>
 
       {secondImage && (
-        <motion.img
-          className={cn(
-            "absolute top-0 left-0 z-[19] w-full h-full",
-            secondImageClassname
-          )}
-          alt="second image"
-          src={secondImage}
-          draggable={false}
-        />
+        <div className="absolute top-0 left-0 z-[19] w-full h-full">
+          <Image
+            alt="second image"
+            src={secondImage}
+            fill
+            className="object-cover"
+            priority={false}
+            quality={80}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+          />
+        </div>
       )}
     </div>
   );

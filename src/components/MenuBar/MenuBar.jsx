@@ -1,13 +1,25 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import "./MenuBar.css";
 import Image from "next/image";
 import MenuBtn from "../MenuBtn/MenuBtn";
 import AnimatedLink from "../AnimatedLink";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navItems = [
     { label: "設計理念", href: "/about" },
     { label: "空間案例", href: "/project" },
@@ -18,7 +30,16 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
   ];
 
   return (
-    <div className="menu-bar  py-0 my-0 bg-white flex items-center justify-between fixed top-0 left-0 w-full px-0 md:px-8 2xl:px-10  z-10">
+    <motion.div
+      className={cn(
+        "menu-bar flex items-center justify-between fixed top-0 left-0 w-full z-50 border-b px-4 md:px-8 2xl:px-10 py-2",
+        scrolled ? "border-neutral-200" : "border-transparent"
+      )}
+      animate={{
+        backgroundColor: scrolled ? "#ffffff" : "rgba(0, 0, 0, 0)",
+        transition: { duration: 0.3 },
+      }}
+    >
       {/* Logo區 */}
       <div className="flex items-center cursor-pointer" onClick={closeMenu}>
         <Link href="/" className="flex items-center">
@@ -28,10 +49,15 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
             width={65}
             height={65}
             priority
-            unoptimized // ✅ 關閉 Next.js 圖片優化，避免首次延遲
+            unoptimized
             className="w-[65px] h-auto"
           />
-          <span className="ml-2 font-mode !textblack text-base md:text-lg">
+          <span
+            className={cn(
+              "ml-2 font-mode text-base md:text-lg transition-colors",
+              scrolled ? "text-black" : "text-white"
+            )}
+          >
             寬越設計
           </span>
         </Link>
@@ -41,14 +67,22 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
       <div className="hidden md:flex gap-6 items-center">
         {navItems.map(({ label, href }) => (
           <AnimatedLink href={href} key={label}>
-            <button
-              className={`group relative font-medium  flex items-center justify-center`}
-            >
+            <button className="group relative font-medium flex items-center justify-center">
               <span className="relative inline-flex overflow-hidden">
-                <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] font-mode text-sm md:text-base group-hover:skew-y-12 !text-black  flex items-center">
+                <div
+                  className={cn(
+                    "translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] font-mode text-sm md:text-base group-hover:skew-y-12 flex items-center",
+                    scrolled ? "text-black" : "text-white"
+                  )}
+                >
                   {label}
                 </div>
-                <div className="absolute font-mode text-sm md:text-base translate-y-[110%] skew-y-12 transition duration-500 !text-black  group-hover:translate-y-0 group-hover:skew-y-0  flex items-center">
+                <div
+                  className={cn(
+                    "absolute font-mode text-sm md:text-base translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0 flex items-center",
+                    scrolled ? "text-black" : "text-white"
+                  )}
+                >
                   {label}
                 </div>
               </span>
@@ -57,9 +91,9 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
         ))}
       </div>
 
-      {/* Menu 按鈕 */}
-      {/* Menu 按鈕 */}
+      {/* Menu 按鈕 + icon 區 */}
       <div className="flex">
+        {/* Icon 區 - 不變色 */}
         <div className="flex mr-4">
           <Link
             className="hidden sm:block"
@@ -108,11 +142,13 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
             />
           </Link>
         </div>
+
+        {/* MenuBtn */}
         <div className="ml-8 mr-0">
           <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
