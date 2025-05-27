@@ -21,7 +21,13 @@ export default function SwiperCardAbout() {
           `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=20&_embed`
         );
         const data = await res.json();
-        setPosts(data);
+
+        const filteredPosts = data.filter((post) => {
+          const categories = post._embedded?.["wp:term"]?.[0] || [];
+          return !categories.some((cat) => cat.slug === "blog");
+        });
+
+        setPosts(filteredPosts);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }

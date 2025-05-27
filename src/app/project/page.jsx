@@ -62,18 +62,23 @@ async function getProjectData() {
   );
   const rawPosts = await postsRes.json();
 
-  const posts = rawPosts.map((post) => {
-    const featuredMedia =
-      post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
-    const cleanImage = featuredMedia
-      ? featuredMedia.replace(/-\d+x\d+(?=\.\w{3,4}$)/, "")
-      : null;
+  const posts = rawPosts
+    .filter((post) => {
+      const categories = post._embedded?.["wp:term"]?.[0] || [];
+      return !categories.some((cat) => cat.slug === "blog");
+    })
+    .map((post) => {
+      const featuredMedia =
+        post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
+      const cleanImage = featuredMedia
+        ? featuredMedia.replace(/-\d+x\d+(?=\.\w{3,4}$)/, "")
+        : null;
 
-    return {
-      ...post,
-      clean_featured_image: cleanImage,
-    };
-  });
+      return {
+        ...post,
+        clean_featured_image: cleanImage,
+      };
+    });
 
   return { posts, categories };
 }

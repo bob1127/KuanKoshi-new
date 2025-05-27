@@ -145,7 +145,7 @@ export default function ProjectAccordion() {
                 transition={{ duration: 0.4, ease: [0.65, 0.05, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/3] sm:aspect-[4/3] lg:aspect-[1920/1080] max-h-[1080px] overflow-hidden">
+                <div className="animate-image-wrapper mx-auto relative w-full aspect-[4/3] sm:aspect-[4/3] lg:aspect-[1920/768] 2xl:aspect-[1920/850] max-h-[850px] overflow-hidden">
                   <div className="m-2">
                     <AnimatedLink href={section.link}>
                       <Compare
@@ -153,7 +153,7 @@ export default function ProjectAccordion() {
                         secondImage={section.afterImg}
                         firstImageClassName="object-cover"
                         secondImageClassname="object-cover"
-                        className="h-[250px] w-full md:h-[500px] lg:h-[600px] 2xl:h-[1080px]"
+                        className="h-[250px] w-full md:h-[500px] lg:h-[600px] xl:h-[768px] 2xl:h-[850px]"
                         slideMode="hover"
                       />
                     </AnimatedLink>

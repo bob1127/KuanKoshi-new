@@ -57,7 +57,7 @@ const MenuBar = ({ isOpen, toggleMenu, closeMenu }) => {
       <div className="flex items-center cursor-pointer" onClick={closeMenu}>
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/logo/company-logo-2.webp"
+            src="/images/logo/company-logo-2.png"
             alt="logo"
             width={65}
             height={65}
