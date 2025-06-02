@@ -4,23 +4,13 @@ import React from "react";
 
 const slideInOut = () => {
   const isMobile = window.innerWidth <= 768;
-
-  if (isMobile) {
-    // 手機版不阻塞轉場，留空或執行非同步動畫
-    return;
-  }
+  if (isMobile) return;
 
   // 桌面版動畫
   document.documentElement.animate(
     [
-      {
-        opacity: 1,
-        transform: "translateY(0)",
-      },
-      {
-        opacity: 0.2,
-        transform: "translateY(-35%)",
-      },
+      { opacity: 1, transform: "translateY(0)" },
+      { opacity: 0.2, transform: "translateY(-35%)" },
     ],
     {
       duration: 800,
@@ -64,10 +54,10 @@ const AnimatedLink = ({
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
-      // 手機：直接跳轉，不等動畫
-      router.push(href);
+      // ✅ 手機直接原生跳轉，完全無延遲
+      window.location.href = href;
     } else {
-      // 桌機：播放動畫 → transition
+      // ✅ 桌面播放動畫後跳轉
       router.push(href, {
         onTransitionReady: slideInOut,
       });
