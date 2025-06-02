@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import AnimatedLink from "../components/AnimatedLink";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function SpecialOffers({ posts }) {
@@ -53,7 +52,7 @@ export default function SpecialOffers({ posts }) {
                         alt={`${post.title.rendered}-hover`}
                         loading="lazy"
                         decoding="async"
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100"
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 hidden sm:block"
                         srcSet={`${img2}?w=480 480w, ${img2}?w=768 768w, ${img2}?w=1080 1080w, ${img2} 1920w`}
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
