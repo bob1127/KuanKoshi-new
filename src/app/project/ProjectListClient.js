@@ -241,42 +241,42 @@ export default function ProjectListClient({ posts, categories }) {
 }}
 
                   >
-                    <AnimatedLink
-                      href={`/project/${post.slug}`}
-                      className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
-                    >
-                      <div
-  className={`${
-    viewMode === "list"
-      ? "w-[100px] h-[120px] flex-shrink-0"
-      : "aspect-[4/5] w-full"
-  } overflow-hidden rounded-md bg-gray-100`}
+                   <AnimatedLink
+  href={`/project/${post.slug}`}
+  className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
 >
-  <img
-  src={previewImage}
-  alt={post.title.rendered}
-  loading="lazy"
-  decoding="async"
-  width="400"
-  height="500"
-  onError={(e) => { e.target.src = "/images/fallback.jpg"; }}
-  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-/>
+  <div
+    className={`${
+      viewMode === "list"
+        ? "w-[100px] h-[120px] flex-shrink-0"
+        : "aspect-[4/5] w-full"
+    } overflow-hidden rounded-md bg-gray-100`}
+  >
+    <img
+      src={previewImage}
+      alt={post.title.rendered}
+      loading="lazy"
+      decoding="async"
+      width="400"
+      height="500"
+      onError={(e) => { e.target.src = "/images/fallback.jpg"; }}
+      className="h-full w-full object-cover transition-transform duration-500 sm:group-hover:scale-105" // ✅ 只在桌面 hover 放大
+    />
+  </div>
 
-</div>
+  <div className={`${viewMode === "list" ? "w-[60%]" : "w-full"}`}>
+    <h2 className="mt-2 font-bold text-sm sm:group-hover:text-neutral-700 transition">
+      {post.title.rendered.replace(/<[^>]+>/g, "")}
+    </h2>
+    {(post.acf?.size || post.acf?.price) && (
+      <div className="text-xs text-gray-600 mt-1 leading-snug">
+        {post.acf?.size && <div>坪數：{Number(post.acf.size)} 坪</div>}
+        {post.acf?.price && <div>價格：{Number(post.acf.price).toLocaleString()} 元</div>}
+      </div>
+    )}
+  </div>
+</AnimatedLink>
 
-                      <div className={`${viewMode === "list" ? "w-[60%]" : "w-full"}`}>
-                        <h2 className="mt-2 font-bold text-sm group-hover:text-neutral-700 transition">
-                          {post.title.rendered.replace(/<[^>]+>/g, "")}
-                        </h2>
-                        {(post.acf?.size || post.acf?.price) && (
-                          <div className="text-xs text-gray-600 mt-1 leading-snug">
-                            {post.acf?.size && <div>坪數：{Number(post.acf.size)} 坪</div>}
-                            {post.acf?.price && <div>價格：{Number(post.acf.price).toLocaleString()} 元</div>}
-                          </div>
-                        )}
-                      </div>
-                    </AnimatedLink>
                   </motion.div>
                 );
               })}
