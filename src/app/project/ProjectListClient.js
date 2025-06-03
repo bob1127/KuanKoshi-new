@@ -241,8 +241,8 @@ export default function ProjectListClient({ posts, categories }) {
 }}
 
                   >
-                   <AnimatedLink
-  href={`/project/${post.slug}`}
+                <AnimatedLink
+  href={`/project/${encodeURIComponent(post.slug)}`}
   className={`group block ${viewMode === "list" ? "flex gap-6 items-center border-b-1 pb-4 border-gray-800" : ""}`}
 >
   <div

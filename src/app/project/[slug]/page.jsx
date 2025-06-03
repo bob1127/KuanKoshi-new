@@ -17,8 +17,10 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 async function getPost(slug) {
+  const decodedSlug = decodeURIComponent(slug);
+
   const res = await fetch(
-    `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+    `https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?slug=${decodedSlug}&_embed`,
     { next: { revalidate: 5 } }
   );
   const posts = await res.json();
@@ -78,7 +80,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title,
       description,
-      url: `https://kuankoshi.com/project/${params.slug}`,
+      url: `https://kuankoshi.com/project/${encodeURIComponent(params.slug)}`,
       siteName: "寬越設計 Kuankoshi Design",
       images: [
         {

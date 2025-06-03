@@ -40,47 +40,53 @@ export const metadata = {
 };
 
 async function getProjectData() {
-  const categoriesRes = await fetch(
-    "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/categories?per_page=100",
-    { next: { revalidate: 60 } }
-  );
-  const allCategories = await categoriesRes.json();
+  try {
+    const categoriesRes = await fetch(
+      "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/categories?per_page=100",
+      { next: { revalidate: 60 } }
+    );
+    const allCategories = await categoriesRes.json();
 
-  const targetSlugs = [
-    "commercial-public",
-    "renovation-restoration",
-    "residential-luxury",
-    "special-offers",
-  ];
-  const categories = allCategories.filter((cat) =>
-    targetSlugs.includes(cat.slug)
-  );
+    const targetSlugs = [
+      "commercial-public",
+      "renovation-restoration",
+      "residential-luxury",
+      "special-offers",
+    ];
+    const categories = allCategories.filter((cat) =>
+      targetSlugs.includes(cat.slug)
+    );
 
-  const postsRes = await fetch(
-    "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?_embed&per_page=100",
-    { next: { revalidate: 60 } }
-  );
-  const rawPosts = await postsRes.json();
+    const postsRes = await fetch(
+      "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?_embed&per_page=100",
+      { next: { revalidate: 60 } }
+    );
+    const rawPosts = await postsRes.json();
 
-  const posts = rawPosts
-    .filter((post) => {
-      const categories = post._embedded?.["wp:term"]?.[0] || [];
-      return !categories.some((cat) => cat.slug === "blog");
-    })
-    .map((post) => {
-      const featuredMedia =
-        post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
-      const cleanImage = featuredMedia
-        ? featuredMedia.replace(/-\d+x\d+(?=\.\w{3,4}$)/, "")
-        : null;
+    const posts = rawPosts
+      .filter((post) => {
+        const categories = post._embedded?.["wp:term"]?.[0] || [];
+        return !categories.some((cat) => cat.slug === "blog");
+      })
+      .map((post) => {
+        const featuredMedia =
+          post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
+        const cleanImage = featuredMedia
+          ? featuredMedia.replace(/-\d+x\d+(?=\.\w{3,4}$)/, "")
+          : null;
 
-      return {
-        ...post,
-        clean_featured_image: cleanImage,
-      };
-    });
+        return {
+          ...post,
+          clean_featured_image: cleanImage,
+          encoded_slug: encodeURIComponent(post.slug), // ✅ 加這行
+        };
+      });
 
-  return { posts, categories };
+    return { posts, categories };
+  } catch (error) {
+    console.error("❌ getProjectData error:", error);
+    return { posts: [], categories: [] }; // ✅ 保證 return 不會 undefined
+  }
 }
 
 export default async function ProjectListPage() {
