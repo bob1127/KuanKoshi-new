@@ -122,175 +122,167 @@ const QaClient = () => {
       <section className="section-padding">
         <Swiper />
       </section>
-      {/* 問答展開區 */}
-      <section className="question-section py-12 flex justify-end">
-        <div className="bg-[#E1E3D9] flex flex-col md:flex-row w-[90%] max-w-[1920px] rounded-tl-[40px] rounded-bl-[40px] overflow-hidden">
-          {/* QA 左邊 */}
-          <div className="w-full max-w-[1400px] mx-auto md:w-[85%] p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-mode mb-8">常見問題</h2>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem
-                value="item-1"
-                title={
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-2">
-                      <span>預算與報價相關</span>
-                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
-                        QA
-                      </div>
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
-                  <p>裝潢費用怎麼計算？</p>
-                  <p>
-                    依坪數、設計內容與材料等條件評估，一般每坪價格約落在 3 萬至
-                    6 萬元，實際需依需求報價。
-                  </p>
-                  <p>有提供免費估價服務嗎？</p>
-                  <p>
-                    我們提供初步免費線上預估，正式丈量與規劃後會提供詳細報價單與時間表。
-                  </p>
-                  <p>設計費包含施工嗎？</p>
-                  <p>
-                    設計與施工可以分開報價，也可選擇整合方案，我們可依您需求彈性搭配。
-                  </p>
-                </div>
-              </AccordionItem>
-
-              {/* 第二題 */}
-              <AccordionItem
-                value="item-2"
-                title={
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-2">
-                      <span>風格選擇與溝通</span>
-                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
-                        QA
-                      </div>
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
-                  <p>我不知道自己喜歡什麼風格，怎麼辦？</p>
-                  <p>
-                    我們會透過風格圖卡、空間提問與喜好分析，協助您找到最合適的空間樣貌。
-                  </p>
-                  <p>設計風格會跟我提供的圖片一樣嗎？</p>
-                  <p>
-                    我們會以圖片作為參考，並依實際空間比例、預算與建材，進行符合您需求的客製化設計。
-                  </p>
-                </div>
-              </AccordionItem>
-
-              {/* 第三題 */}
-              <AccordionItem
-                value="item-3"
-                title={
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-2">
-                      <span>施工與工期問題</span>
-                      <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
-                        QA
-                      </div>
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
-                  <p>整體裝修會需要多久？</p>
-                  <p>
-                    一般小坪數住家（15~25坪）從施工到完工約需
-                    2～2.5個月，視工程內容與配合度調整。
-                  </p>
-                  <p>施工會不會有粉塵、噪音？如何管理？</p>
-                  <p>
-                    會有，但我們會加裝粉塵布、指定施工時間、使用靜音工具，並派駐現場監工控管品質。
-                  </p>
-                </div>
-              </AccordionItem>
-            </Accordion>
-          </div>
-
-          {/* 圖片右邊 */}
-        </div>
-      </section>
-      {/* 動畫區 */}
-
-      {/* 室內設計問題 區 */}
-      <section className="section-qa section-padding flex flex-col items-center justify-center">
-        <div className="w-[90%] max-w-[1920px] mx-auto  ">
-          <div className="w-full  flex flex-col ">
-            <h2 className="text-[6vw] md:text-[2.4rem] leading-snug text-gray-900 font-mode">
-              瞭解更多室內設計
-              <br />
-              相關問題
-            </h2>
-            <div className="line bg-black h-[1px] w-[80px] my-4"></div>
-            <p className="text-gray-800 text-sm md:text-base font-mormal max-w-[400px]">
-              想知道更多關於室內設計流程或者相關問題
-            </p>
-          </div>
-        </div>
-
-        {/* QA 卡片區塊 */}
-        <div className="flex flex-col md:flex-row gap-6 mt-12 items-start justify-start w-[90%] max-w-[1920px] px-4">
-          {[
-            {
-              title1: "設計階段有哪些？",
-              title2: "流程說明",
-              tag: "設計流程",
-              desc: "從丈量、平面規劃、3D 模擬到工程監工，各階段職責清楚明確。",
-              img: "/images/taiwan.png",
-            },
-            {
-              title1: "我可以修改設計嗎？",
-              title2: "變更設計",
-              tag: "合約範圍",
-              desc: "在簽約與施工前都有設計修正空間，避免後續爭議與加價。",
-              img: "/images/006-LINE_ALBUM_皇普熊S_250105_1.jpg",
-            },
-            {
-              title1: "施工期要多久？",
-              title2: "時間預估",
-              tag: "工期問題",
-              desc: "小坪數約需 2~2.5 個月，大坪數或複雜設計視情況而定。",
-              img: "/images/472924349_122231002496031935_632063641721647926_n.jpg",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="group flex flex-col items-center w-full sm:w-[80%] md:w-[320px] overflow-hidden"
-            >
-              <div className="overflow-hidden w-full">
-                <Image
-                  src={item.img}
-                  alt={`qa-item-${i}`}
-                  width={1000}
-                  height={2000}
-                  className="w-full h-auto group-hover:scale-110 group-hover:rounded-[40px] transition-all duration-700"
-                />
-              </div>
-              <div className="flex flex-col py-4 items-start w-full px-2">
-                <span className="text-gray-600 text-sm">- {item.tag}</span>
-                <button className="relative h-12 bg-transparent px-2 text-neutral-800 font-semibold">
-                  <span className="relative inline-flex overflow-hidden">
-                    <div className="translate-y-0 text-[1.1rem] skew-y-0 transition duration-500 group-hover:-translate-y-[119%] font-mode group-hover:skew-y-12">
-                      {item.title1}
-                    </div>
-                    <div className="absolute text-[1.1rem] translate-y-[119%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
-                      {item.title2}
-                    </div>
-                  </span>
-                </button>
-                <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                  {item.desc}
+      <section className="pb-16 bg-white">
+        <div className="max-w-screen-xl w-full px-4 lg:px-8 mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            {/* 常見問題 QA 區 */}
+            <div className="w-full">
+              <div className="w-full  p-4 md:p-0">
+                <h2 className="text-[6vw] md:text-[2.4rem] leading-snug text-gray-900 font-mode">
+                  瞭解更多室內設計
+                  <br />
+                  相關問題
+                </h2>
+                <div className="bg-black h-[1px] w-[80px] my-4" />
+                <p className="text-gray-800 text-sm md:text-base max-w-md">
+                  想知道更多關於室內設計流程或者相關問題
                 </p>
               </div>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem
+                  value="item-1"
+                  title={
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-2">
+                        <span>預算與報價相關</span>
+                        <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
+                          QA
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
+                    <p>裝潢費用怎麼計算？</p>
+                    <p>
+                      依坪數、設計內容與材料等條件評估，一般每坪價格約落在 3
+                      萬至 6 萬元，實際需依需求報價。
+                    </p>
+                    <p>有提供免費估價服務嗎？</p>
+                    <p>
+                      我們提供初步免費線上預估，正式丈量與規劃後會提供詳細報價單與時間表。
+                    </p>
+                    <p>設計費包含施工嗎？</p>
+                    <p>
+                      設計與施工可以分開報價，也可選擇整合方案，我們可依您需求彈性搭配。
+                    </p>
+                  </div>
+                </AccordionItem>
+
+                {/* 第二題 */}
+                <AccordionItem
+                  value="item-2"
+                  title={
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-2">
+                        <span>風格選擇與溝通</span>
+                        <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
+                          QA
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
+                    <p>我不知道自己喜歡什麼風格，怎麼辦？</p>
+                    <p>
+                      我們會透過風格圖卡、空間提問與喜好分析，協助您找到最合適的空間樣貌。
+                    </p>
+                    <p>設計風格會跟我提供的圖片一樣嗎？</p>
+                    <p>
+                      我們會以圖片作為參考，並依實際空間比例、預算與建材，進行符合您需求的客製化設計。
+                    </p>
+                  </div>
+                </AccordionItem>
+
+                {/* 第三題 */}
+                <AccordionItem
+                  value="item-3"
+                  title={
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-2">
+                        <span>施工與工期問題</span>
+                        <div className="bg-[#34894f] text-white rounded-full px-3 py-1 text-xs">
+                          QA
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <div className="text-gray-700 leading-relaxed space-y-4 text-sm mt-4">
+                    <p>整體裝修會需要多久？</p>
+                    <p>
+                      一般小坪數住家（15~25坪）從施工到完工約需
+                      2～2.5個月，視工程內容與配合度調整。
+                    </p>
+                    <p>施工會不會有粉塵、噪音？如何管理？</p>
+                    <p>
+                      會有，但我們會加裝粉塵布、指定施工時間、使用靜音工具，並派駐現場監工控管品質。
+                    </p>
+                  </div>
+                </AccordionItem>
+              </Accordion>
             </div>
-          ))}
+
+            {/* 右側說明區 */}
+          </div>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {[
+              {
+                title1: "設計階段有哪些？",
+                title2: "流程說明",
+                tag: "設計流程",
+                desc: "從丈量、平面規劃、3D 模擬到工程監工，各階段職責清楚明確。",
+                img: "/images/taiwan.png",
+              },
+              {
+                title1: "我可以修改設計嗎？",
+                title2: "變更設計",
+                tag: "合約範圍",
+                desc: "在簽約與施工前都有設計修正空間，避免後續爭議與加價。",
+                img: "/images/006-LINE_ALBUM_皇普熊S_250105_1.jpg",
+              },
+              {
+                title1: "施工期要多久？",
+                title2: "時間預估",
+                tag: "工期問題",
+                desc: "小坪數約需 2~2.5 個月，大坪數或複雜設計視情況而定。",
+                img: "/images/472924349_122231002496031935_632063641721647926_n.jpg",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group flex flex-col w-full overflow-hidden"
+              >
+                <div className="relative w-full aspect-[3/4] overflow-hidden">
+                  <Image
+                    src={item.img}
+                    alt={`qa-item-${i}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-all duration-700"
+                  />
+                </div>
+                <div className="flex flex-col py-4 items-start w-full">
+                  <span className="text-gray-600 text-sm mb-1">
+                    - {item.tag}
+                  </span>
+                  <button className="relative h-12 bg-transparent px-2 text-neutral-800 font-semibold">
+                    <span className="relative inline-flex overflow-hidden">
+                      <div className="translate-y-0 text-[1.1rem] skew-y-0 transition duration-500 group-hover:-translate-y-[119%] font-mode group-hover:skew-y-12">
+                        {item.title1}
+                      </div>
+                      <div className="absolute text-[1.1rem] translate-y-[119%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                        {item.title2}
+                      </div>
+                    </span>
+                  </button>
+                  <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -325,7 +317,7 @@ const QaClient = () => {
           </div>
 
           <div className="w-full md:w-1/2 px-4 flex justify-center">
-            <div className="w-full max-w-2xl overflow-hidden rounded-lg">
+            <div className="w-full max-w-2xl overflow-hidden ">
               <MotionImage
                 src="/images/news/469002377_122223968186031935_6634981073683725167_n.jpg"
                 alt=""
@@ -339,7 +331,7 @@ const QaClient = () => {
 
         <div className="container mx-auto max-w-screen-xl flex flex-col-reverse md:flex-row items-center gap-12 mt-24">
           <div className="w-full md:w-1/2 px-4 flex justify-center">
-            <div className="w-full max-w-2xl overflow-hidden rounded-lg">
+            <div className="w-full max-w-2xl overflow-hidden ">
               <MotionImage
                 src="/images/news/468922442_122223968246031935_7782019811319680252_n.jpg"
                 alt=""

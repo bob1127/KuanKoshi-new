@@ -161,9 +161,9 @@ export default function BlogPostClient({ post }) {
   const firstImage = extractFirstImage(post.content.rendered);
   return (
     <ReactLenis root>
-      <div className="bg-[#F1F1F1]">
-        <div className="">
-          <div className="navgation mt-[10vh] py-10 flex w-[85%] mx-auto flex-col">
+      <div className="bg-[#F1F1F1] mt-[-50px] pt-[40px]">
+        <div className="w-[95%] md:w-[80%]   mx-auto">
+          <div className="navgation border-b-1 2xl:border-b-2 mt-[10vh] py-10 flex w-[85%] mx-auto flex-col">
             <span className="">
               <span className="categories-tag  border border-gray-500 rounded-full text-[.9rem] tracking-widest px-3">
                 Categories
@@ -191,7 +191,7 @@ export default function BlogPostClient({ post }) {
               </AnimatedLink>
             </div>
           </div>
-          <section className=" border w-[96%] md:w-[85%] mx-auto  section-news 2xl:aspect-[1920/800] aspect-[500/500] md:aspect-[1024/576]   lg:aspect-[1920/768]  relative overflow-hidden">
+          {/* <section className=" border w-[96%] md:w-[85%] mx-auto  section-news 2xl:aspect-[1920/800] aspect-[500/500] md:aspect-[1024/576]   lg:aspect-[1920/768]  relative overflow-hidden">
             <div className="mask bg-[#000] absolute opacity-35 w-full h-full top-0 left-0 z-30"></div>
 
             <div className="portrait-container overflow-hidden">
@@ -204,11 +204,11 @@ export default function BlogPostClient({ post }) {
                 />
               </div>
             </div>
-          </section>
-          <section className=" mt-[10px] md:mt-[10vh] lg:mt-[15vh] ">
-            <div className="flex flex-col lg:flex-row w-[95%] md:w-[80%]   mx-auto">
-              <div className="stick-section  justify-start bg-white lg:bg-transparent p-8 lg:p-0   lg:justify-end relative  flex   pt-[80px] w-full sm:w-[85%]  lg:w-[30%]  ">
-                <div className="square sticky flex  flex-col  right-4  pr-0 lg:pr-[15%] top-2 lg:top-[90px] h-auto lg:h-[100px]  ">
+          </section> */}
+          <section className=" mt-[10px] md:mt-[5vh] lg:mt-[5vh] ">
+            <div className="flex flex-col lg:flex-row w-[95%] md:w-[85%]   mx-auto">
+              <div className="stick-section  justify-start bg-white lg:bg-transparent p-8 lg:p-0   lg:justify-start relative  flex   pt-[80px] w-full sm:w-[85%]  lg:w-[30%] 2xl:w-[15%]  ">
+                <div className="square sticky flex  flex-col  left-0  pr-0 lg:pr-[15%] top-2 lg:top-[90px] h-auto lg:h-[100px]  ">
                   <span className="font-bold">IDEA DESIGN</span>
                   <ul className="space-y-2 flex flex-col items-start text-sm mt-4 text-gray-700">
                     {sections.map((section) => (
@@ -309,12 +309,12 @@ export default function BlogPostClient({ post }) {
               </div>
             </AnimatedLink>
           </div>
-
+          {/* 
           <section className=" pb-[100px]">
             <div className="w-[100%] border overflow-hidden">
               <Carousel items={cards} />
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
       <Lightbox
