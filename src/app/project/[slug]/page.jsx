@@ -26,9 +26,19 @@ async function getPost(slug) {
 
   if (!post) return null;
 
+  // 移除 WordPress 自動加的縮圖尺寸後綴
   post.content.rendered = post.content.rendered.replace(
     /(<img[^>]+src="[^"]*?)(-\d{2,4}x\d{2,4})(\.[a-z]{3,4}")/g,
     "$1$3"
+  );
+
+  // 替 <img> 加上 max-width:100%;height:auto;
+  post.content.rendered = post.content.rendered.replace(
+    /<img(.*?)>/g,
+    (match, group) => {
+      if (group.includes("style=")) return `<img${group}>`;
+      return `<img${group} style="max-width:100%;height:auto;">`;
+    }
   );
 
   return post;

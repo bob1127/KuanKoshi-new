@@ -58,13 +58,6 @@ export default function ProjectPostContent({ html, title }) {
             decoding="async"
             width={width}
             height={height}
-            srcSet={`
-              ${src.replace(/(\.\w+)$/, "-300x300$1")} 300w,
-              ${src.replace(/(\.\w+)$/, "-768x768$1")} 768w,
-              ${src.replace(/(\.\w+)$/, "-1024x1024$1")} 1024w,
-              ${src} 2048w
-            `}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
             className="w-full h-auto rounded shadow-sm"
             style={aspectRatio ? { aspectRatio } : {}}
           />

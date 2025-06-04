@@ -9,3 +9,4 @@ fetch("https://www.google.com/ping?sitemap=https://kuankoshi.com/sitemap.xml")
   .catch(err => {
     console.error("發送失敗:", err);
   });
+`¡
