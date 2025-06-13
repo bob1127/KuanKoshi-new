@@ -3,6 +3,7 @@
 import { Form, Input, Select, SelectItem, Checkbox, Button } from "@heroui/react";
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
+import Script from "next/script";
 import { AnimatePresence, motion } from "framer-motion";
 import Filter from "../../components/TabsFilter/Filter";
 import AnimatedLink from "../../components/AnimatedLink";
@@ -12,7 +13,7 @@ import Image from "next/image";
 import { Grid2X2, Grid } from "lucide-react";
 import Head from "next/head";
 import { getProjectListStructuredData } from "../../lib/structuredData";
-export default function ProjectListClient({ posts, categories }) {
+export default function ProjectListClient({ posts, categories,structuredData }) {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("cat");
 
@@ -73,13 +74,14 @@ export default function ProjectListClient({ posts, categories }) {
       });
     }
 
- if (sortOption === "default") {
+if (sortOption === "default") {
   result.sort((a, b) => {
     const numA = parseInt(a.title.rendered.match(/^\d{1,3}/)?.[0] || "0", 10);
     const numB = parseInt(b.title.rendered.match(/^\d{1,3}/)?.[0] || "0", 10);
-    return numA - numB;
+    return numB - numA; // 顛倒順序：由大到小
   });
-} else if (sortOption === "size-asc") {
+}
+ else if (sortOption === "size-asc") {
   result.sort((a, b) => Number(a.acf?.size || 0) - Number(b.acf?.size || 0));
 } else if (sortOption === "size-desc") {
   result.sort((a, b) => Number(b.acf?.size || 0) - Number(a.acf?.size || 0));
@@ -102,14 +104,18 @@ export default function ProjectListClient({ posts, categories }) {
   if (!postsWithSlug.length) return <div className="text-center py-20">載入中...</div>;
 
   return (
+    
     <div className="pt-[10vh]">
+       <Script
+        id="project-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <Head>
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify(getProjectListStructuredData(sortedPosts)),
-    }}
-  />
+
 </Head>
       <div className="mx-auto 2xl:w-[87%] w-[98%]">
         <div className="title w-[75%] mx-auto flex flex-col">

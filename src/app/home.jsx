@@ -22,47 +22,10 @@ import LogoLoader from "../components/Loderanimation.jsx";
 import { Compare } from "../components/ui/compare";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HomeClient({ specialPosts }) {
+export default function HomeClient({ specialPosts, homeStructuredData }) {
   const imageRefs = useRef([]);
   const containerRef = useRef(null);
   const [loading, setLoading] = useState(true);
-  const homeStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "寬越設計｜室內設計首選品牌",
-    url: "https://www.kuankoshi.com/",
-    description:
-      "寬越設計提供專業室內設計服務，專精於住宅、商業空間與老屋翻新。從50萬小資裝潢到千萬豪宅設計，皆有豐富經驗與客製提案。",
-    publisher: {
-      "@type": "Organization",
-      name: "寬越設計",
-      url: "https://www.kuankoshi.com/",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.kuankoshi.com/images/logo/company-logo.ico",
-      },
-    },
-    mainEntity: [
-      {
-        "@type": "CreativeWork",
-        name: "小資裝修專案",
-        url: "https://www.kuankoshi.com/#special",
-        description: "50-100萬裝潢專案，為首購族量身打造，兼具美感與實用性",
-      },
-      {
-        "@type": "CreativeWork",
-        name: "商業空間設計",
-        url: "https://www.kuankoshi.com/project?cat=commercial-public",
-        description: "量身打造品牌商業空間，從品牌精神出發整合設計與施工",
-      },
-      {
-        "@type": "CreativeWork",
-        name: "老屋翻新工程",
-        url: "https://www.kuankoshi.com/project?cat=renovation-restoration",
-        description: "結合現代美感與結構優化，翻轉老屋新生命",
-      },
-    ],
-  };
 
   const initGSAPAnimations = useCallback(() => {
     if (window.innerWidth < 0) return;

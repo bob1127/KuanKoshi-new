@@ -10,6 +10,7 @@ import Marquee from "react-fast-marquee";
 import gsap from "gsap";
 import Link from "next/link";
 import Head from "next/head";
+import Script from "next/script";
 
 import { getStructuredProjectData } from "../../../lib/structuredData.js";
 import ProjectPostContent from "../../../components/ProjectPostContent";
@@ -107,28 +108,18 @@ export async function generateMetadata({ params }) {
       description,
       images: [ogImage],
     },
-    other: {
-      "ld+json": JSON.stringify(structuredData),
-    },
   };
 }
 
 const ProjectPage = async ({ params }) => {
   const post = await getPost(params.slug);
+  const structuredData = getStructuredProjectData(post);
   if (!post) return notFound();
 
   const { prev, next } = await getRandomAdjacentPosts(params.slug);
 
   return (
     <div className="py-6 w-full ">
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getStructuredProjectData(post)),
-          }}
-        />
-      </Head>
       <div className="py-12 w-full">
         {/* <Head>
         <title>{post.title.rendered}｜寬越設計</title>
@@ -455,6 +446,14 @@ const ProjectPage = async ({ params }) => {
           </div>
         </section>
       </div>
+      <Script
+        id="project-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
     </div>
   );
 };

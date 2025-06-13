@@ -90,7 +90,11 @@ export default async function ProjectListPage() {
   return (
     <>
       <Suspense fallback={<div></div>}>
-        <ProjectListClient posts={posts} categories={categories} />
+        <ProjectListClient
+          posts={posts}
+          categories={categories}
+          structuredData={structuredData}
+        />
       </Suspense>
 
       <script

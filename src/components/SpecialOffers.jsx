@@ -17,10 +17,17 @@ export default function SpecialOffers({ posts }) {
     setVisibleCount((prev) => prev + 12);
   };
 
+  // 🔽 排序邏輯：依據標題開頭數字由大到小排序
+  const sortedPosts = [...posts].sort((a, b) => {
+    const numA = parseInt(a.title.rendered.match(/^\d{1,3}/)?.[0] || "0", 10);
+    const numB = parseInt(b.title.rendered.match(/^\d{1,3}/)?.[0] || "0", 10);
+    return numB - numA;
+  });
+
   return (
     <div className="w-full">
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-0 sm:px-6 lg:px-8">
-        {posts.slice(0, visibleCount).map((post, index) => {
+        {sortedPosts.slice(0, visibleCount).map((post, index) => {
           const [img1, img2] = extractFirstTwoImages(post.content.rendered);
           const date = new Date(post.date).toLocaleDateString("zh-TW");
 

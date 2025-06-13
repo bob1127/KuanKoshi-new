@@ -1,51 +1,104 @@
-import * as cheerio from 'cheerio';
+import * as cheerio from "cheerio";
 
-
+/**
+ * 結構化資料：單一專案頁面（Product + Breadcrumb）
+ */
 export function getStructuredProjectData(post) {
   const $ = cheerio.load(post.content.rendered);
-  const imageObjects = [];
+  const images = [];
 
-  $('img').each((_, img) => {
-    const src = $(img).attr('src');
-    if (src) {
-      imageObjects.push({
-        "@type": "ImageObject",
-        "contentUrl": src,
-        "description": post.title.rendered.replace(/<[^>]+>/g, ""),
-      });
-    }
+  $("img").each((_, img) => {
+    const src = $(img).attr("src");
+    if (src) images.push(src);
   });
 
-  return {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": post.title.rendered.replace(/<[^>]+>/g, ""),
-    "description": "寬越設計室內設計專案作品",
-    "creator": {
-      "@type": "Organization",
-      "name": "寬越設計"
+  const cleanTitle = post.title.rendered.replace(/<[^>]+>/g, "");
+  const description = post.excerpt?.rendered
+    ? cheerio.load(post.excerpt.rendered).text()
+    : "寬越設計室內設計專案作品";
+
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": cleanTitle,
+      "image": images.slice(0, 5),
+      "description": description,
+      "brand": {
+        "@type": "Organization",
+        "name": "寬越設計",
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "TWD",
+        "price": post.acf?.price || "1000000",
+        "availability": "https://schema.org/InStock",
+        "url": `https://www.kuankoshi.com/project/${post.slug}`,
+      },
     },
-    "image": imageObjects,
-    "datePublished": post.date,
-    "dateModified": post.modified
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首頁",
+          "item": "https://www.kuankoshi.com",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "作品案例",
+          "item": "https://www.kuankoshi.com/project",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": cleanTitle,
+          "item": `https://www.kuankoshi.com/project/${post.slug}`,
+        },
+      ],
+    },
+  ];
 }
 
+/**
+ * 結構化資料：專案總覽頁（ItemList）
+ */
 export function getProjectListStructuredData(posts) {
+  const items = posts
+    .filter((post) => post.clean_featured_image)
+    .map((post, index) => {
+      const cleanTitle = post.title.rendered.replace(/<[^>]+>/g, "");
+      return {
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `https://www.kuankoshi.com/project/${post.slug}`,
+        "item": {
+          "@type": "Product",
+          "name": cleanTitle,
+          "image": post.clean_featured_image,
+          "description": "寬越設計室內設計專案作品",
+          "brand": {
+            "@type": "Organization",
+            "name": "寬越設計",
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "TWD",
+            "price": post.acf?.price || "1000000",
+            "availability": "https://schema.org/InStock",
+            "url": `https://www.kuankoshi.com/project/${post.slug}`,
+          },
+        },
+      };
+    });
+
   return {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "設計作品一覽｜寬越設計",
-    "description": "瀏覽寬越設計的室內設計作品，包括老屋翻新、新成屋裝潢與商業空間設計。",
-    "hasPart": posts.map((post) => {
-      return {
-        "@type": "CreativeWork",
-        "name": post.title.rendered.replace(/<[^>]+>/g, ""),
-        "url": `https://kuankoshi.com/project/${post.slug}`,
-        "datePublished": post.date,
-        "dateModified": post.modified,
-        "image": post.clean_featured_image || null,
-      };
-    }).filter(item => item.image !== null)
+    "@type": "ItemList",
+    "name": "寬越設計｜室內設計作品總覽",
+    "itemListElement": items,
   };
 }
