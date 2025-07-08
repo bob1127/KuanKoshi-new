@@ -4,6 +4,8 @@ import HomeSlider from "../../../components/HeroSliderHome/page.jsx";
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link.js";
+
+import { motion, AnimatePresence } from "framer-motion";
 import { Carousel, Card } from "../../../components/ui/apple-cards-carousel";
 import Lightbox from "yet-another-react-lightbox";
 import {
@@ -40,9 +42,7 @@ export default function BlogPostClient({ post }) {
   useEffect(() => {
     if (!contentRef.current) return;
 
-    const titles = Array.from(
-      contentRef.current.querySelectorAll("h2.wp-block-heading")
-    );
+    const titles = Array.from(contentRef.current.querySelectorAll("h2"));
 
     titles.forEach((title, index) => {
       title.id = `section-${index}`;
@@ -135,9 +135,7 @@ export default function BlogPostClient({ post }) {
   }, []);
   const [hovered, setHovered] = useState(false);
   const words = paragraph.split(" ");
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
+
   const [index, setIndex] = useState(-1);
 
   // 所有圖片統一管理，順序要與文章一致
@@ -153,15 +151,93 @@ export default function BlogPostClient({ post }) {
     },
     { src: "/images/blog/250105_8.jpg" },
   ];
+  function addH2IdsToHTML(html) {
+    let index = 0;
+    return html.replace(/<h2([^>]*)>/g, (match, attrs) => {
+      const id = `section-${index++}`;
+      return `<h2${attrs} id="${id}">`;
+    });
+  }
+
   function extractFirstImage(html) {
     const match = html.match(/<img[^>]+src="([^">]+)"/i);
     return match ? match[1].replace(/-\d+x\d+(?=\.[a-z]{3,4}$)/, "") : null;
   }
+  function transformQAAccordionHTML(html) {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = html;
+
+    const qaLists = wrapper.querySelectorAll("ul:not([class])"); // 或你可以改 class 名稱來精準選取
+    qaLists.forEach((ul) => {
+      const items = ul.querySelectorAll("li");
+
+      ul.outerHTML = `<div class="qa-accordion-wrapper">${[...items]
+        .map((li) => {
+          const question = li.querySelector("strong")?.innerHTML || "Q";
+          const content = li.innerHTML
+            .replace(/<strong>.*?<\/strong><br\s*\/?>/, "")
+            .trim();
+
+          return `
+        <div class="accordion-item ">
+          <button type="button" class="accordion-button w-full text-left text-[#242424] px-4 py-3 font-semibold transition duration-300">
+            ${question}
+          </button>
+          <div class="accordion-content hidden px-4 py-4 bg-white text-gray-700 leading-relaxed">
+            ${content}
+          </div>
+        </div>`;
+        })
+        .join("")}</div>`;
+    });
+
+    return wrapper.innerHTML;
+  }
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const observer = new MutationObserver(() => {
+      const buttons = contentRef.current.querySelectorAll(".accordion-button");
+      if (!buttons.length) return;
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const content = btn.nextElementSibling;
+          const isOpen = !content.classList.contains("hidden");
+
+          // 關閉全部
+          contentRef.current
+            .querySelectorAll(".accordion-content")
+            .forEach((el) => el.classList.add("hidden"));
+          contentRef.current
+            .querySelectorAll(".accordion-item")
+            .forEach((el) => el.classList.remove("bg-white"));
+
+          // 如果原本是關的，就打開
+          if (!isOpen) {
+            content.classList.remove("hidden");
+            btn.parentElement.classList.add("bg-white");
+          }
+        });
+      });
+
+      // 偵測到有按鈕後就停止觀察
+      observer.disconnect();
+    });
+
+    observer.observe(contentRef.current, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
+  }, [post.content.rendered]);
 
   const firstImage = extractFirstImage(post.content.rendered);
   return (
     <ReactLenis root>
-      <div className="bg-[#F1F1F1] mt-[-50px] pt-[40px]">
+      <div className="bg-[#f7f7f9] mt-[-50px] pt-[40px]">
         <div className="w-[95%] md:w-[80%]   mx-auto">
           <div className="navgation border-b-1 2xl:border-b-2 mt-[10vh] py-10 flex w-[85%] mx-auto flex-col">
             <span className="">
@@ -207,7 +283,7 @@ export default function BlogPostClient({ post }) {
           </section> */}
           <section className=" mt-[10px] md:mt-[5vh] lg:mt-[5vh] ">
             <div className="flex flex-col lg:flex-row w-[95%] md:w-[85%]   mx-auto">
-              <div className="stick-section  justify-start bg-white lg:bg-transparent p-8 lg:p-0   lg:justify-start relative  flex   pt-[80px] w-full sm:w-[85%]  lg:w-[30%] 2xl:w-[15%]  ">
+              <div className="stick-section  justify-start bg-white lg:bg-transparent p-8 lg:p-0   lg:justify-start relative  flex   pt-[80px] w-full sm:w-[85%]  lg:w-[30%] 2xl:w-[35%]  ">
                 <div className="square sticky flex  flex-col  left-0  pr-0 lg:pr-[15%] top-2 lg:top-[90px] h-auto lg:h-[100px]  ">
                   <span className="font-bold">IDEA DESIGN</span>
                   <ul className="space-y-2 flex flex-col items-start text-sm mt-4 text-gray-700">
@@ -217,15 +293,15 @@ export default function BlogPostClient({ post }) {
                           onClick={() => {
                             const el = document.getElementById(section.id);
                             if (el) {
-                              const yOffset = -80;
+                              const offset = 80;
                               const y =
                                 el.getBoundingClientRect().top +
-                                window.pageYOffset +
-                                yOffset;
+                                window.pageYOffset -
+                                offset;
                               window.scrollTo({ top: y, behavior: "smooth" });
                             }
                           }}
-                          className="hover:underline mt-` text-left transition"
+                          className="hover:underline mt-1 text-left transition"
                         >
                           {section.text}
                         </button>
@@ -234,50 +310,50 @@ export default function BlogPostClient({ post }) {
                   </ul>
                 </div>
               </div>
-              <div className="content-section px-2 pt-[10px] md:pt-[50px] flex justify-end w-[95%] md:w-[88%] lg:w-[70%]">
-                <div
-                  ref={contentRef}
-                  className="prose max-w-full
-    [&_.table-wrapper]:overflow-x-auto
-    [&_.table-wrapper]:w-full
-    [&_table]:min-w-[600px]
-    [&_th]:bg-[#375E77]
-    [&_th]:text-white
-    [&_th]:font-semibold
-    [&_th]:border
-    [&_th]:px-4
-    [&_th]:py-2
-    [&_td]:bg-white
-    [&_td]:text-black
-    [&_td]:border
-    [&_td]:px-4
-    [&_td]:py-2"
-                  dangerouslySetInnerHTML={{
-                    __html: post.content.rendered
-
-                      .replace(
-                        /<table([^>]*)>/g,
-                        '<div class="table-wrapper overflow-x-auto w-full"><table$1>'
-                      )
-                      .replace(/<\/table>/g, "</table></div>")
-
-                      .replace(
-                        /<figure class="wp-block-image size-full">/g,
-                        '<figure class="wp-block-image">'
-                      )
-
-                      .replace(
-                        /class="([^"]*?)\bsize-full\b([^"]*?)"/g,
-                        'class="$1$2"'
-                      )
-
-                      .replace(
-                        /<h2 class="wp-block-heading">/g,
-                        '<h2 class="wp-block-heading" style="font-size:clamp(1.25rem,2.3vw,1.75rem);line-height:1.4;">'
-                      ),
-                  }}
-                />
-              </div>
+              <div
+                ref={contentRef}
+                className="prose max-w-full [&_.table-wrapper]:overflow-x-auto ..."
+                dangerouslySetInnerHTML={{
+                  __html: transformQAAccordionHTML(
+                    (() => {
+                      let h2Index = 0;
+                      return post.content.rendered
+                        .replace(
+                          /<table([^>]*)>/g,
+                          '<div class="table-wrapper overflow-x-auto w-full"><table$1>'
+                        )
+                        .replace(/<\/table>/g, "</table></div>")
+                        .replace(
+                          /<figure class="wp-block-image size-full">/g,
+                          '<figure class="wp-block-image">'
+                        )
+                        .replace(
+                          /class="([^\"]*?)\bsize-full\b([^\"]*?)"/g,
+                          'class="$1$2"'
+                        )
+                        .replace(
+                          /<h2([^>]*)>/g,
+                          () =>
+                            `<h2 id="section-${h2Index++}" style="font-size:clamp(1rem,2.3vw,1.25rem);line-height:1.4; margin-top:40px">`
+                        )
+                        .replace(
+                          /<h4([^>]*)>/g,
+                          '<h4$1 style="margin-top:50px; padding:12px 0; border-top:1px solid #5e7682; border-bottom:1px solid #5e7682; color:#5e7682; font-size:clamp(1rem,2.2vw,1.2rem); line-height:1.6; font-weight:600;">'
+                        )
+                        .replace(
+                          /<p([^>]*)>/g,
+                          '<p$1 style="letter-spacing: 0.05em; margin-top: 1.2em; margin-bottom: 1.2em; line-height: 1.9;">'
+                        )
+                        .replace(
+                          /<img([^>]*?)alt="([^"]*?)"([^>]*)>/g,
+                          (match, beforeAlt, altText, afterAlt) => {
+                            return `<img${beforeAlt}alt="${altText}"${afterAlt}/><span class="text-align-right text-[13px]  text-gray-500 block mt-[-9px]">${altText}</span>`;
+                          }
+                        );
+                    })()
+                  ),
+                }}
+              />
             </div>
           </section>
           <div className="flex flex-col py-5 sm:flex-row justify-center  items-center gap-4 mt-6">
@@ -331,107 +407,3 @@ export default function BlogPostClient({ post }) {
     </ReactLenis>
   );
 }
-const DummyContent = () => {
-  return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14  mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-medium font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-[20px] text-neutral-700 dark:text-neutral-200">
-                臨近繁華，與自然共生
-              </span>{" "}
-              周邊環境方面，宜園建設為您精心選擇了理想的生活圈。社區周邊生活機能豐富，無論是超市、學校還是醫療機構，應有盡有。交通便捷，讓您無論是通勤還是外出，都能輕鬆迅速。
-            </p>
-            <Image
-              src="https://hadashinoie.co.jp/app/wp-content/uploads/2024/05/2B3A0382-2048x1365.jpg"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-            />
-          </div>
-        );
-      })}
-    </>
-  );
-};
-const data = [
-  {
-    category: "各種室內設計 - 專案",
-    title: "BLOG",
-    src: "/images/小資專案/469120903_122223965966031935_3027154932930762522_n.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/bo3-2000x1333.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/da4.jpg",
-    content: <DummyContent />,
-  },
-
-  {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/07/ta4.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/09/m3.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/04/ta2-2000x2294.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/ho4.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/bo3-2000x1333.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/06/da4.jpg",
-    content: <DummyContent />,
-  },
-
-  {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/07/ta4.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/09/m3.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://store-palette.com/wp/wp-content/uploads/2020/04/ta2-2000x2294.jpg",
-    content: <DummyContent />,
-  },
-];
