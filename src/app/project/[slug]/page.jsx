@@ -459,3 +459,14 @@ const ProjectPage = async ({ params }) => {
 };
 
 export default ProjectPage;
+export async function generateStaticParams() {
+  const res = await fetch(
+    "https://inf.fjg.mybluehost.me/website_61ba641a/wp-json/wp/v2/posts?per_page=100"
+  );
+
+  const posts = await res.json();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
